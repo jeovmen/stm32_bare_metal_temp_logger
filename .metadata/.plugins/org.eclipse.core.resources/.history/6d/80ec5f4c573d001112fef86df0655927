@@ -1,0 +1,18 @@
+
+extern "C"{
+
+#include <stdint.h>
+
+}
+
+class Test{
+public:
+	Test(){
+		volatile int flag = 1;
+	}
+};
+
+int main(void)
+{
+	Test globalTest;
+}

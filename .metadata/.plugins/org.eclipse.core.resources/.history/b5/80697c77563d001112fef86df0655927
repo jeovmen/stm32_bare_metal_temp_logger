@@ -1,0 +1,22 @@
+
+extern "C"{
+
+#include <stdint.h>
+
+}
+
+class Counter {
+public:
+	int value = 0;
+	void increment() { value++; }
+};
+
+int main(void)
+{
+	Counter c;
+
+	while (1)
+	{
+		c.increment(1);
+	}
+}

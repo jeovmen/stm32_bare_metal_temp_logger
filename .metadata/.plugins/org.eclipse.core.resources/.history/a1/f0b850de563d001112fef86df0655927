@@ -1,0 +1,17 @@
+
+extern "C"{
+
+#include <stdint.h>
+
+}
+
+class Counter {
+public:
+	int value = 0;
+	void increment() { value++; }
+};
+
+int main(void)
+{
+	auto x = 42;
+}

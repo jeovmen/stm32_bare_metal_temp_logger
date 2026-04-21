@@ -1,0 +1,17 @@
+
+extern "C"{
+
+#include <stdint.h>
+
+}
+
+
+
+int main(void)
+{
+	volatile float a = 1.5f;
+	volatile float b = 2.5f;
+	volatile float c = a + b;
+
+	while (1);
+}
