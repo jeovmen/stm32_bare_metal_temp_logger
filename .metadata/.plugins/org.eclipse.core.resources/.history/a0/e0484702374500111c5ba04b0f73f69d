@@ -1,0 +1,19 @@
+
+
+#ifndef SPI_HPP_
+#define SPI_HPP_
+
+#include <cstdint>
+#include "STM32F4/stm32f446xx.h"
+using std::uint32_t;
+
+class Spi {
+public:
+
+private:
+
+};
+
+
+
+#endif /* SPI_HPP_ */

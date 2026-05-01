@@ -1,0 +1,18 @@
+
+
+#ifndef SPI_HPP_
+#define SPI_HPP_
+
+#include "types.hpp"
+#include "STM32F4/stm32f446xx.h"
+
+class Spi {
+public:
+
+private:
+
+};
+
+
+
+#endif /* SPI_HPP_ */

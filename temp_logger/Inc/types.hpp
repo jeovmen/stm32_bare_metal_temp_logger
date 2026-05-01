@@ -1,0 +1,12 @@
+
+#ifndef TYPES_HPP_
+#define TYPES_HPP_
+
+#include <cstdint>
+
+using uint32 = std::uint32_t;
+using uint8 = std::uint8_t;
+
+
+
+#endif /* TYPES_HPP_ */

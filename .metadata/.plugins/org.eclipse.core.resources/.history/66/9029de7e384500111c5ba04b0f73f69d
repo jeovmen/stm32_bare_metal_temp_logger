@@ -1,0 +1,17 @@
+#include <cstdint>
+
+class Test{
+public:
+	Test(){
+		volatile int flag = 1;
+	}
+};
+
+Test globalTest;
+
+int main(void)
+{
+	while (1)
+	{}
+
+}

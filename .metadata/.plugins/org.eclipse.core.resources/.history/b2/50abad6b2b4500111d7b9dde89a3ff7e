@@ -1,0 +1,34 @@
+
+
+#ifndef STM32F4_GPIO_HPP_
+#define STM32F4_GPIO_HPP_
+
+#include <cstdint>
+#include "STM32F4/stm32f446xx.h"
+using std::uint32_t;
+
+class Gpio {
+public:
+	explicit Gpio(GPIO_TypeDef* port, uint8_t pin)
+		: port(port) {}
+
+	void setMode(uint32_t mask){
+		port->MODER |= mask;
+	}
+
+	void setPull(uint32_t mask){
+		port->PUPDR |= mask;
+	}
+
+	void setSpeed(uint32_t mask)
+	{
+		port->OSPEEDR |= mask;
+	}
+
+private:
+	GPIO_TypeDef* port;
+};
+
+
+
+#endif /* STM32F4_GPIO_HPP_ */

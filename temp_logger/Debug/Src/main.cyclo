@@ -1,4 +1,1 @@
-../Src/main.cpp:5:2:Test::Test()	1
-../Src/main.cpp:12:5:int main()	1
-../Src/main.cpp:17:1:void __static_initialization_and_destruction_0()	1
-../Src/main.cpp:17:1:cpp)	1
+../Src/main.cpp:3:5:int main()	1

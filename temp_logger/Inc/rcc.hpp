@@ -1,9 +1,4 @@
-/*
- * rcc.hpp
- *
- *  Created on: Apr 30, 2026
- *      Author: jeovmen
- */
+
 
 #ifndef RCC_HPP_
 #define RCC_HPP_

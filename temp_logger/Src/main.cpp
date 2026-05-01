@@ -1,17 +1,10 @@
-#include <cstdint>
-
-class Test{
-public:
-	Test(){
-		volatile int flag = 1;
-	}
-};
-
-Test globalTest;
+#include <cstdio>
 
 int main(void)
 {
 	while (1)
-	{}
+	{
+		printf("Hello world!");
+	}
 
 }
