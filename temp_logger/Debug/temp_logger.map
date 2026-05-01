@@ -53,6 +53,45 @@ Discarded input sections
  .ARM.exidx     0x00000000       0x10 /opt/st/stm32cubeide_2.1.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
  .ARM.attributes
                 0x00000000       0x20 /opt/st/stm32cubeide_2.1.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
+ .group         0x00000000        0xc ./Src/adc.o
+ .group         0x00000000        0xc ./Src/adc.o
+ .group         0x00000000        0xc ./Src/adc.o
+ .group         0x00000000        0xc ./Src/adc.o
+ .group         0x00000000        0xc ./Src/adc.o
+ .group         0x00000000        0xc ./Src/adc.o
+ .group         0x00000000        0xc ./Src/adc.o
+ .group         0x00000000        0xc ./Src/adc.o
+ .group         0x00000000        0xc ./Src/adc.o
+ .group         0x00000000        0xc ./Src/adc.o
+ .group         0x00000000        0xc ./Src/adc.o
+ .text          0x00000000        0x0 ./Src/adc.o
+ .data          0x00000000        0x0 ./Src/adc.o
+ .bss           0x00000000        0x0 ./Src/adc.o
+ .rodata._ZL6ADC1EN
+                0x00000000        0x4 ./Src/adc.o
+ .rodata._ZL10CR1_EOCIEN
+                0x00000000        0x4 ./Src/adc.o
+ .debug_info    0x00000000      0x3c4 ./Src/adc.o
+ .debug_abbrev  0x00000000       0x6f ./Src/adc.o
+ .debug_aranges
+                0x00000000       0x18 ./Src/adc.o
+ .debug_macro   0x00000000       0x95 ./Src/adc.o
+ .debug_macro   0x00000000      0xbbc ./Src/adc.o
+ .debug_macro   0x00000000      0x1f2 ./Src/adc.o
+ .debug_macro   0x00000000       0x10 ./Src/adc.o
+ .debug_macro   0x00000000      0x4fe ./Src/adc.o
+ .debug_macro   0x00000000       0x1c ./Src/adc.o
+ .debug_macro   0x00000000       0x22 ./Src/adc.o
+ .debug_macro   0x00000000       0x8e ./Src/adc.o
+ .debug_macro   0x00000000       0x51 ./Src/adc.o
+ .debug_macro   0x00000000      0x103 ./Src/adc.o
+ .debug_macro   0x00000000       0x6a ./Src/adc.o
+ .debug_macro   0x00000000      0x1df ./Src/adc.o
+ .debug_line    0x00000000      0x4f1 ./Src/adc.o
+ .debug_str     0x00000000     0x62f4 ./Src/adc.o
+ .comment       0x00000000       0x44 ./Src/adc.o
+ .ARM.attributes
+                0x00000000       0x34 ./Src/adc.o
  .group         0x00000000        0x8 ./Src/main.o
  .group         0x00000000        0xc ./Src/main.o
  .group         0x00000000        0xc ./Src/main.o
@@ -68,6 +107,17 @@ Discarded input sections
  .text          0x00000000        0x0 ./Src/main.o
  .data          0x00000000        0x0 ./Src/main.o
  .bss           0x00000000        0x0 ./Src/main.o
+ .debug_macro   0x00000000      0xbbc ./Src/main.o
+ .debug_macro   0x00000000      0x1f2 ./Src/main.o
+ .debug_macro   0x00000000       0x10 ./Src/main.o
+ .debug_macro   0x00000000      0x4fe ./Src/main.o
+ .debug_macro   0x00000000       0x1c ./Src/main.o
+ .debug_macro   0x00000000       0x22 ./Src/main.o
+ .debug_macro   0x00000000       0x8e ./Src/main.o
+ .debug_macro   0x00000000       0x51 ./Src/main.o
+ .debug_macro   0x00000000      0x103 ./Src/main.o
+ .debug_macro   0x00000000       0x6a ./Src/main.o
+ .debug_macro   0x00000000      0x1df ./Src/main.o
  .group         0x00000000        0xc ./Src/syscalls.o
  .group         0x00000000        0xc ./Src/syscalls.o
  .group         0x00000000        0xc ./Src/syscalls.o
@@ -545,6 +595,7 @@ Linker script and memory map
 LOAD /opt/st/stm32cubeide_2.1.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crti.o
 LOAD /opt/st/stm32cubeide_2.1.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 LOAD /opt/st/stm32cubeide_2.1.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.linux64_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
+LOAD ./Src/adc.o
 LOAD ./Src/main.o
 LOAD ./Src/syscalls.o
 LOAD ./Src/sysmem.o
@@ -877,29 +928,18 @@ LOAD /opt/st/stm32cubeide_2.1.0/plugins/com.st.stm32cube.ide.mcu.externaltools.g
  .debug_rnglists
                 0x0000003f       0x19 ./Startup/startup_stm32f446retx.o
 
-.debug_macro    0x00000000    0x19303
+.debug_macro    0x00000000    0x17bde
  .debug_macro   0x00000000       0x95 ./Src/main.o
- .debug_macro   0x00000095      0xbbc ./Src/main.o
- .debug_macro   0x00000c51      0x1f2 ./Src/main.o
- .debug_macro   0x00000e43       0x10 ./Src/main.o
- .debug_macro   0x00000e53      0x4fe ./Src/main.o
- .debug_macro   0x00001351       0x1c ./Src/main.o
- .debug_macro   0x0000136d       0x22 ./Src/main.o
- .debug_macro   0x0000138f       0x8e ./Src/main.o
- .debug_macro   0x0000141d       0x51 ./Src/main.o
- .debug_macro   0x0000146e      0x103 ./Src/main.o
- .debug_macro   0x00001571       0x6a ./Src/main.o
- .debug_macro   0x000015db      0x1df ./Src/main.o
- .debug_macro   0x000017ba       0xda ./Src/system_stm32f4xx.o
- .debug_macro   0x00001894       0x28 ./Src/system_stm32f4xx.o
- .debug_macro   0x000018bc       0x28 ./Src/system_stm32f4xx.o
- .debug_macro   0x000018e4       0x1c ./Src/system_stm32f4xx.o
- .debug_macro   0x00001900       0x22 ./Src/system_stm32f4xx.o
- .debug_macro   0x00001922       0xfb ./Src/system_stm32f4xx.o
- .debug_macro   0x00001a1d     0x1011 ./Src/system_stm32f4xx.o
- .debug_macro   0x00002a2e      0x11f ./Src/system_stm32f4xx.o
- .debug_macro   0x00002b4d    0x16749 ./Src/system_stm32f4xx.o
- .debug_macro   0x00019296       0x6d ./Src/system_stm32f4xx.o
+ .debug_macro   0x00000095       0xda ./Src/system_stm32f4xx.o
+ .debug_macro   0x0000016f       0x28 ./Src/system_stm32f4xx.o
+ .debug_macro   0x00000197       0x28 ./Src/system_stm32f4xx.o
+ .debug_macro   0x000001bf       0x1c ./Src/system_stm32f4xx.o
+ .debug_macro   0x000001db       0x22 ./Src/system_stm32f4xx.o
+ .debug_macro   0x000001fd       0xfb ./Src/system_stm32f4xx.o
+ .debug_macro   0x000002f8     0x1011 ./Src/system_stm32f4xx.o
+ .debug_macro   0x00001309      0x11f ./Src/system_stm32f4xx.o
+ .debug_macro   0x00001428    0x16749 ./Src/system_stm32f4xx.o
+ .debug_macro   0x00017b71       0x6d ./Src/system_stm32f4xx.o
 
 .debug_line     0x00000000      0xa34
  .debug_line    0x00000000      0x546 ./Src/main.o

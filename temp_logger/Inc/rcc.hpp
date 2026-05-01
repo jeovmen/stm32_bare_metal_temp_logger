@@ -1,0 +1,27 @@
+/*
+ * rcc.hpp
+ *
+ *  Created on: Apr 30, 2026
+ *      Author: jeovmen
+ */
+
+#ifndef RCC_HPP_
+#define RCC_HPP_
+
+#include <cstdint>
+#include "STM32F4/stm32f446xx.h"
+using std::uint32_t;
+
+class Rcc {
+public:
+
+	void enableAhb1(uint32_t mask){
+		RCC->AHB1ENR |= mask;
+	}
+
+	void enableApb2(uint32_t mask){
+			RCC->APB2ENR |= mask;
+	}
+};
+
+#endif /* RCC_HPP_ */
