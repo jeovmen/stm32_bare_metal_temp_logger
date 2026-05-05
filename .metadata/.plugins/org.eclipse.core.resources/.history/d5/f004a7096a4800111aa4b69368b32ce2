@@ -19,8 +19,8 @@ public:
 		RCC->AHB1ENR  = 0x0;
 	}
 
-	void enableAhb1(RCC_AHB1ENR mask ){
-		RCC->AHB1ENR |= static_cast<u32>(mask);
+	void enableAhb1(u32 mask ){
+		RCC->AHB1ENR |= mask;
 	}
 
 	void enableApb2(u32 mask){

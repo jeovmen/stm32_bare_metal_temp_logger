@@ -1,0 +1,19 @@
+
+
+#ifndef SPI_HPP_
+#define SPI_HPP_
+
+#include "types.hpp"
+#include "STM32F4/stm32f446xx.h"
+
+enum class BaudRate : u8
+class Spi {
+public:
+
+private:
+SPI_TypeDef* const spi;
+};
+
+
+
+#endif /* SPI_HPP_ */

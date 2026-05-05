@@ -47,19 +47,15 @@ public:
 	explicit Spi(SPI_TypeDef* spi)
 		: spi(spi) {}
 
-	static constexpr u32 CR1_CPOL_Pos = 1;
-	static constexpr u32 CR1_CPOL_Msk = (1UL << CR1_CPOL_Pos);
-
 	void setClockPolarity(ClockPolarity cpol)
 	{
-
 		if (cpol == ClockPolarity::Low)
 		{
-			spi->CR1 &= ~(CR1_CPOL_Msk << CR1_CPOL_Pos);
+			spi->CR1 &= ~(1UL << 1);
 		}
 		else
 		{
-			spi->CR1 |= (static_cast<u32>(cpol) << CR1_CPOL_Pos);
+			spi->CR1 |= (1UL << 1);
 		}
 	}
 
