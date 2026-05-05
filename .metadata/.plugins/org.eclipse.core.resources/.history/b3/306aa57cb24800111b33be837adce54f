@@ -28,7 +28,7 @@ public:
 	}
 
 	void enableAhb1(RCC_AHB1ENR periph){
-		RCC->AHB1ENR |= static_cast<u32>(periph);
+		RCC->AHB1ENR |= static_cast<u32>(periph));
 	}
 
 	void resetApb2(){

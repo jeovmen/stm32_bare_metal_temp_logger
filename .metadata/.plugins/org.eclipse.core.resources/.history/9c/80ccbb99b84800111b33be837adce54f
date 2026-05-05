@@ -71,7 +71,7 @@ public:
 	void setBaudRate(BaudRate br)
 	{
 		spi->CR1 = (spi->CR1 & ~CR1_BR_Msk) |
-				   (static_cast<u32>(br) << CR1_BR_Pos);
+				   (static_cast<u32>(br) << CR1_BR_Pos)
 	}
 
 	void setClockPolarity(ClockPolarity cpol)

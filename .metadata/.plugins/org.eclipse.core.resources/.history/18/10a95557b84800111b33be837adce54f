@@ -48,7 +48,6 @@ public:
 		: spi(spi) {}
 
 	static constexpr u32 CR1_BR_Pos = 3;
-	static constexpr u32 CR1_BR_Msk = (1U << CR1_BR_Msk);
 
 	static constexpr u32 CR1_CPOL_Pos = 1;
 	static constexpr u32 CR1_CPOL_Msk = (1U << CR1_CPOL_Pos);
@@ -71,7 +70,7 @@ public:
 	void setBaudRate(BaudRate br)
 	{
 		spi->CR1 = (spi->CR1 & ~CR1_BR_Msk) |
-				   (static_cast<u32>(br) << CR1_BR_Pos);
+				   (static_cast<u32>(br) << CR1_BR_Pos)
 	}
 
 	void setClockPolarity(ClockPolarity cpol)

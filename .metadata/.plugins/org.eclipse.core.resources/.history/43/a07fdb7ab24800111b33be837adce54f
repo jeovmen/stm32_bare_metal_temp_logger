@@ -28,14 +28,14 @@ public:
 	}
 
 	void enableAhb1(RCC_AHB1ENR periph){
-		RCC->AHB1ENR |= static_cast<u32>(periph);
+		RCC->AHB1ENR |= static_cast<u32>(periph));
 	}
 
 	void resetApb2(){
 		RCC->APB2ENR = 0x0;
 	}
 	void enableApb2(RCC_APB2ENR periph){
-			RCC->APB2ENR |= static_cast<u32>(periph);
+			RCC->APB2ENR |= static_cast<u32>periph);
 	}
 };
 

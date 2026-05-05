@@ -1,0 +1,73 @@
+
+
+#ifndef SPI_HPP_
+#define SPI_HPP_
+
+#include "types.hpp"
+#include "STM32F4/stm32f446xx.h"
+
+enum class BaudRate : u8 {
+	Div2 = 0b000,
+	Div4 = 0b001,
+	Div8 = 0b010,
+	Div16 = 0b011,
+	Div32 = 0b100,
+	Div64 = 0b101,
+	Div128 = 0b110,
+	Div256 = 0b111
+};
+
+enum class ClockPolarity : u8 {
+	Low = 0,
+	High = 1
+};
+
+enum class ClockPhase : u8 {
+	FirstEdge = 0,
+	SecondEdge = 1,
+};
+
+enum class RxOnly : u8 {
+	FullDuplex = 0, // Transmit and receive
+	OutputDisabled = 1
+};
+
+enum class BitOrder : u8 {
+	MSBFirst = 0,
+	LSBFirst = 1
+};
+
+enum class Mode : u8 {
+	Slave = 0,
+	Master = 1
+};
+
+class Spi {
+public:
+	explicit Spi(SPI_TypeDef* spi)
+		: spi(spi) {}
+
+	static constexpr u32 CR1_CPOL_Pos = 1;
+	static constexpr u32 CR1_CPOL_Msk = (1UL << CR1_CPOL_Pos);
+
+	void setClockPolarity(ClockPolarity cpol)
+	{
+
+		if (cpol == ClockPolarity::Low)
+		{
+			spi->CR1 &= ~(CR1_CPOL_Msk << CR1_CPOL_Pos);
+		}
+		else
+		{
+			spi->CR1 |= (CR1_CPOL_Msk << CR1_CPOL_Pos);
+		}
+	}
+
+
+private:
+SPI_TypeDef* const spi;
+};
+
+
+
+#endif /* SPI_HPP_ */
