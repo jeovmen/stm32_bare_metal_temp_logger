@@ -6,10 +6,18 @@
 #include "types.hpp"
 #include "STM32F4/stm32f446xx.h"
 
-enum class RCC_AHB1ENR {
+enum class RCC_AHB1ENR : u32 {
 	GPIOA = (1U << 0), GPIOB = (1U << 1), GPIOC = (1U << 2),
 	GPIOD = (1U << 3), GPIOE = (1U << 4), GPIOF = (1U << 5),
-	GPIOG = (1U << 6), GPIOH = (1U << 7)
+	GPIOG = (1U << 6), GPIOH = (1U << 7), DMA1 = (1U << 21),
+	DMA2 = (1U << 22)
+};
+
+enum class RCC_APB2ENR : u32 {
+	TIM1 = (1U << 0), TIM8 = (1U << 1), USART1 = (1U << 4),
+	USART2 = (1U << 5), ADC1 = (1U << 8), ADC2 = (1U << 9),
+	ADC3 = (1U << 10), SDIO = (1U << 11), SPI1 = (1U << 12),
+	SPI4 = (1U << 13)
 };
 
 class Rcc {
@@ -19,12 +27,15 @@ public:
 		RCC->AHB1ENR  = 0x0;
 	}
 
-	void enableAhb1(RCC_AHB1ENR mask ){
-		RCC->AHB1ENR |= static_cast<u32>(mask);
+	void enableAhb1(RCC_AHB1ENR periph){
+		RCC->AHB1ENR |= static_cast<u32>(periph);
 	}
 
-	void enableApb2(u32 mask){
-			RCC->APB2ENR |= mask;
+	void resetApb2(){
+		RCC->APB2ENR = 0x0;
+	}
+	void enableApb2(RCC_APB2ENR periph){
+			RCC->APB2ENR |= static_cast<u32>(periph);
 	}
 };
 
