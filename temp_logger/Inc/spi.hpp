@@ -37,9 +37,28 @@ enum class BitOrder : u8 {
 	LSBFirst = 1
 };
 
-enum class Mode : u8 {
+enum class MasterSelection : u8 {
 	Slave = 0,
 	Master = 1
+};
+
+enum class SoftwareSlaveManagement : u8 {
+
+	// Slave select is controlled by negative slave select pin
+	Disabled = 0,
+
+	// Slave select is controlled software-controlled internal value
+	Enabled = 1
+};
+
+/*
+ * This bit has an effect only when the SSM bit is set
+ * The value of this bit is forced onto the NSS pin and the
+ * IO value of the NSS pin is ignored
+ */
+enum class InternalSlaveSelect : u8 {
+	NSSPin = 0,
+	Internal = 1
 };
 
 class Spi {
@@ -81,6 +100,30 @@ public:
 				   (cpol == ClockPolarity::High ? CR1_CPOL_Msk : 0);
 	}
 
+	void setClockPhase (ClockPhase cpha)
+	{
+		spi->CR1 = (spi->CR1 & ~CR1_CPHA_Msk) |
+				   (cpha == ClockPhase::SecondEdge ? CR1_CPHA_Msk : 0);
+	}
+
+	void setRXOnly (RxOnly rxonly)
+	{
+		spi->CR1 = (spi->CR1 & ~CR1_RXONLY_Msk) |
+				   (rxonly == RxOnly::OutputDisabled ? CR1_RXONLY_Msk : 0);
+
+	}
+
+	void setBitOrder (BitOrder bitorder)
+	{
+		spi->CR1 = (spi->CR1 & ~CR1_LSBFIRST_Msk) |
+				   (bitorder == BitOrder::LSBFirst ? CR1_LSBFIRST_Msk : 0);
+	}
+
+	void setMasterSelection (MasterSelection masterSelection)
+		{
+			spi->CR1 = (spi->CR1 & ~CR1_MSTR_Msk) |
+					   (masterSelection == MasterSelection::Master ? CR1_MSTR_Msk : 0);
+		}
 
 
 
