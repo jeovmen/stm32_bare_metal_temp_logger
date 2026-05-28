@@ -33,6 +33,11 @@ enum class AF : u8 {
     AF12 = 0xC, AF13 = 0xD, AF14 = 0xE, AF15 = 0xF
 };
 
+struct Pin {
+	Gpio* gpio;
+	u8 pin;
+};
+
 class Gpio {
 public:
 	explicit Gpio(GPIO_TypeDef* port)
@@ -63,7 +68,7 @@ public:
 						(static_cast<u32>(speed) << shift);
 	}
 
-	void setAlternateFunction(u8 pin, u8 af)
+	void setAlternateFunction(u8 pin, AF af)
 	{
 		u32 shift = (pin % 8) * 4;
 		u32 mask = 0xF << shift;
@@ -81,7 +86,5 @@ public:
 private:
 	GPIO_TypeDef* const port;
 };
-
-
 
 #endif /* STM32F4_GPIO_HPP_ */
