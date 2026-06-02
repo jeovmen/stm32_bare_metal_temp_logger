@@ -124,7 +124,7 @@ public:
 	void setDataFrameFormat (DataFrameFormat dff)
 	{
 		spi->CR1 = (spi->CR1 & ~CR1_DFF_Msk) |
-				   (dff == DataFrameFormat::Bit16 ? CR1_MSTR_Msk : 0);
+				   (dff == DataFrameFormat::Bit16 ? CR1_DFF_Msk : 0);
 	}
 
 	void setInternalSlaveSelect (InternalSlaveSelect ssi)
@@ -135,7 +135,7 @@ public:
 
 	void setSoftwareSlaveManagement (SoftwareSlaveManagement ssm)
 	{
-			spi->CR1 = (spi->CR1 & CR1_SSM_Msk) |
+			spi->CR1 = (spi->CR1 & ~CR1_SSM_Msk) |
 					   (ssm == SoftwareSlaveManagement::Enabled ? CR1_SSM_Msk : 0);
 	}
 
@@ -179,22 +179,22 @@ public:
 	{
 		rcc->enableApb2(RCC_APB2ENR::RCC_SPI1);
 
-		spi->setBaudRate(BaudRate::Div4);
-		spi->setClockPolarity(ClockPolarity::High);
-		spi->setClockPhase(ClockPhase::SecondEdge);
-		spi->setRxOnly(RxOnly::FullDuplex);
-		spi->setBitOrder(BitOrder::MSBFirst);
-		spi->setMasterSelection(MasterSelection::Master);
-		spi->setDataFrameFormat(DataFrameFormat::Bit8);
-		spi->setSoftwareSlaveManagement(SoftwareSlaveManagement::Enabled);
-		spi->setInternalSlaveSelect(InternalSlaveSelect::Internal);
-		spi->enableSpi();
+		setBaudRate(BaudRate::Div4);
+		setClockPolarity(ClockPolarity::High);
+		setClockPhase(ClockPhase::SecondEdge);
+		setRxOnly(RxOnly::FullDuplex);
+		setBitOrder(BitOrder::MSBFirst);
+		setMasterSelection(MasterSelection::Master);
+		setDataFrameFormat(DataFrameFormat::Bit8);
+		setSoftwareSlaveManagement(SoftwareSlaveManagement::Enabled);
+		setInternalSlaveSelect(InternalSlaveSelect::Internal);
+		enableSpi();
 	}
 
 	//Chip select enable
 	void csEnable(){
 		if (spi == SPI1){
-			pins.nss->gpio->ODR &= ~(1U >> 9);
+			pins.nss->gpio->ODR &= ~(1U << 9);
 		}
 	}
 
