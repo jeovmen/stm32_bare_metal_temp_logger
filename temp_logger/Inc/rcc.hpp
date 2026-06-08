@@ -17,7 +17,7 @@ enum class RCC_APB2ENR : u32 {
 	RCC_TIM1 = (1U << 0), RCC_TIM8 = (1U << 1), RCC_USART1 = (1U << 4),
 	RCC_USART2 = (1U << 5), RCC_ADC1 = (1U << 8), RCC_ADC2 = (1U << 9),
 	RCC_ADC3 = (1U << 10), RCC_SDIO = (1U << 11), RCC_SPI1 = (1U << 12),
-	RCC_SPI4 = (1U << 13)
+	RCC_SPI4 = (1U << 13), RCC_SYSCFG = (1U << 14)
 };
 
 class Rcc {

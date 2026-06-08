@@ -72,7 +72,7 @@ struct SpiPins{
 	Pin sck;
 	Pin miso;
 	Pin mosi;
-	Pin* nss = nullptr;
+	Pin* nss = nullptr; //optional
 };
 
 class Spi {

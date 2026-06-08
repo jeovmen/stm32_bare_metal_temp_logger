@@ -5,6 +5,7 @@
 
 #include "types.hpp"
 #include "STM32F4/stm32f446xx.h"
+#include "rcc.hpp"
 
 enum class Mode : u8 {
 	Input = 0b00,
@@ -36,6 +37,7 @@ enum class AF : u8 {
 struct Pin {
 	Gpio* gpio;
 	u8 pin;
+	RCC_AHB1ENR rccMask;
 };
 
 class Gpio {
@@ -81,6 +83,10 @@ public:
 			port->AFR[1] = (port->AFR[1] & ~mask) |
 							(static_cast<u32>(af) << shift);
 		}
+	}
+
+	GPIO_TypeDef* getPort(){
+		return port;
 	}
 
 private:
