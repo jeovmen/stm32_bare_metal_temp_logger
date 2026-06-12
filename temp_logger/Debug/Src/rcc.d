@@ -1,0 +1,14 @@
+Src/rcc.o: ../Src/rcc.cpp ../Inc/rcc.hpp ../Inc/types.hpp \
+ ../Inc/STM32F4/stm32f446xx.h ../Inc/STM32F4/core_cm4.h \
+ ../Inc/STM32F4/cmsis_version.h ../Inc/STM32F4/cmsis_compiler.h \
+ ../Inc/STM32F4/cmsis_gcc.h ../Inc/STM32F4/mpu_armv7.h \
+ ../Inc/STM32F4/system_stm32f4xx.h
+../Inc/rcc.hpp:
+../Inc/types.hpp:
+../Inc/STM32F4/stm32f446xx.h:
+../Inc/STM32F4/core_cm4.h:
+../Inc/STM32F4/cmsis_version.h:
+../Inc/STM32F4/cmsis_compiler.h:
+../Inc/STM32F4/cmsis_gcc.h:
+../Inc/STM32F4/mpu_armv7.h:
+../Inc/STM32F4/system_stm32f4xx.h:

@@ -177,7 +177,7 @@ public:
 
 	void config()
 	{
-		rcc->enableApb2(RCC_APB2ENR::RCC_SPI1);
+		rcc.enableApb2(RCC_APB2ENR::RCC_SPI1);
 
 		setBaudRate(BaudRate::Div4);
 		setClockPolarity(ClockPolarity::High);
@@ -194,14 +194,14 @@ public:
 	//Chip select enable
 	void csEnable(){
 		if (spi == SPI1){
-			pins.nss->gpio->ODR &= ~(1U << 9);
+			pins.nss->gpio->getPort()->ODR &= ~(1U << pins.nss->pin);
 		}
 	}
 
 	//Pull high to disable
 	void csDisable(){
 		if (spi == SPI1){
-			pins.nss->gpio->ODR |= (1U >> 9);
+			pins.nss->gpio->getPort()->ODR |= (1U << pins.nss->pin);
 		}
 	}
 
@@ -276,7 +276,7 @@ static constexpr u32 CR1_LSBFIRST_Msk = (1U << CR1_LSBFIRST_Pos);
 static constexpr u32 CR1_MSTR_Pos = 2;
 static constexpr u32 CR1_MSTR_Msk = (1U << CR1_MSTR_Pos);
 
-static constexpr u32 CR1_SPE_Pos = SPE;
+static constexpr u32 CR1_SPE_Pos = 6;
 static constexpr u32 CR1_SPE_Msk = (1U << CR1_SPE_Pos);
 
 static constexpr u32 CR1_DFF_Pos = 11;

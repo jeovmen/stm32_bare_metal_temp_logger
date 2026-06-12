@@ -7,6 +7,8 @@
 #include "STM32F4/stm32f446xx.h"
 #include "rcc.hpp"
 
+class Gpio;
+
 enum class Mode : u8 {
 	Input = 0b00,
 	Output = 0b01,

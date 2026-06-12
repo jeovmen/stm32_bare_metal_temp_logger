@@ -1,1 +1,65 @@
-../Src/main.cpp:3:5:int main()	8	static
+../Inc/STM32F4/core_cm4.h:1684:22:void __NVIC_EnableIRQ(IRQn_Type)	16	static,ignoring_inline_asm
+../Inc/STM32F4/core_cm4.h:1814:22:void __NVIC_SetPriority(IRQn_Type, uint32_t)	16	static
+../Inc/STM32F4/core_cm4.h:2022:26:uint32_t SysTick_Config(uint32_t)	16	static
+../Inc/rcc.hpp:30:7:void Rcc::enableAhb1(RCC_AHB1ENR)	16	static
+../Inc/rcc.hpp:37:7:void Rcc::enableApb2(RCC_APB2ENR)	16	static
+../Inc/gpio.hpp:47:11:Gpio::Gpio(GPIO_TypeDef*)	16	static
+../Inc/gpio.hpp:50:7:void Gpio::setMode(u8, Mode)	24	static
+../Inc/gpio.hpp:58:7:void Gpio::setPull(u8, Pull)	24	static
+../Inc/gpio.hpp:66:7:void Gpio::setSpeed(u8, Speed)	24	static
+../Inc/gpio.hpp:75:7:void Gpio::setAlternateFunction(u8, AF)	24	static
+../Inc/gpio.hpp:90:16:GPIO_TypeDef* Gpio::getPort()	16	static
+../Inc/spi.hpp:80:11:Spi::Spi(SPI_TypeDef*, SpiPins)	24	static
+../Inc/spi.hpp:86:7:void Spi::setBaudRate(BaudRate)	16	static
+../Inc/spi.hpp:92:7:void Spi::setClockPolarity(ClockPolarity)	16	static
+../Inc/spi.hpp:99:7:void Spi::setClockPhase(ClockPhase)	16	static
+../Inc/spi.hpp:105:7:void Spi::setRxOnly(RxOnly)	16	static
+../Inc/spi.hpp:112:7:void Spi::setBitOrder(BitOrder)	16	static
+../Inc/spi.hpp:118:7:void Spi::setMasterSelection(MasterSelection)	16	static
+../Inc/spi.hpp:124:7:void Spi::setDataFrameFormat(DataFrameFormat)	16	static
+../Inc/spi.hpp:130:7:void Spi::setInternalSlaveSelect(InternalSlaveSelect)	16	static
+../Inc/spi.hpp:136:7:void Spi::setSoftwareSlaveManagement(SoftwareSlaveManagement)	16	static
+../Inc/spi.hpp:142:7:void Spi::enableSpi()	16	static
+../Inc/spi.hpp:160:7:void Spi::initGpio()	16	static
+../Inc/spi.hpp:178:7:void Spi::config()	16	static
+../Inc/exti.hpp:31:14:Exti::Exti(Pin, SYSCFG_EXTICR)	24	static
+../Inc/exti.hpp:34:10:void Exti::init()	16	static,ignoring_inline_asm
+../Inc/exti.hpp:48:10:void Exti::configureExtiSource(ExtiTrigger)	40	static
+../Inc/exti.hpp:90:10:void Exti::setCallback(void (*)())	16	static
+../Inc/exti.hpp:101:10:void Exti::handleIrq()	24	static
+../Inc/exti.hpp:132:22:static IRQn_Type Exti::getIrqn(u8)	16	static
+../Inc/systick.hpp:15:17:static void Tick::init()	8	static
+../Inc/systick.hpp:34:17:static void Tick::delayUs(u32)	24	static
+../Inc/systick.hpp:45:17:static void Tick::delayMs(u32)	16	static
+../Inc/systick.hpp:53:16:static u32 Tick::getTick()	4	static
+../Inc/systick.hpp:63:17:static void Tick::tickIsr()	4	static
+../Inc/systick.hpp:74:16:static u32 Tick::elapsed(u32)	16	static
+../Inc/dht22.hpp:43:15:float Dht22::Reading::temperatureC() const	16	static
+../Inc/dht22.hpp:44:15:float Dht22::Reading::humidity() const	16	static
+../Inc/dht22.hpp:47:14:Dht22::Dht22(Pin)	24	static
+../Inc/dht22.hpp:50:10:void Dht22::init()	16	static
+../Inc/dht22.hpp:60:13:Dht22::Reading Dht22::read()	40	static
+../Inc/dht22.hpp:122:10:void Dht22::setLow()	16	static
+../Inc/dht22.hpp:127:10:void Dht22::setHigh()	16	static
+../Inc/dht22.hpp:132:8:u8 Dht22::readPin()	16	static
+../Inc/dht22.hpp:137:10:bool Dht22::waitForLevel(u8, u32)	32	static
+../Inc/dht22.hpp:147:9:u32 Dht22::measureHighUs(u32)	24	static
+../Inc/logger.hpp:15:10:bool Logger::init()	24	static
+../Inc/logger.hpp:40:10:void Logger::log(const Dht22::Reading&)	48	static
+../Inc/logger.hpp:73:10:void Logger::writeHeader()	16	static
+../Inc/fsm.hpp:19:5:Fsm::Fsm(Pin, Pin, Dht22&, Logger&)	24	static
+../Inc/fsm.hpp:26:10:void Fsm::init()	16	static
+../Inc/fsm.hpp:39:10:void Fsm::run()	16	static
+../Inc/fsm.hpp:66:10:void Fsm::onButtonPress()	16	static
+../Inc/fsm.hpp:85:10:void Fsm::enterIdle()	16	static
+../Inc/fsm.hpp:92:10:void Fsm::enterSample()	16	static
+../Inc/fsm.hpp:100:10:void Fsm::takeSample()	24	static
+../Inc/fsm.hpp:111:10:void Fsm::setLed(const Pin&, bool)	24	static
+../Src/main.cpp:39:17:void SysTick_Handler()	8	static
+../Src/main.cpp:44:17:void EXTI15_10_IRQHandler()	8	static
+../Src/main.cpp:68:28:main()::<lambda()>	16	static
+../Src/main.cpp:68:28:static void main()::<lambda()>::_FUN()	8	static
+../Src/main.cpp:68:28:main()::<lambda()>::operator void (*)()() const	16	static
+../Src/main.cpp:50:5:int main()	16	static,ignoring_inline_asm
+../Src/main.cpp:81:1:void __static_initialization_and_destruction_0()	56	static
+../Src/main.cpp:81:1:cpp)	8	static

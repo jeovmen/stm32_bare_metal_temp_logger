@@ -1,0 +1,17 @@
+../Inc/gpio.hpp:90:16:GPIO_TypeDef* Gpio::getPort()	16	static
+../Inc/spi.hpp:86:7:void Spi::setBaudRate(BaudRate)	16	static
+../Inc/spi.hpp:195:7:void Spi::csEnable()	16	static
+../Inc/spi.hpp:202:7:void Spi::csDisable()	16	static
+../Inc/spi.hpp:208:7:void Spi::transmit(u8*, u32)	32	static
+../Inc/spi.hpp:239:7:void Spi::receive(u8*, u32)	24	static
+../Inc/systick.hpp:53:16:static u32 Tick::getTick()	4	static
+../Inc/systick.hpp:74:16:static u32 Tick::elapsed(u32)	16	static
+../Src/diskio.cpp:30:11:u8 spiTransfer(u8)	24	static
+../Src/diskio.cpp:39:11:u8 waitReady(u32)	24	static
+../Src/diskio.cpp:50:11:u8 sendCommand(u8, u32)	32	static
+../Src/diskio.cpp:84:9:DSTATUS disk_initialize(BYTE)	56	static
+../Src/diskio.cpp:153:9:DSTATUS disk_status(BYTE)	16	static
+../Src/diskio.cpp:159:9:DRESULT disk_read(BYTE, BYTE*, LBA_t, UINT)	40	static
+../Src/diskio.cpp:193:9:DRESULT disk_write(BYTE, const BYTE*, LBA_t, UINT)	40	static
+../Src/diskio.cpp:229:9:DRESULT disk_ioctl(BYTE, BYTE, void*)	16	static
+../Src/diskio.cpp:258:7:DWORD get_fattime()	4	static

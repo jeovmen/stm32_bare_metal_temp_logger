@@ -1,0 +1,17 @@
+../Inc/gpio.hpp:90:16:GPIO_TypeDef* Gpio::getPort()	1
+../Inc/spi.hpp:86:7:void Spi::setBaudRate(BaudRate)	1
+../Inc/spi.hpp:195:7:void Spi::csEnable()	2
+../Inc/spi.hpp:202:7:void Spi::csDisable()	2
+../Inc/spi.hpp:208:7:void Spi::transmit(u8*, u32)	5
+../Inc/spi.hpp:239:7:void Spi::receive(u8*, u32)	3
+../Inc/systick.hpp:53:16:static u32 Tick::getTick()	1
+../Inc/systick.hpp:74:16:static u32 Tick::elapsed(u32)	1
+../Src/diskio.cpp:30:11:u8 spiTransfer(u8)	1
+../Src/diskio.cpp:39:11:u8 waitReady(u32)	4
+../Src/diskio.cpp:50:11:u8 sendCommand(u8, u32)	7
+../Src/diskio.cpp:84:9:DSTATUS disk_initialize(BYTE)	22
+../Src/diskio.cpp:153:9:DSTATUS disk_status(BYTE)	2
+../Src/diskio.cpp:159:9:DRESULT disk_read(BYTE, BYTE*, LBA_t, UINT)	12
+../Src/diskio.cpp:193:9:DRESULT disk_write(BYTE, const BYTE*, LBA_t, UINT)	11
+../Src/diskio.cpp:229:9:DRESULT disk_ioctl(BYTE, BYTE, void*)	8
+../Src/diskio.cpp:258:7:DWORD get_fattime()	1
