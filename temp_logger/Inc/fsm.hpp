@@ -1,9 +1,11 @@
 
+
 #ifndef FSM_HPP_
 #define FSM_HPP_
 
 #include "types.hpp"
 #include "gpio.hpp"
+#include "uart.hpp"
 #include "dht22.hpp"
 #include "logger.hpp"
 #include "systick.hpp"
@@ -21,38 +23,24 @@ public:
           currentState(State::IDLE), pendingTransition(false),
           lastSampleMs(0) {}
 
-    // init()
-    // Configure LED GPIO pins as outputs and enter IDLE state.
     void init()
     {
         rcc.enableAhb1(led1.rccMask);
         rcc.enableAhb1(led2.rccMask);
         led1.gpio->setMode(led1.pin, Mode::Output);
         led2.gpio->setMode(led2.pin, Mode::Output);
-
         enterIdle();
     }
 
-    // run()
-    // Call repeatedly from the main loop (while(1)).
-    // Handles state transitions and timed sampling.
     void run()
     {
-        // Handle button press — transition between states
         if (pendingTransition) {
             pendingTransition = false;
-            if (currentState == State::IDLE) {
-                enterSample();
-            } else {
-                enterIdle();
-            }
+            if (currentState == State::IDLE) enterSample();
+            else                              enterIdle();
         }
 
-        // In SAMPLE state: log every 5 minutes
         if (currentState == State::SAMPLE) {
-            // 5 minutes = 300,000 ms
-            // On first entry lastSampleMs is set to getTick() so the first
-            // sample fires immediately after 5 minutes, not instantly.
             if (Tick::elapsed(lastSampleMs) >= SAMPLE_INTERVAL_MS) {
                 lastSampleMs = Tick::getTick();
                 takeSample();
@@ -60,9 +48,6 @@ public:
         }
     }
 
-    // onButtonPress()
-    // Called from EXTI ISR — sets a flag rather than acting directly,
-    // so the actual transition happens safely in the main loop via run().
     void onButtonPress()
     {
         pendingTransition = true;
@@ -73,20 +58,21 @@ public:
 private:
     static constexpr u32 SAMPLE_INTERVAL_MS = 300000U;  // 5 minutes
 
-    Pin    led1;
-    Pin    led2;
-    Dht22& dht;
+    Pin     led1;
+    Pin     led2;
+    Dht22&  dht;
     Logger& logger;
 
-    State            currentState;
-    volatile bool    pendingTransition;  // set by ISR, cleared by run()
-    u32              lastSampleMs;
+    State         currentState;
+    volatile bool pendingTransition;
+    u32           lastSampleMs;
 
     void enterIdle()
     {
         currentState = State::IDLE;
         setLed(led1, true);
         setLed(led2, false);
+        Uart::println("[FSM] -> IDLE   (LED1=ON LED2=OFF)");
     }
 
     void enterSample()
@@ -95,27 +81,36 @@ private:
         lastSampleMs  = Tick::getTick();
         setLed(led1, true);
         setLed(led2, true);
+        Uart::println("[FSM] -> SAMPLE (LED1=ON LED2=ON)");
+        Uart::println("[FSM] Next sample in 5 minutes.");
     }
 
     void takeSample()
     {
+        Uart::print("[FSM] Sampling... tick=");
+        Uart::printU32(Tick::getTick());
+        Uart::println("ms");
+
         Dht22::Reading r = dht.read();
         if (r.valid) {
+            Uart::print("[DHT22] Temp=");
+            Uart::printU32(static_cast<u32>(r.temperatureC() * 10));
+            Uart::print("/10 C  Humidity=");
+            Uart::printU32(r.rawHumidity);
+            Uart::println("/10 %RH");
             logger.log(r);
+            Uart::println("[Logger] Row written to SD card.");
+        } else {
+            Uart::println("[DHT22] Read failed — skipping this sample.");
         }
-        // If read fails (e.g. sensor not ready), silently skip this tick.
-        // The next interval will try again.
     }
 
-    // setLed() — write to ODR via the Pin's gpio pointer
     void setLed(const Pin& led, bool on)
     {
-        if (on) {
-            led.gpio->getPort()->ODR |=  (1U << led.pin);
-        } else {
-            led.gpio->getPort()->ODR &= ~(1U << led.pin);
-        }
+        if (on) led.gpio->getPort()->ODR |=  (1U << led.pin);
+        else    led.gpio->getPort()->ODR &= ~(1U << led.pin);
     }
 };
 
 #endif /* FSM_HPP_ */
+

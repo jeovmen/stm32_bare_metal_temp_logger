@@ -5,47 +5,47 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .isr_vector   000001c4  08000000  08000000  00001000  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  1 .text         00004410  080001c4  080001c4  000011c4  2**2
+  1 .text         0000469c  080001c4  080001c4  000011c4  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00000064  080045d4  080045d4  000055d4  2**2
+  2 .rodata       0000022c  08004860  08004860  00005860  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  08004638  08004638  00006090  2**0
+  3 .ARM.extab    00000000  08004a8c  08004a8c  00006090  2**0
                   CONTENTS, READONLY
-  4 .ARM          00000000  08004638  08004638  00006090  2**0
+  4 .ARM          00000000  08004a8c  08004a8c  00006090  2**0
                   CONTENTS, READONLY
-  5 .preinit_array 00000000  08004638  08004638  00006090  2**0
+  5 .preinit_array 00000000  08004a8c  08004a8c  00006090  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000008  08004638  08004638  00005638  2**2
+  6 .init_array   00000008  08004a8c  08004a8c  00005a8c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  7 .fini_array   00000004  08004640  08004640  00005640  2**2
+  7 .fini_array   00000004  08004a94  08004a94  00005a94  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  8 .data         00000090  20000000  08004644  00006000  2**2
+  8 .data         00000090  20000000  08004a98  00006000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          0000050c  20000090  080046d4  00006090  2**2
+  9 .bss          0000050c  20000090  08004b28  00006090  2**2
                   ALLOC
- 10 ._user_heap_stack 00000604  2000059c  080046d4  0000659c  2**0
+ 10 ._user_heap_stack 00000604  2000059c  08004b28  0000659c  2**0
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00006090  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00006b48  00000000  00000000  000060c0  2**0
+ 12 .debug_info   00006d0e  00000000  00000000  000060c0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00001005  00000000  00000000  0000cc08  2**0
+ 13 .debug_abbrev 00001018  00000000  00000000  0000cdce  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 000004f8  00000000  00000000  0000dc10  2**3
+ 14 .debug_aranges 00000520  00000000  00000000  0000dde8  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_rnglists 000003da  00000000  00000000  0000e108  2**0
+ 15 .debug_rnglists 000003fb  00000000  00000000  0000e308  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0001aefe  00000000  00000000  0000e4e2  2**0
+ 16 .debug_macro  0001af0c  00000000  00000000  0000e703  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   000055b3  00000000  00000000  000293e0  2**0
+ 17 .debug_line   00005768  00000000  00000000  0002960f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00096b8d  00000000  00000000  0002e993  2**0
+ 18 .debug_str    00096c3b  00000000  00000000  0002ed77  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  000c5520  2**0
+ 19 .comment      00000043  00000000  00000000  000c59b2  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00001548  00000000  00000000  000c5564  2**2
+ 20 .debug_frame  000015f4  00000000  00000000  000c59f8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000072  00000000  00000000  000c6aac  2**0
+ 21 .debug_line_str 00000072  00000000  00000000  000c6fec  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -64,7 +64,7 @@ Disassembly of section .text:
  80001da:	bd10      	pop	{r4, pc}
  80001dc:	20000090 	.word	0x20000090
  80001e0:	00000000 	.word	0x00000000
- 80001e4:	080045bc 	.word	0x080045bc
+ 80001e4:	08004848 	.word	0x08004848
 
 080001e8 <frame_dummy>:
  80001e8:	b508      	push	{r3, lr}
@@ -76,7 +76,7 @@ Disassembly of section .text:
  80001f6:	bd08      	pop	{r3, pc}
  80001f8:	00000000 	.word	0x00000000
  80001fc:	20000094 	.word	0x20000094
- 8000200:	080045bc 	.word	0x080045bc
+ 8000200:	08004848 	.word	0x08004848
 
 08000204 <__aeabi_drsub>:
  8000204:	f081 4100 	eor.w	r1, r1, #2147483648	@ 0x80000000
@@ -2155,7 +2155,7 @@ static FRESULT sync_fs (	/* Returns FR_OK or FR_DISK_ERR */
  800104a:	f44f 7200 	mov.w	r2, #512	@ 0x200
  800104e:	2100      	movs	r1, #0
  8001050:	4618      	mov	r0, r3
- 8001052:	f003 fa6c 	bl	800452e <memset>
+ 8001052:	f003 fbb2 	bl	80047ba <memset>
 				st_32(fs->win + FSI_LeadSig, 0x41615252);		/* Leading signature */
  8001056:	687b      	ldr	r3, [r7, #4]
  8001058:	3330      	adds	r3, #48	@ 0x30
@@ -3207,7 +3207,7 @@ static FRESULT dir_clear (	/* Returns FR_OK or FR_DISK_ERR */
  80016fa:	f44f 7200 	mov.w	r2, #512	@ 0x200
  80016fe:	2100      	movs	r1, #0
  8001700:	4618      	mov	r0, r3
- 8001702:	f002 ff14 	bl	800452e <memset>
+ 8001702:	f003 f85a 	bl	80047ba <memset>
 		for (n = 0; n < fs->csize && disk_write(fs->pdrv, ibuf, sect + n, szb) == RES_OK; n += szb) ;	/* Fill the cluster with 0 */
 		ff_memfree(ibuf);
 	} else
@@ -3897,7 +3897,7 @@ static FRESULT dir_find (	/* FR_OK(0):succeeded, !=0:error */
  8001b00:	3320      	adds	r3, #32
  8001b02:	220b      	movs	r2, #11
  8001b04:	4619      	mov	r1, r3
- 8001b06:	f002 fd02 	bl	800450e <memcmp>
+ 8001b06:	f002 fe48 	bl	800479a <memcmp>
  8001b0a:	4603      	mov	r3, r0
  8001b0c:	2b00      	cmp	r3, #0
  8001b0e:	d00b      	beq.n	8001b28 <dir_find+0x9e>
@@ -3980,7 +3980,7 @@ static FRESULT dir_register (	/* FR_OK:succeeded, FR_DENIED:no free entry or too
  8001b6e:	2220      	movs	r2, #32
  8001b70:	2100      	movs	r1, #0
  8001b72:	4618      	mov	r0, r3
- 8001b74:	f002 fcdb 	bl	800452e <memset>
+ 8001b74:	f002 fe21 	bl	80047ba <memset>
 			memcpy(dp->dir + DIR_Name, dp->fn, 11);	/* Put SFN */
  8001b78:	687b      	ldr	r3, [r7, #4]
  8001b7a:	69d8      	ldr	r0, [r3, #28]
@@ -3988,7 +3988,7 @@ static FRESULT dir_register (	/* FR_OK:succeeded, FR_DENIED:no free entry or too
  8001b7e:	3320      	adds	r3, #32
  8001b80:	220b      	movs	r2, #11
  8001b82:	4619      	mov	r1, r3
- 8001b84:	f002 fd0c 	bl	80045a0 <memcpy>
+ 8001b84:	f002 fe52 	bl	800482c <memcpy>
 #if FF_USE_LFN
 			dp->dir[DIR_NTres] = dp->fn[NSFLAG] & (NS_BODY | NS_EXT);	/* Put low-case flags */
 #endif
@@ -4035,7 +4035,7 @@ static FRESULT create_name (	/* FR_OK: successful, FR_INVALID_NAME: could not cr
  8001bae:	220b      	movs	r2, #11
  8001bb0:	2120      	movs	r1, #32
  8001bb2:	6938      	ldr	r0, [r7, #16]
- 8001bb4:	f002 fcbb 	bl	800452e <memset>
+ 8001bb4:	f002 fe01 	bl	80047ba <memset>
 	si = i = 0; ni = 8;
  8001bb8:	2300      	movs	r3, #0
  8001bba:	61bb      	str	r3, [r7, #24]
@@ -4167,7 +4167,7 @@ static FRESULT create_name (	/* FR_OK: successful, FR_INVALID_NAME: could not cr
  8001c94:	f897 3027 	ldrb.w	r3, [r7, #39]	@ 0x27
  8001c98:	4619      	mov	r1, r3
  8001c9a:	4822      	ldr	r0, [pc, #136]	@ (8001d24 <create_name+0x18c>)
- 8001c9c:	f002 fc4f 	bl	800453e <strchr>
+ 8001c9c:	f002 fd95 	bl	80047ca <strchr>
  8001ca0:	4603      	mov	r3, r0
  8001ca2:	2b00      	cmp	r3, #0
  8001ca4:	d001      	beq.n	8001caa <create_name+0x112>
@@ -4243,7 +4243,7 @@ static FRESULT create_name (	/* FR_OK: successful, FR_INVALID_NAME: could not cr
  8001d1e:	3728      	adds	r7, #40	@ 0x28
  8001d20:	46bd      	mov	sp, r7
  8001d22:	bd80      	pop	{r7, pc}
- 8001d24:	080045d4 	.word	0x080045d4
+ 8001d24:	08004860 	.word	0x08004860
 
 08001d28 <follow_path>:
 
@@ -4590,7 +4590,7 @@ static UINT check_fs (	/* 0:FAT/FAT32 VBR, 1:exFAT VBR, 2:Not FAT and valid BS, 
  8001ef2:	2208      	movs	r2, #8
  8001ef4:	4936      	ldr	r1, [pc, #216]	@ (8001fd0 <check_fs+0x144>)
  8001ef6:	4618      	mov	r0, r3
- 8001ef8:	f002 fb09 	bl	800450e <memcmp>
+ 8001ef8:	f002 fc4f 	bl	800479a <memcmp>
  8001efc:	4603      	mov	r3, r0
  8001efe:	2b00      	cmp	r3, #0
  8001f00:	d101      	bne.n	8001f06 <check_fs+0x7a>
@@ -4702,7 +4702,7 @@ static UINT check_fs (	/* 0:FAT/FAT32 VBR, 1:exFAT VBR, 2:Not FAT and valid BS, 
  8001fca:	3710      	adds	r7, #16
  8001fcc:	46bd      	mov	sp, r7
  8001fce:	bd80      	pop	{r7, pc}
- 8001fd0:	080045e4 	.word	0x080045e4
+ 8001fd0:	08004870 	.word	0x08004870
 
 08001fd4 <find_volume>:
 
@@ -5942,7 +5942,7 @@ FRESULT f_open (
  80027a6:	f44f 7200 	mov.w	r2, #512	@ 0x200
  80027aa:	2100      	movs	r1, #0
  80027ac:	4618      	mov	r0, r3
- 80027ae:	f001 febe 	bl	800452e <memset>
+ 80027ae:	f002 f804 	bl	80047ba <memset>
 #endif
 			if ((mode & FA_SEEKEND) && fp->obj.objsize > 0) {	/* Seek to end of file if FA_OPEN_APPEND is specified */
  80027b2:	79fb      	ldrb	r3, [r7, #7]
@@ -6363,7 +6363,7 @@ FRESULT f_open (
  8002a6a:	4413      	add	r3, r2
  8002a6c:	f44f 7200 	mov.w	r2, #512	@ 0x200
  8002a70:	4619      	mov	r1, r3
- 8002a72:	f001 fd95 	bl	80045a0 <memcpy>
+ 8002a72:	f001 fedb 	bl	800482c <memcpy>
 					fp->flag &= (BYTE)~FA_DIRTY;
  8002a76:	68fb      	ldr	r3, [r7, #12]
  8002a78:	7c1b      	ldrb	r3, [r3, #16]
@@ -6452,7 +6452,7 @@ FRESULT f_open (
  8002af4:	6a7a      	ldr	r2, [r7, #36]	@ 0x24
  8002af6:	69f9      	ldr	r1, [r7, #28]
  8002af8:	4618      	mov	r0, r3
- 8002afa:	f001 fd51 	bl	80045a0 <memcpy>
+ 8002afa:	f001 fe97 	bl	800482c <memcpy>
 		fp->flag |= FA_DIRTY;
  8002afe:	68fb      	ldr	r3, [r7, #12]
  8002b00:	7c1b      	ldrb	r3, [r3, #16]
@@ -6818,7 +6818,7 @@ static void putc_init (putbuff* pb, FIL* fp)
  8002d2c:	224c      	movs	r2, #76	@ 0x4c
  8002d2e:	2100      	movs	r1, #0
  8002d30:	6878      	ldr	r0, [r7, #4]
- 8002d32:	f001 fbfc 	bl	800452e <memset>
+ 8002d32:	f001 fd42 	bl	80047ba <memset>
 	pb->fp = fp;
  8002d36:	687b      	ldr	r3, [r7, #4]
  8002d38:	683a      	ldr	r2, [r7, #0]
@@ -8786,1605 +8786,1931 @@ private:
  8003b62:	4770      	bx	lr
  8003b64:	20000598 	.word	0x20000598
 
-08003b68 <_ZNK5Dht227Reading12temperatureCEv>:
+08003b68 <_ZN4Uart4initEv>:
+public:
+
+    // init()
+    // Configure USART2 on PA2(TX)/PA3(RX) at 115200 baud, 8N1.
+    // Clock source: 16 MHz HSI (default after reset, before any PLL config).
+    static void init()
+ 8003b68:	b480      	push	{r7}
+ 8003b6a:	af00      	add	r7, sp, #0
+    {
+        // Enable clocks: GPIOA and USART2 (USART2 is on APB1)
+        RCC->AHB1ENR |= (1U << 0);    // GPIOA
+ 8003b6c:	4b1a      	ldr	r3, [pc, #104]	@ (8003bd8 <_ZN4Uart4initEv+0x70>)
+ 8003b6e:	6b1b      	ldr	r3, [r3, #48]	@ 0x30
+ 8003b70:	4a19      	ldr	r2, [pc, #100]	@ (8003bd8 <_ZN4Uart4initEv+0x70>)
+ 8003b72:	f043 0301 	orr.w	r3, r3, #1
+ 8003b76:	6313      	str	r3, [r2, #48]	@ 0x30
+        RCC->APB1ENR |= (1U << 17);   // USART2
+ 8003b78:	4b17      	ldr	r3, [pc, #92]	@ (8003bd8 <_ZN4Uart4initEv+0x70>)
+ 8003b7a:	6c1b      	ldr	r3, [r3, #64]	@ 0x40
+ 8003b7c:	4a16      	ldr	r2, [pc, #88]	@ (8003bd8 <_ZN4Uart4initEv+0x70>)
+ 8003b7e:	f443 3300 	orr.w	r3, r3, #131072	@ 0x20000
+ 8003b82:	6413      	str	r3, [r2, #64]	@ 0x40
+
+        // PA2 = TX, PA3 = RX → Alternate Function 7
+        // MODER: bits [5:4] = PA2, bits [7:6] = PA3 → AF mode (0b10)
+        GPIOA->MODER &= ~((3U << 4) | (3U << 6));
+ 8003b84:	4b15      	ldr	r3, [pc, #84]	@ (8003bdc <_ZN4Uart4initEv+0x74>)
+ 8003b86:	681b      	ldr	r3, [r3, #0]
+ 8003b88:	4a14      	ldr	r2, [pc, #80]	@ (8003bdc <_ZN4Uart4initEv+0x74>)
+ 8003b8a:	f023 03f0 	bic.w	r3, r3, #240	@ 0xf0
+ 8003b8e:	6013      	str	r3, [r2, #0]
+        GPIOA->MODER |=  ((2U << 4) | (2U << 6));
+ 8003b90:	4b12      	ldr	r3, [pc, #72]	@ (8003bdc <_ZN4Uart4initEv+0x74>)
+ 8003b92:	681b      	ldr	r3, [r3, #0]
+ 8003b94:	4a11      	ldr	r2, [pc, #68]	@ (8003bdc <_ZN4Uart4initEv+0x74>)
+ 8003b96:	f043 03a0 	orr.w	r3, r3, #160	@ 0xa0
+ 8003b9a:	6013      	str	r3, [r2, #0]
+
+        // OSPEEDR: fast speed on PA2/PA3
+        GPIOA->OSPEEDR |= ((3U << 4) | (3U << 6));
+ 8003b9c:	4b0f      	ldr	r3, [pc, #60]	@ (8003bdc <_ZN4Uart4initEv+0x74>)
+ 8003b9e:	689b      	ldr	r3, [r3, #8]
+ 8003ba0:	4a0e      	ldr	r2, [pc, #56]	@ (8003bdc <_ZN4Uart4initEv+0x74>)
+ 8003ba2:	f043 03f0 	orr.w	r3, r3, #240	@ 0xf0
+ 8003ba6:	6093      	str	r3, [r2, #8]
+
+        // AFR[0]: PA2=AF7 (bits [11:8]), PA3=AF7 (bits [15:12])
+        GPIOA->AFR[0] &= ~((0xFU << 8) | (0xFU << 12));
+ 8003ba8:	4b0c      	ldr	r3, [pc, #48]	@ (8003bdc <_ZN4Uart4initEv+0x74>)
+ 8003baa:	6a1b      	ldr	r3, [r3, #32]
+ 8003bac:	4a0b      	ldr	r2, [pc, #44]	@ (8003bdc <_ZN4Uart4initEv+0x74>)
+ 8003bae:	f423 437f 	bic.w	r3, r3, #65280	@ 0xff00
+ 8003bb2:	6213      	str	r3, [r2, #32]
+        GPIOA->AFR[0] |=  ((7U  << 8) | (7U  << 12));
+ 8003bb4:	4b09      	ldr	r3, [pc, #36]	@ (8003bdc <_ZN4Uart4initEv+0x74>)
+ 8003bb6:	6a1b      	ldr	r3, [r3, #32]
+ 8003bb8:	4a08      	ldr	r2, [pc, #32]	@ (8003bdc <_ZN4Uart4initEv+0x74>)
+ 8003bba:	f443 43ee 	orr.w	r3, r3, #30464	@ 0x7700
+ 8003bbe:	6213      	str	r3, [r2, #32]
+
+        // BRR: 115200 baud at 16 MHz HSI
+        // BRR = fCLK / baud = 16,000,000 / 115,200 ≈ 138.88
+        // Mantissa = 138 = 0x8A, Fraction = 0.88 × 16 ≈ 14 = 0xE
+        // But for QEMU compatibility use the simpler integer: 0x008B (138.6875)
+        USART2->BRR = 0x008B;
+ 8003bc0:	4b07      	ldr	r3, [pc, #28]	@ (8003be0 <_ZN4Uart4initEv+0x78>)
+ 8003bc2:	228b      	movs	r2, #139	@ 0x8b
+ 8003bc4:	609a      	str	r2, [r3, #8]
+
+        // CR1: enable USART, enable transmitter
+        USART2->CR1 = USART_CR1_UE | USART_CR1_TE;
+ 8003bc6:	4b06      	ldr	r3, [pc, #24]	@ (8003be0 <_ZN4Uart4initEv+0x78>)
+ 8003bc8:	f242 0208 	movw	r2, #8200	@ 0x2008
+ 8003bcc:	60da      	str	r2, [r3, #12]
+    }
+ 8003bce:	bf00      	nop
+ 8003bd0:	46bd      	mov	sp, r7
+ 8003bd2:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8003bd6:	4770      	bx	lr
+ 8003bd8:	40023800 	.word	0x40023800
+ 8003bdc:	40020000 	.word	0x40020000
+ 8003be0:	40004400 	.word	0x40004400
+
+08003be4 <_ZN4Uart7putCharEc>:
+
+    // putChar() — send one byte, block until TX register is empty
+    static void putChar(char c)
+ 8003be4:	b480      	push	{r7}
+ 8003be6:	b083      	sub	sp, #12
+ 8003be8:	af00      	add	r7, sp, #0
+ 8003bea:	4603      	mov	r3, r0
+ 8003bec:	71fb      	strb	r3, [r7, #7]
+    {
+        while (!(USART2->SR & USART_SR_TXE)) {}
+ 8003bee:	bf00      	nop
+ 8003bf0:	4b09      	ldr	r3, [pc, #36]	@ (8003c18 <_ZN4Uart7putCharEc+0x34>)
+ 8003bf2:	681b      	ldr	r3, [r3, #0]
+ 8003bf4:	f003 0380 	and.w	r3, r3, #128	@ 0x80
+ 8003bf8:	2b00      	cmp	r3, #0
+ 8003bfa:	bf0c      	ite	eq
+ 8003bfc:	2301      	moveq	r3, #1
+ 8003bfe:	2300      	movne	r3, #0
+ 8003c00:	b2db      	uxtb	r3, r3
+ 8003c02:	2b00      	cmp	r3, #0
+ 8003c04:	d1f4      	bne.n	8003bf0 <_ZN4Uart7putCharEc+0xc>
+        USART2->DR = static_cast<u32>(c);
+ 8003c06:	4a04      	ldr	r2, [pc, #16]	@ (8003c18 <_ZN4Uart7putCharEc+0x34>)
+ 8003c08:	79fb      	ldrb	r3, [r7, #7]
+ 8003c0a:	6053      	str	r3, [r2, #4]
+    }
+ 8003c0c:	bf00      	nop
+ 8003c0e:	370c      	adds	r7, #12
+ 8003c10:	46bd      	mov	sp, r7
+ 8003c12:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8003c16:	4770      	bx	lr
+ 8003c18:	40004400 	.word	0x40004400
+
+08003c1c <_ZN4Uart5printEPKc>:
+
+    // print() — send a null-terminated string
+    static void print(const char* s)
+ 8003c1c:	b580      	push	{r7, lr}
+ 8003c1e:	b082      	sub	sp, #8
+ 8003c20:	af00      	add	r7, sp, #0
+ 8003c22:	6078      	str	r0, [r7, #4]
+    {
+        while (*s) putChar(*s++);
+ 8003c24:	e006      	b.n	8003c34 <_ZN4Uart5printEPKc+0x18>
+ 8003c26:	687b      	ldr	r3, [r7, #4]
+ 8003c28:	1c5a      	adds	r2, r3, #1
+ 8003c2a:	607a      	str	r2, [r7, #4]
+ 8003c2c:	781b      	ldrb	r3, [r3, #0]
+ 8003c2e:	4618      	mov	r0, r3
+ 8003c30:	f7ff ffd8 	bl	8003be4 <_ZN4Uart7putCharEc>
+ 8003c34:	687b      	ldr	r3, [r7, #4]
+ 8003c36:	781b      	ldrb	r3, [r3, #0]
+ 8003c38:	2b00      	cmp	r3, #0
+ 8003c3a:	d1f4      	bne.n	8003c26 <_ZN4Uart5printEPKc+0xa>
+    }
+ 8003c3c:	bf00      	nop
+ 8003c3e:	bf00      	nop
+ 8003c40:	3708      	adds	r7, #8
+ 8003c42:	46bd      	mov	sp, r7
+ 8003c44:	bd80      	pop	{r7, pc}
+
+08003c46 <_ZN4Uart7printlnEPKc>:
+
+    // println() — send string + CRLF (QEMU terminal needs \r\n)
+    static void println(const char* s)
+ 8003c46:	b580      	push	{r7, lr}
+ 8003c48:	b082      	sub	sp, #8
+ 8003c4a:	af00      	add	r7, sp, #0
+ 8003c4c:	6078      	str	r0, [r7, #4]
+    {
+        print(s);
+ 8003c4e:	6878      	ldr	r0, [r7, #4]
+ 8003c50:	f7ff ffe4 	bl	8003c1c <_ZN4Uart5printEPKc>
+        putChar('\r');
+ 8003c54:	200d      	movs	r0, #13
+ 8003c56:	f7ff ffc5 	bl	8003be4 <_ZN4Uart7putCharEc>
+        putChar('\n');
+ 8003c5a:	200a      	movs	r0, #10
+ 8003c5c:	f7ff ffc2 	bl	8003be4 <_ZN4Uart7putCharEc>
+    }
+ 8003c60:	bf00      	nop
+ 8003c62:	3708      	adds	r7, #8
+ 8003c64:	46bd      	mov	sp, r7
+ 8003c66:	bd80      	pop	{r7, pc}
+
+08003c68 <_ZN4Uart8printU32Em>:
+
+    // printU32() — print an unsigned integer without needing printf
+    static void printU32(u32 val)
+ 8003c68:	b580      	push	{r7, lr}
+ 8003c6a:	b086      	sub	sp, #24
+ 8003c6c:	af00      	add	r7, sp, #0
+ 8003c6e:	6078      	str	r0, [r7, #4]
+    {
+        if (val == 0) { putChar('0'); return; }
+ 8003c70:	687b      	ldr	r3, [r7, #4]
+ 8003c72:	2b00      	cmp	r3, #0
+ 8003c74:	d103      	bne.n	8003c7e <_ZN4Uart8printU32Em+0x16>
+ 8003c76:	2030      	movs	r0, #48	@ 0x30
+ 8003c78:	f7ff ffb4 	bl	8003be4 <_ZN4Uart7putCharEc>
+ 8003c7c:	e02e      	b.n	8003cdc <_ZN4Uart8printU32Em+0x74>
+        char buf[11];
+        int  i = 0;
+ 8003c7e:	2300      	movs	r3, #0
+ 8003c80:	617b      	str	r3, [r7, #20]
+        while (val > 0) { buf[i++] = '0' + (val % 10); val /= 10; }
+ 8003c82:	e019      	b.n	8003cb8 <_ZN4Uart8printU32Em+0x50>
+ 8003c84:	6879      	ldr	r1, [r7, #4]
+ 8003c86:	4b17      	ldr	r3, [pc, #92]	@ (8003ce4 <_ZN4Uart8printU32Em+0x7c>)
+ 8003c88:	fba3 2301 	umull	r2, r3, r3, r1
+ 8003c8c:	08da      	lsrs	r2, r3, #3
+ 8003c8e:	4613      	mov	r3, r2
+ 8003c90:	009b      	lsls	r3, r3, #2
+ 8003c92:	4413      	add	r3, r2
+ 8003c94:	005b      	lsls	r3, r3, #1
+ 8003c96:	1aca      	subs	r2, r1, r3
+ 8003c98:	b2d2      	uxtb	r2, r2
+ 8003c9a:	697b      	ldr	r3, [r7, #20]
+ 8003c9c:	1c59      	adds	r1, r3, #1
+ 8003c9e:	6179      	str	r1, [r7, #20]
+ 8003ca0:	3230      	adds	r2, #48	@ 0x30
+ 8003ca2:	b2d2      	uxtb	r2, r2
+ 8003ca4:	3318      	adds	r3, #24
+ 8003ca6:	443b      	add	r3, r7
+ 8003ca8:	f803 2c10 	strb.w	r2, [r3, #-16]
+ 8003cac:	687b      	ldr	r3, [r7, #4]
+ 8003cae:	4a0d      	ldr	r2, [pc, #52]	@ (8003ce4 <_ZN4Uart8printU32Em+0x7c>)
+ 8003cb0:	fba2 2303 	umull	r2, r3, r2, r3
+ 8003cb4:	08db      	lsrs	r3, r3, #3
+ 8003cb6:	607b      	str	r3, [r7, #4]
+ 8003cb8:	687b      	ldr	r3, [r7, #4]
+ 8003cba:	2b00      	cmp	r3, #0
+ 8003cbc:	d1e2      	bne.n	8003c84 <_ZN4Uart8printU32Em+0x1c>
+        while (i > 0)   { putChar(buf[--i]); }
+ 8003cbe:	e00a      	b.n	8003cd6 <_ZN4Uart8printU32Em+0x6e>
+ 8003cc0:	697b      	ldr	r3, [r7, #20]
+ 8003cc2:	3b01      	subs	r3, #1
+ 8003cc4:	617b      	str	r3, [r7, #20]
+ 8003cc6:	f107 0208 	add.w	r2, r7, #8
+ 8003cca:	697b      	ldr	r3, [r7, #20]
+ 8003ccc:	4413      	add	r3, r2
+ 8003cce:	781b      	ldrb	r3, [r3, #0]
+ 8003cd0:	4618      	mov	r0, r3
+ 8003cd2:	f7ff ff87 	bl	8003be4 <_ZN4Uart7putCharEc>
+ 8003cd6:	697b      	ldr	r3, [r7, #20]
+ 8003cd8:	2b00      	cmp	r3, #0
+ 8003cda:	dcf1      	bgt.n	8003cc0 <_ZN4Uart8printU32Em+0x58>
+    }
+ 8003cdc:	3718      	adds	r7, #24
+ 8003cde:	46bd      	mov	sp, r7
+ 8003ce0:	bd80      	pop	{r7, pc}
+ 8003ce2:	bf00      	nop
+ 8003ce4:	cccccccd 	.word	0xcccccccd
+
+08003ce8 <_ZNK5Dht227Reading12temperatureCEv>:
     struct Reading {
         bool  valid;       // false if timeout or checksum fail
         i16   rawTemp;     // signed, ×10 (e.g. 235 = 23.5 °C)
         u16   rawHumidity; // unsigned, ×10 (e.g. 582 = 58.2 %RH)
 
         float temperatureC() const { return rawTemp    / 10.0f; }
- 8003b68:	b480      	push	{r7}
- 8003b6a:	b083      	sub	sp, #12
- 8003b6c:	af00      	add	r7, sp, #0
- 8003b6e:	6078      	str	r0, [r7, #4]
- 8003b70:	687b      	ldr	r3, [r7, #4]
- 8003b72:	f9b3 3002 	ldrsh.w	r3, [r3, #2]
- 8003b76:	ee07 3a90 	vmov	s15, r3
- 8003b7a:	eef8 7ae7 	vcvt.f32.s32	s15, s15
- 8003b7e:	eeb2 7a04 	vmov.f32	s14, #36	@ 0x41200000  10.0
- 8003b82:	eec7 6a87 	vdiv.f32	s13, s15, s14
- 8003b86:	eef0 7a66 	vmov.f32	s15, s13
- 8003b8a:	eeb0 0a67 	vmov.f32	s0, s15
- 8003b8e:	370c      	adds	r7, #12
- 8003b90:	46bd      	mov	sp, r7
- 8003b92:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8003b96:	4770      	bx	lr
+ 8003ce8:	b480      	push	{r7}
+ 8003cea:	b083      	sub	sp, #12
+ 8003cec:	af00      	add	r7, sp, #0
+ 8003cee:	6078      	str	r0, [r7, #4]
+ 8003cf0:	687b      	ldr	r3, [r7, #4]
+ 8003cf2:	f9b3 3002 	ldrsh.w	r3, [r3, #2]
+ 8003cf6:	ee07 3a90 	vmov	s15, r3
+ 8003cfa:	eef8 7ae7 	vcvt.f32.s32	s15, s15
+ 8003cfe:	eeb2 7a04 	vmov.f32	s14, #36	@ 0x41200000  10.0
+ 8003d02:	eec7 6a87 	vdiv.f32	s13, s15, s14
+ 8003d06:	eef0 7a66 	vmov.f32	s15, s13
+ 8003d0a:	eeb0 0a67 	vmov.f32	s0, s15
+ 8003d0e:	370c      	adds	r7, #12
+ 8003d10:	46bd      	mov	sp, r7
+ 8003d12:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8003d16:	4770      	bx	lr
 
-08003b98 <_ZNK5Dht227Reading8humidityEv>:
+08003d18 <_ZNK5Dht227Reading8humidityEv>:
         float humidity()     const { return rawHumidity / 10.0f; }
- 8003b98:	b480      	push	{r7}
- 8003b9a:	b083      	sub	sp, #12
- 8003b9c:	af00      	add	r7, sp, #0
- 8003b9e:	6078      	str	r0, [r7, #4]
- 8003ba0:	687b      	ldr	r3, [r7, #4]
- 8003ba2:	889b      	ldrh	r3, [r3, #4]
- 8003ba4:	ee07 3a90 	vmov	s15, r3
- 8003ba8:	eef8 7ae7 	vcvt.f32.s32	s15, s15
- 8003bac:	eeb2 7a04 	vmov.f32	s14, #36	@ 0x41200000  10.0
- 8003bb0:	eec7 6a87 	vdiv.f32	s13, s15, s14
- 8003bb4:	eef0 7a66 	vmov.f32	s15, s13
- 8003bb8:	eeb0 0a67 	vmov.f32	s0, s15
- 8003bbc:	370c      	adds	r7, #12
- 8003bbe:	46bd      	mov	sp, r7
- 8003bc0:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8003bc4:	4770      	bx	lr
+ 8003d18:	b480      	push	{r7}
+ 8003d1a:	b083      	sub	sp, #12
+ 8003d1c:	af00      	add	r7, sp, #0
+ 8003d1e:	6078      	str	r0, [r7, #4]
+ 8003d20:	687b      	ldr	r3, [r7, #4]
+ 8003d22:	889b      	ldrh	r3, [r3, #4]
+ 8003d24:	ee07 3a90 	vmov	s15, r3
+ 8003d28:	eef8 7ae7 	vcvt.f32.s32	s15, s15
+ 8003d2c:	eeb2 7a04 	vmov.f32	s14, #36	@ 0x41200000  10.0
+ 8003d30:	eec7 6a87 	vdiv.f32	s13, s15, s14
+ 8003d34:	eef0 7a66 	vmov.f32	s15, s13
+ 8003d38:	eeb0 0a67 	vmov.f32	s0, s15
+ 8003d3c:	370c      	adds	r7, #12
+ 8003d3e:	46bd      	mov	sp, r7
+ 8003d40:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8003d44:	4770      	bx	lr
 
-08003bc6 <_ZN5Dht22C1E3Pin>:
+08003d46 <_ZN5Dht22C1E3Pin>:
     };
 
     explicit Dht22(Pin pin)
- 8003bc6:	b490      	push	{r4, r7}
- 8003bc8:	b084      	sub	sp, #16
- 8003bca:	af00      	add	r7, sp, #0
- 8003bcc:	60f8      	str	r0, [r7, #12]
- 8003bce:	4638      	mov	r0, r7
- 8003bd0:	e880 000e 	stmia.w	r0, {r1, r2, r3}
+ 8003d46:	b490      	push	{r4, r7}
+ 8003d48:	b084      	sub	sp, #16
+ 8003d4a:	af00      	add	r7, sp, #0
+ 8003d4c:	60f8      	str	r0, [r7, #12]
+ 8003d4e:	4638      	mov	r0, r7
+ 8003d50:	e880 000e 	stmia.w	r0, {r1, r2, r3}
         : pin(pin) {}
- 8003bd4:	68fb      	ldr	r3, [r7, #12]
- 8003bd6:	461c      	mov	r4, r3
- 8003bd8:	463b      	mov	r3, r7
- 8003bda:	e893 0007 	ldmia.w	r3, {r0, r1, r2}
- 8003bde:	e884 0007 	stmia.w	r4, {r0, r1, r2}
- 8003be2:	68fb      	ldr	r3, [r7, #12]
- 8003be4:	4618      	mov	r0, r3
- 8003be6:	3710      	adds	r7, #16
- 8003be8:	46bd      	mov	sp, r7
- 8003bea:	bc90      	pop	{r4, r7}
- 8003bec:	4770      	bx	lr
+ 8003d54:	68fb      	ldr	r3, [r7, #12]
+ 8003d56:	461c      	mov	r4, r3
+ 8003d58:	463b      	mov	r3, r7
+ 8003d5a:	e893 0007 	ldmia.w	r3, {r0, r1, r2}
+ 8003d5e:	e884 0007 	stmia.w	r4, {r0, r1, r2}
+ 8003d62:	68fb      	ldr	r3, [r7, #12]
+ 8003d64:	4618      	mov	r0, r3
+ 8003d66:	3710      	adds	r7, #16
+ 8003d68:	46bd      	mov	sp, r7
+ 8003d6a:	bc90      	pop	{r4, r7}
+ 8003d6c:	4770      	bx	lr
 	...
 
-08003bf0 <_ZN5Dht224initEv>:
+08003d70 <_ZN5Dht224initEv>:
 
     void init()
- 8003bf0:	b580      	push	{r7, lr}
- 8003bf2:	b082      	sub	sp, #8
- 8003bf4:	af00      	add	r7, sp, #0
- 8003bf6:	6078      	str	r0, [r7, #4]
+ 8003d70:	b580      	push	{r7, lr}
+ 8003d72:	b082      	sub	sp, #8
+ 8003d74:	af00      	add	r7, sp, #0
+ 8003d76:	6078      	str	r0, [r7, #4]
     {
         rcc.enableAhb1(pin.rccMask);
- 8003bf8:	687b      	ldr	r3, [r7, #4]
- 8003bfa:	689b      	ldr	r3, [r3, #8]
- 8003bfc:	4619      	mov	r1, r3
- 8003bfe:	480d      	ldr	r0, [pc, #52]	@ (8003c34 <_ZN5Dht224initEv+0x44>)
- 8003c00:	f7ff fba2 	bl	8003348 <_ZN3Rcc10enableAhb1E11RCC_AHB1ENR>
+ 8003d78:	687b      	ldr	r3, [r7, #4]
+ 8003d7a:	689b      	ldr	r3, [r3, #8]
+ 8003d7c:	4619      	mov	r1, r3
+ 8003d7e:	480d      	ldr	r0, [pc, #52]	@ (8003db4 <_ZN5Dht224initEv+0x44>)
+ 8003d80:	f7ff fae2 	bl	8003348 <_ZN3Rcc10enableAhb1E11RCC_AHB1ENR>
         setHigh();  // idle state — line pulled high by external resistor
- 8003c04:	6878      	ldr	r0, [r7, #4]
- 8003c06:	f000 f90d 	bl	8003e24 <_ZN5Dht227setHighEv>
+ 8003d84:	6878      	ldr	r0, [r7, #4]
+ 8003d86:	f000 f90d 	bl	8003fa4 <_ZN5Dht227setHighEv>
         pin.gpio->setMode(pin.pin, Mode::Output);
- 8003c0a:	687b      	ldr	r3, [r7, #4]
- 8003c0c:	6818      	ldr	r0, [r3, #0]
- 8003c0e:	687b      	ldr	r3, [r7, #4]
- 8003c10:	791b      	ldrb	r3, [r3, #4]
- 8003c12:	2201      	movs	r2, #1
- 8003c14:	4619      	mov	r1, r3
- 8003c16:	f7ff fbce 	bl	80033b6 <_ZN4Gpio7setModeEh4Mode>
+ 8003d8a:	687b      	ldr	r3, [r7, #4]
+ 8003d8c:	6818      	ldr	r0, [r3, #0]
+ 8003d8e:	687b      	ldr	r3, [r7, #4]
+ 8003d90:	791b      	ldrb	r3, [r3, #4]
+ 8003d92:	2201      	movs	r2, #1
+ 8003d94:	4619      	mov	r1, r3
+ 8003d96:	f7ff fb0e 	bl	80033b6 <_ZN4Gpio7setModeEh4Mode>
         pin.gpio->setSpeed(pin.pin, Speed::Fast);
- 8003c1a:	687b      	ldr	r3, [r7, #4]
- 8003c1c:	6818      	ldr	r0, [r3, #0]
- 8003c1e:	687b      	ldr	r3, [r7, #4]
- 8003c20:	791b      	ldrb	r3, [r3, #4]
- 8003c22:	2203      	movs	r2, #3
- 8003c24:	4619      	mov	r1, r3
- 8003c26:	f7ff fc0e 	bl	8003446 <_ZN4Gpio8setSpeedEh5Speed>
+ 8003d9a:	687b      	ldr	r3, [r7, #4]
+ 8003d9c:	6818      	ldr	r0, [r3, #0]
+ 8003d9e:	687b      	ldr	r3, [r7, #4]
+ 8003da0:	791b      	ldrb	r3, [r3, #4]
+ 8003da2:	2203      	movs	r2, #3
+ 8003da4:	4619      	mov	r1, r3
+ 8003da6:	f7ff fb4e 	bl	8003446 <_ZN4Gpio8setSpeedEh5Speed>
     }
- 8003c2a:	bf00      	nop
- 8003c2c:	3708      	adds	r7, #8
- 8003c2e:	46bd      	mov	sp, r7
- 8003c30:	bd80      	pop	{r7, pc}
- 8003c32:	bf00      	nop
- 8003c34:	200000c4 	.word	0x200000c4
+ 8003daa:	bf00      	nop
+ 8003dac:	3708      	adds	r7, #8
+ 8003dae:	46bd      	mov	sp, r7
+ 8003db0:	bd80      	pop	{r7, pc}
+ 8003db2:	bf00      	nop
+ 8003db4:	200000c4 	.word	0x200000c4
 
-08003c38 <_ZN5Dht224readEv>:
+08003db8 <_ZN5Dht224readEv>:
 
     // Blocks for approximately 4–5 ms total.
     // Must not be called more often than once every 2 seconds (sensor limit).
     Reading read()
- 8003c38:	b580      	push	{r7, lr}
- 8003c3a:	b088      	sub	sp, #32
- 8003c3c:	af00      	add	r7, sp, #0
- 8003c3e:	6078      	str	r0, [r7, #4]
- 8003c40:	6039      	str	r1, [r7, #0]
+ 8003db8:	b580      	push	{r7, lr}
+ 8003dba:	b088      	sub	sp, #32
+ 8003dbc:	af00      	add	r7, sp, #0
+ 8003dbe:	6078      	str	r0, [r7, #4]
+ 8003dc0:	6039      	str	r1, [r7, #0]
     {
         Reading result{false, 0, 0};
- 8003c42:	687b      	ldr	r3, [r7, #4]
- 8003c44:	2200      	movs	r2, #0
- 8003c46:	701a      	strb	r2, [r3, #0]
- 8003c48:	687b      	ldr	r3, [r7, #4]
- 8003c4a:	2200      	movs	r2, #0
- 8003c4c:	805a      	strh	r2, [r3, #2]
- 8003c4e:	687b      	ldr	r3, [r7, #4]
- 8003c50:	2200      	movs	r2, #0
- 8003c52:	809a      	strh	r2, [r3, #4]
+ 8003dc2:	687b      	ldr	r3, [r7, #4]
+ 8003dc4:	2200      	movs	r2, #0
+ 8003dc6:	701a      	strb	r2, [r3, #0]
+ 8003dc8:	687b      	ldr	r3, [r7, #4]
+ 8003dca:	2200      	movs	r2, #0
+ 8003dcc:	805a      	strh	r2, [r3, #2]
+ 8003dce:	687b      	ldr	r3, [r7, #4]
+ 8003dd0:	2200      	movs	r2, #0
+ 8003dd2:	809a      	strh	r2, [r3, #4]
         u8 data[5] = {0};
- 8003c54:	f107 030c 	add.w	r3, r7, #12
- 8003c58:	2200      	movs	r2, #0
- 8003c5a:	601a      	str	r2, [r3, #0]
- 8003c5c:	711a      	strb	r2, [r3, #4]
+ 8003dd4:	f107 030c 	add.w	r3, r7, #12
+ 8003dd8:	2200      	movs	r2, #0
+ 8003dda:	601a      	str	r2, [r3, #0]
+ 8003ddc:	711a      	strb	r2, [r3, #4]
 
         // Step 1: MCU start signal — pull low >1 ms
         pin.gpio->setMode(pin.pin, Mode::Output);
- 8003c5e:	683b      	ldr	r3, [r7, #0]
- 8003c60:	6818      	ldr	r0, [r3, #0]
- 8003c62:	683b      	ldr	r3, [r7, #0]
- 8003c64:	791b      	ldrb	r3, [r3, #4]
- 8003c66:	2201      	movs	r2, #1
- 8003c68:	4619      	mov	r1, r3
- 8003c6a:	f7ff fba4 	bl	80033b6 <_ZN4Gpio7setModeEh4Mode>
+ 8003dde:	683b      	ldr	r3, [r7, #0]
+ 8003de0:	6818      	ldr	r0, [r3, #0]
+ 8003de2:	683b      	ldr	r3, [r7, #0]
+ 8003de4:	791b      	ldrb	r3, [r3, #4]
+ 8003de6:	2201      	movs	r2, #1
+ 8003de8:	4619      	mov	r1, r3
+ 8003dea:	f7ff fae4 	bl	80033b6 <_ZN4Gpio7setModeEh4Mode>
         setLow();
- 8003c6e:	6838      	ldr	r0, [r7, #0]
- 8003c70:	f000 f8c1 	bl	8003df6 <_ZN5Dht226setLowEv>
+ 8003dee:	6838      	ldr	r0, [r7, #0]
+ 8003df0:	f000 f8c1 	bl	8003f76 <_ZN5Dht226setLowEv>
         Tick::delayMs(2);   // 2 ms, safely above the 1 ms minimum
- 8003c74:	2002      	movs	r0, #2
- 8003c76:	f7ff ff59 	bl	8003b2c <_ZN4Tick7delayMsEm>
+ 8003df4:	2002      	movs	r0, #2
+ 8003df6:	f7ff fe99 	bl	8003b2c <_ZN4Tick7delayMsEm>
 
         // Step 2: Release line, switch to input
         setHigh();
- 8003c7a:	6838      	ldr	r0, [r7, #0]
- 8003c7c:	f000 f8d2 	bl	8003e24 <_ZN5Dht227setHighEv>
+ 8003dfa:	6838      	ldr	r0, [r7, #0]
+ 8003dfc:	f000 f8d2 	bl	8003fa4 <_ZN5Dht227setHighEv>
         pin.gpio->setMode(pin.pin, Mode::Input);
- 8003c80:	683b      	ldr	r3, [r7, #0]
- 8003c82:	6818      	ldr	r0, [r3, #0]
- 8003c84:	683b      	ldr	r3, [r7, #0]
- 8003c86:	791b      	ldrb	r3, [r3, #4]
- 8003c88:	2200      	movs	r2, #0
- 8003c8a:	4619      	mov	r1, r3
- 8003c8c:	f7ff fb93 	bl	80033b6 <_ZN4Gpio7setModeEh4Mode>
+ 8003e00:	683b      	ldr	r3, [r7, #0]
+ 8003e02:	6818      	ldr	r0, [r3, #0]
+ 8003e04:	683b      	ldr	r3, [r7, #0]
+ 8003e06:	791b      	ldrb	r3, [r3, #4]
+ 8003e08:	2200      	movs	r2, #0
+ 8003e0a:	4619      	mov	r1, r3
+ 8003e0c:	f7ff fad3 	bl	80033b6 <_ZN4Gpio7setModeEh4Mode>
         pin.gpio->setPull(pin.pin, Pull::None);  // rely on external pull-up
- 8003c90:	683b      	ldr	r3, [r7, #0]
- 8003c92:	6818      	ldr	r0, [r3, #0]
- 8003c94:	683b      	ldr	r3, [r7, #0]
- 8003c96:	791b      	ldrb	r3, [r3, #4]
- 8003c98:	2200      	movs	r2, #0
- 8003c9a:	4619      	mov	r1, r3
- 8003c9c:	f7ff fbaf 	bl	80033fe <_ZN4Gpio7setPullEh4Pull>
+ 8003e10:	683b      	ldr	r3, [r7, #0]
+ 8003e12:	6818      	ldr	r0, [r3, #0]
+ 8003e14:	683b      	ldr	r3, [r7, #0]
+ 8003e16:	791b      	ldrb	r3, [r3, #4]
+ 8003e18:	2200      	movs	r2, #0
+ 8003e1a:	4619      	mov	r1, r3
+ 8003e1c:	f7ff faef 	bl	80033fe <_ZN4Gpio7setPullEh4Pull>
         Tick::delayUs(40);  // wait for sensor to take over
- 8003ca0:	2028      	movs	r0, #40	@ 0x28
- 8003ca2:	f7ff ff17 	bl	8003ad4 <_ZN4Tick7delayUsEm>
+ 8003e20:	2028      	movs	r0, #40	@ 0x28
+ 8003e22:	f7ff fe57 	bl	8003ad4 <_ZN4Tick7delayUsEm>
 
         // Step 3: Read sensor ACK (80 µs low, 80 µs high)
         if (!waitForLevel(0, 100)) return result;  // expect LOW ACK
- 8003ca6:	2264      	movs	r2, #100	@ 0x64
- 8003ca8:	2100      	movs	r1, #0
- 8003caa:	6838      	ldr	r0, [r7, #0]
- 8003cac:	f000 f8e6 	bl	8003e7c <_ZN5Dht2212waitForLevelEhm>
- 8003cb0:	4603      	mov	r3, r0
- 8003cb2:	f083 0301 	eor.w	r3, r3, #1
- 8003cb6:	b2db      	uxtb	r3, r3
- 8003cb8:	2b00      	cmp	r3, #0
- 8003cba:	f040 808f 	bne.w	8003ddc <_ZN5Dht224readEv+0x1a4>
+ 8003e26:	2264      	movs	r2, #100	@ 0x64
+ 8003e28:	2100      	movs	r1, #0
+ 8003e2a:	6838      	ldr	r0, [r7, #0]
+ 8003e2c:	f000 f8e6 	bl	8003ffc <_ZN5Dht2212waitForLevelEhm>
+ 8003e30:	4603      	mov	r3, r0
+ 8003e32:	f083 0301 	eor.w	r3, r3, #1
+ 8003e36:	b2db      	uxtb	r3, r3
+ 8003e38:	2b00      	cmp	r3, #0
+ 8003e3a:	f040 808f 	bne.w	8003f5c <_ZN5Dht224readEv+0x1a4>
         if (!waitForLevel(1, 100)) return result;  // expect HIGH ACK
- 8003cbe:	2264      	movs	r2, #100	@ 0x64
- 8003cc0:	2101      	movs	r1, #1
- 8003cc2:	6838      	ldr	r0, [r7, #0]
- 8003cc4:	f000 f8da 	bl	8003e7c <_ZN5Dht2212waitForLevelEhm>
- 8003cc8:	4603      	mov	r3, r0
- 8003cca:	f083 0301 	eor.w	r3, r3, #1
- 8003cce:	b2db      	uxtb	r3, r3
- 8003cd0:	2b00      	cmp	r3, #0
- 8003cd2:	f040 8085 	bne.w	8003de0 <_ZN5Dht224readEv+0x1a8>
+ 8003e3e:	2264      	movs	r2, #100	@ 0x64
+ 8003e40:	2101      	movs	r1, #1
+ 8003e42:	6838      	ldr	r0, [r7, #0]
+ 8003e44:	f000 f8da 	bl	8003ffc <_ZN5Dht2212waitForLevelEhm>
+ 8003e48:	4603      	mov	r3, r0
+ 8003e4a:	f083 0301 	eor.w	r3, r3, #1
+ 8003e4e:	b2db      	uxtb	r3, r3
+ 8003e50:	2b00      	cmp	r3, #0
+ 8003e52:	f040 8085 	bne.w	8003f60 <_ZN5Dht224readEv+0x1a8>
 
         // Step 4: Read 40 data bits
         for (int i = 0; i < 40; i++) {
- 8003cd6:	2300      	movs	r3, #0
- 8003cd8:	61fb      	str	r3, [r7, #28]
- 8003cda:	e039      	b.n	8003d50 <_ZN5Dht224readEv+0x118>
+ 8003e56:	2300      	movs	r3, #0
+ 8003e58:	61fb      	str	r3, [r7, #28]
+ 8003e5a:	e039      	b.n	8003ed0 <_ZN5Dht224readEv+0x118>
             // Each bit starts with a ~50 µs LOW preamble
             if (!waitForLevel(0, 100)) return result;
- 8003cdc:	2264      	movs	r2, #100	@ 0x64
- 8003cde:	2100      	movs	r1, #0
- 8003ce0:	6838      	ldr	r0, [r7, #0]
- 8003ce2:	f000 f8cb 	bl	8003e7c <_ZN5Dht2212waitForLevelEhm>
- 8003ce6:	4603      	mov	r3, r0
- 8003ce8:	f083 0301 	eor.w	r3, r3, #1
- 8003cec:	b2db      	uxtb	r3, r3
- 8003cee:	2b00      	cmp	r3, #0
- 8003cf0:	d178      	bne.n	8003de4 <_ZN5Dht224readEv+0x1ac>
+ 8003e5c:	2264      	movs	r2, #100	@ 0x64
+ 8003e5e:	2100      	movs	r1, #0
+ 8003e60:	6838      	ldr	r0, [r7, #0]
+ 8003e62:	f000 f8cb 	bl	8003ffc <_ZN5Dht2212waitForLevelEhm>
+ 8003e66:	4603      	mov	r3, r0
+ 8003e68:	f083 0301 	eor.w	r3, r3, #1
+ 8003e6c:	b2db      	uxtb	r3, r3
+ 8003e6e:	2b00      	cmp	r3, #0
+ 8003e70:	d178      	bne.n	8003f64 <_ZN5Dht224readEv+0x1ac>
 
             // Time how long the HIGH phase lasts — determines 0 or 1
             u32 highUs = measureHighUs(100);
- 8003cf2:	2164      	movs	r1, #100	@ 0x64
- 8003cf4:	6838      	ldr	r0, [r7, #0]
- 8003cf6:	f000 f8fd 	bl	8003ef4 <_ZN5Dht2213measureHighUsEm>
- 8003cfa:	6178      	str	r0, [r7, #20]
+ 8003e72:	2164      	movs	r1, #100	@ 0x64
+ 8003e74:	6838      	ldr	r0, [r7, #0]
+ 8003e76:	f000 f8fd 	bl	8004074 <_ZN5Dht2213measureHighUsEm>
+ 8003e7a:	6178      	str	r0, [r7, #20]
             if (highUs == 0) return result;  // timeout
- 8003cfc:	697b      	ldr	r3, [r7, #20]
- 8003cfe:	2b00      	cmp	r3, #0
- 8003d00:	d072      	beq.n	8003de8 <_ZN5Dht224readEv+0x1b0>
+ 8003e7c:	697b      	ldr	r3, [r7, #20]
+ 8003e7e:	2b00      	cmp	r3, #0
+ 8003e80:	d072      	beq.n	8003f68 <_ZN5Dht224readEv+0x1b0>
 
             data[i / 8] <<= 1;
- 8003d02:	69fb      	ldr	r3, [r7, #28]
- 8003d04:	2b00      	cmp	r3, #0
- 8003d06:	da00      	bge.n	8003d0a <_ZN5Dht224readEv+0xd2>
- 8003d08:	3307      	adds	r3, #7
- 8003d0a:	10db      	asrs	r3, r3, #3
- 8003d0c:	f103 0220 	add.w	r2, r3, #32
- 8003d10:	443a      	add	r2, r7
- 8003d12:	f812 2c14 	ldrb.w	r2, [r2, #-20]
- 8003d16:	0052      	lsls	r2, r2, #1
- 8003d18:	b2d2      	uxtb	r2, r2
- 8003d1a:	3320      	adds	r3, #32
- 8003d1c:	443b      	add	r3, r7
- 8003d1e:	f803 2c14 	strb.w	r2, [r3, #-20]
+ 8003e82:	69fb      	ldr	r3, [r7, #28]
+ 8003e84:	2b00      	cmp	r3, #0
+ 8003e86:	da00      	bge.n	8003e8a <_ZN5Dht224readEv+0xd2>
+ 8003e88:	3307      	adds	r3, #7
+ 8003e8a:	10db      	asrs	r3, r3, #3
+ 8003e8c:	f103 0220 	add.w	r2, r3, #32
+ 8003e90:	443a      	add	r2, r7
+ 8003e92:	f812 2c14 	ldrb.w	r2, [r2, #-20]
+ 8003e96:	0052      	lsls	r2, r2, #1
+ 8003e98:	b2d2      	uxtb	r2, r2
+ 8003e9a:	3320      	adds	r3, #32
+ 8003e9c:	443b      	add	r3, r7
+ 8003e9e:	f803 2c14 	strb.w	r2, [r3, #-20]
             if (highUs > 40) {
- 8003d22:	697b      	ldr	r3, [r7, #20]
- 8003d24:	2b28      	cmp	r3, #40	@ 0x28
- 8003d26:	d910      	bls.n	8003d4a <_ZN5Dht224readEv+0x112>
+ 8003ea2:	697b      	ldr	r3, [r7, #20]
+ 8003ea4:	2b28      	cmp	r3, #40	@ 0x28
+ 8003ea6:	d910      	bls.n	8003eca <_ZN5Dht224readEv+0x112>
                 data[i / 8] |= 1;  // HIGH > 40 µs -> bit 1
- 8003d28:	69fb      	ldr	r3, [r7, #28]
- 8003d2a:	2b00      	cmp	r3, #0
- 8003d2c:	da00      	bge.n	8003d30 <_ZN5Dht224readEv+0xf8>
- 8003d2e:	3307      	adds	r3, #7
- 8003d30:	10db      	asrs	r3, r3, #3
- 8003d32:	f103 0220 	add.w	r2, r3, #32
- 8003d36:	443a      	add	r2, r7
- 8003d38:	f812 2c14 	ldrb.w	r2, [r2, #-20]
- 8003d3c:	f042 0201 	orr.w	r2, r2, #1
- 8003d40:	b2d2      	uxtb	r2, r2
- 8003d42:	3320      	adds	r3, #32
- 8003d44:	443b      	add	r3, r7
- 8003d46:	f803 2c14 	strb.w	r2, [r3, #-20]
+ 8003ea8:	69fb      	ldr	r3, [r7, #28]
+ 8003eaa:	2b00      	cmp	r3, #0
+ 8003eac:	da00      	bge.n	8003eb0 <_ZN5Dht224readEv+0xf8>
+ 8003eae:	3307      	adds	r3, #7
+ 8003eb0:	10db      	asrs	r3, r3, #3
+ 8003eb2:	f103 0220 	add.w	r2, r3, #32
+ 8003eb6:	443a      	add	r2, r7
+ 8003eb8:	f812 2c14 	ldrb.w	r2, [r2, #-20]
+ 8003ebc:	f042 0201 	orr.w	r2, r2, #1
+ 8003ec0:	b2d2      	uxtb	r2, r2
+ 8003ec2:	3320      	adds	r3, #32
+ 8003ec4:	443b      	add	r3, r7
+ 8003ec6:	f803 2c14 	strb.w	r2, [r3, #-20]
         for (int i = 0; i < 40; i++) {
- 8003d4a:	69fb      	ldr	r3, [r7, #28]
- 8003d4c:	3301      	adds	r3, #1
- 8003d4e:	61fb      	str	r3, [r7, #28]
- 8003d50:	69fb      	ldr	r3, [r7, #28]
- 8003d52:	2b27      	cmp	r3, #39	@ 0x27
- 8003d54:	ddc2      	ble.n	8003cdc <_ZN5Dht224readEv+0xa4>
+ 8003eca:	69fb      	ldr	r3, [r7, #28]
+ 8003ecc:	3301      	adds	r3, #1
+ 8003ece:	61fb      	str	r3, [r7, #28]
+ 8003ed0:	69fb      	ldr	r3, [r7, #28]
+ 8003ed2:	2b27      	cmp	r3, #39	@ 0x27
+ 8003ed4:	ddc2      	ble.n	8003e5c <_ZN5Dht224readEv+0xa4>
             }
             // HIGH <= 40 µs -> bit 0 (already 0 from shift)
         }
 
         // Step 5: Verify checksum
         u8 checksum = data[0] + data[1] + data[2] + data[3];
- 8003d56:	7b3a      	ldrb	r2, [r7, #12]
- 8003d58:	7b7b      	ldrb	r3, [r7, #13]
- 8003d5a:	4413      	add	r3, r2
- 8003d5c:	b2da      	uxtb	r2, r3
- 8003d5e:	7bbb      	ldrb	r3, [r7, #14]
- 8003d60:	4413      	add	r3, r2
- 8003d62:	b2da      	uxtb	r2, r3
- 8003d64:	7bfb      	ldrb	r3, [r7, #15]
- 8003d66:	4413      	add	r3, r2
- 8003d68:	76fb      	strb	r3, [r7, #27]
+ 8003ed6:	7b3a      	ldrb	r2, [r7, #12]
+ 8003ed8:	7b7b      	ldrb	r3, [r7, #13]
+ 8003eda:	4413      	add	r3, r2
+ 8003edc:	b2da      	uxtb	r2, r3
+ 8003ede:	7bbb      	ldrb	r3, [r7, #14]
+ 8003ee0:	4413      	add	r3, r2
+ 8003ee2:	b2da      	uxtb	r2, r3
+ 8003ee4:	7bfb      	ldrb	r3, [r7, #15]
+ 8003ee6:	4413      	add	r3, r2
+ 8003ee8:	76fb      	strb	r3, [r7, #27]
         if (checksum != data[4]) return result;
- 8003d6a:	7c3b      	ldrb	r3, [r7, #16]
- 8003d6c:	7efa      	ldrb	r2, [r7, #27]
- 8003d6e:	429a      	cmp	r2, r3
- 8003d70:	d13c      	bne.n	8003dec <_ZN5Dht224readEv+0x1b4>
+ 8003eea:	7c3b      	ldrb	r3, [r7, #16]
+ 8003eec:	7efa      	ldrb	r2, [r7, #27]
+ 8003eee:	429a      	cmp	r2, r3
+ 8003ef0:	d13c      	bne.n	8003f6c <_ZN5Dht224readEv+0x1b4>
 
         // Step 6: Decode humidity and temperature
         result.rawHumidity = (static_cast<u16>(data[0]) << 8) | data[1];
- 8003d72:	7b3b      	ldrb	r3, [r7, #12]
- 8003d74:	b21b      	sxth	r3, r3
- 8003d76:	021b      	lsls	r3, r3, #8
- 8003d78:	b21a      	sxth	r2, r3
- 8003d7a:	7b7b      	ldrb	r3, [r7, #13]
- 8003d7c:	b21b      	sxth	r3, r3
- 8003d7e:	4313      	orrs	r3, r2
- 8003d80:	b21b      	sxth	r3, r3
- 8003d82:	b29a      	uxth	r2, r3
- 8003d84:	687b      	ldr	r3, [r7, #4]
- 8003d86:	809a      	strh	r2, [r3, #4]
+ 8003ef2:	7b3b      	ldrb	r3, [r7, #12]
+ 8003ef4:	b21b      	sxth	r3, r3
+ 8003ef6:	021b      	lsls	r3, r3, #8
+ 8003ef8:	b21a      	sxth	r2, r3
+ 8003efa:	7b7b      	ldrb	r3, [r7, #13]
+ 8003efc:	b21b      	sxth	r3, r3
+ 8003efe:	4313      	orrs	r3, r2
+ 8003f00:	b21b      	sxth	r3, r3
+ 8003f02:	b29a      	uxth	r2, r3
+ 8003f04:	687b      	ldr	r3, [r7, #4]
+ 8003f06:	809a      	strh	r2, [r3, #4]
 
         // Temperature: bit 15 of the 16-bit word is the sign bit
         u16 rawT = (static_cast<u16>(data[2]) << 8) | data[3];
- 8003d88:	7bbb      	ldrb	r3, [r7, #14]
- 8003d8a:	b21b      	sxth	r3, r3
- 8003d8c:	021b      	lsls	r3, r3, #8
- 8003d8e:	b21a      	sxth	r2, r3
- 8003d90:	7bfb      	ldrb	r3, [r7, #15]
- 8003d92:	b21b      	sxth	r3, r3
- 8003d94:	4313      	orrs	r3, r2
- 8003d96:	b21b      	sxth	r3, r3
- 8003d98:	833b      	strh	r3, [r7, #24]
+ 8003f08:	7bbb      	ldrb	r3, [r7, #14]
+ 8003f0a:	b21b      	sxth	r3, r3
+ 8003f0c:	021b      	lsls	r3, r3, #8
+ 8003f0e:	b21a      	sxth	r2, r3
+ 8003f10:	7bfb      	ldrb	r3, [r7, #15]
+ 8003f12:	b21b      	sxth	r3, r3
+ 8003f14:	4313      	orrs	r3, r2
+ 8003f16:	b21b      	sxth	r3, r3
+ 8003f18:	833b      	strh	r3, [r7, #24]
         if (rawT & 0x8000) {
- 8003d9a:	f9b7 3018 	ldrsh.w	r3, [r7, #24]
- 8003d9e:	2b00      	cmp	r3, #0
- 8003da0:	da09      	bge.n	8003db6 <_ZN5Dht224readEv+0x17e>
+ 8003f1a:	f9b7 3018 	ldrsh.w	r3, [r7, #24]
+ 8003f1e:	2b00      	cmp	r3, #0
+ 8003f20:	da09      	bge.n	8003f36 <_ZN5Dht224readEv+0x17e>
             result.rawTemp = -static_cast<i16>(rawT & 0x7FFF);
- 8003da2:	8b3b      	ldrh	r3, [r7, #24]
- 8003da4:	f3c3 030e 	ubfx	r3, r3, #0, #15
- 8003da8:	b29b      	uxth	r3, r3
- 8003daa:	425b      	negs	r3, r3
- 8003dac:	b29b      	uxth	r3, r3
- 8003dae:	b21a      	sxth	r2, r3
- 8003db0:	687b      	ldr	r3, [r7, #4]
- 8003db2:	805a      	strh	r2, [r3, #2]
- 8003db4:	e003      	b.n	8003dbe <_ZN5Dht224readEv+0x186>
+ 8003f22:	8b3b      	ldrh	r3, [r7, #24]
+ 8003f24:	f3c3 030e 	ubfx	r3, r3, #0, #15
+ 8003f28:	b29b      	uxth	r3, r3
+ 8003f2a:	425b      	negs	r3, r3
+ 8003f2c:	b29b      	uxth	r3, r3
+ 8003f2e:	b21a      	sxth	r2, r3
+ 8003f30:	687b      	ldr	r3, [r7, #4]
+ 8003f32:	805a      	strh	r2, [r3, #2]
+ 8003f34:	e003      	b.n	8003f3e <_ZN5Dht224readEv+0x186>
         } else {
             result.rawTemp =  static_cast<i16>(rawT);
- 8003db6:	f9b7 2018 	ldrsh.w	r2, [r7, #24]
- 8003dba:	687b      	ldr	r3, [r7, #4]
- 8003dbc:	805a      	strh	r2, [r3, #2]
+ 8003f36:	f9b7 2018 	ldrsh.w	r2, [r7, #24]
+ 8003f3a:	687b      	ldr	r3, [r7, #4]
+ 8003f3c:	805a      	strh	r2, [r3, #2]
         }
 
         // Restore pin to idle output-high for next transaction
         pin.gpio->setMode(pin.pin, Mode::Output);
- 8003dbe:	683b      	ldr	r3, [r7, #0]
- 8003dc0:	6818      	ldr	r0, [r3, #0]
- 8003dc2:	683b      	ldr	r3, [r7, #0]
- 8003dc4:	791b      	ldrb	r3, [r3, #4]
- 8003dc6:	2201      	movs	r2, #1
- 8003dc8:	4619      	mov	r1, r3
- 8003dca:	f7ff faf4 	bl	80033b6 <_ZN4Gpio7setModeEh4Mode>
+ 8003f3e:	683b      	ldr	r3, [r7, #0]
+ 8003f40:	6818      	ldr	r0, [r3, #0]
+ 8003f42:	683b      	ldr	r3, [r7, #0]
+ 8003f44:	791b      	ldrb	r3, [r3, #4]
+ 8003f46:	2201      	movs	r2, #1
+ 8003f48:	4619      	mov	r1, r3
+ 8003f4a:	f7ff fa34 	bl	80033b6 <_ZN4Gpio7setModeEh4Mode>
         setHigh();
- 8003dce:	6838      	ldr	r0, [r7, #0]
- 8003dd0:	f000 f828 	bl	8003e24 <_ZN5Dht227setHighEv>
+ 8003f4e:	6838      	ldr	r0, [r7, #0]
+ 8003f50:	f000 f828 	bl	8003fa4 <_ZN5Dht227setHighEv>
 
         result.valid = true;
- 8003dd4:	687b      	ldr	r3, [r7, #4]
- 8003dd6:	2201      	movs	r2, #1
- 8003dd8:	701a      	strb	r2, [r3, #0]
+ 8003f54:	687b      	ldr	r3, [r7, #4]
+ 8003f56:	2201      	movs	r2, #1
+ 8003f58:	701a      	strb	r2, [r3, #0]
         return result;
- 8003dda:	e008      	b.n	8003dee <_ZN5Dht224readEv+0x1b6>
+ 8003f5a:	e008      	b.n	8003f6e <_ZN5Dht224readEv+0x1b6>
         if (!waitForLevel(0, 100)) return result;  // expect LOW ACK
- 8003ddc:	bf00      	nop
- 8003dde:	e006      	b.n	8003dee <_ZN5Dht224readEv+0x1b6>
+ 8003f5c:	bf00      	nop
+ 8003f5e:	e006      	b.n	8003f6e <_ZN5Dht224readEv+0x1b6>
         if (!waitForLevel(1, 100)) return result;  // expect HIGH ACK
- 8003de0:	bf00      	nop
- 8003de2:	e004      	b.n	8003dee <_ZN5Dht224readEv+0x1b6>
+ 8003f60:	bf00      	nop
+ 8003f62:	e004      	b.n	8003f6e <_ZN5Dht224readEv+0x1b6>
             if (!waitForLevel(0, 100)) return result;
- 8003de4:	bf00      	nop
- 8003de6:	e002      	b.n	8003dee <_ZN5Dht224readEv+0x1b6>
+ 8003f64:	bf00      	nop
+ 8003f66:	e002      	b.n	8003f6e <_ZN5Dht224readEv+0x1b6>
             if (highUs == 0) return result;  // timeout
- 8003de8:	bf00      	nop
- 8003dea:	e000      	b.n	8003dee <_ZN5Dht224readEv+0x1b6>
+ 8003f68:	bf00      	nop
+ 8003f6a:	e000      	b.n	8003f6e <_ZN5Dht224readEv+0x1b6>
         if (checksum != data[4]) return result;
- 8003dec:	bf00      	nop
+ 8003f6c:	bf00      	nop
     }
- 8003dee:	6878      	ldr	r0, [r7, #4]
- 8003df0:	3720      	adds	r7, #32
- 8003df2:	46bd      	mov	sp, r7
- 8003df4:	bd80      	pop	{r7, pc}
+ 8003f6e:	6878      	ldr	r0, [r7, #4]
+ 8003f70:	3720      	adds	r7, #32
+ 8003f72:	46bd      	mov	sp, r7
+ 8003f74:	bd80      	pop	{r7, pc}
 
-08003df6 <_ZN5Dht226setLowEv>:
+08003f76 <_ZN5Dht226setLowEv>:
 
 private:
     Pin const pin;
 
     void setLow()
- 8003df6:	b580      	push	{r7, lr}
- 8003df8:	b082      	sub	sp, #8
- 8003dfa:	af00      	add	r7, sp, #0
- 8003dfc:	6078      	str	r0, [r7, #4]
+ 8003f76:	b580      	push	{r7, lr}
+ 8003f78:	b082      	sub	sp, #8
+ 8003f7a:	af00      	add	r7, sp, #0
+ 8003f7c:	6078      	str	r0, [r7, #4]
     {
         pin.gpio->getPort()->ODR &= ~(1U << pin.pin);
- 8003dfe:	687b      	ldr	r3, [r7, #4]
- 8003e00:	681b      	ldr	r3, [r3, #0]
- 8003e02:	4618      	mov	r0, r3
- 8003e04:	f7fc fbba 	bl	800057c <_ZN4Gpio7getPortEv>
- 8003e08:	4603      	mov	r3, r0
- 8003e0a:	6959      	ldr	r1, [r3, #20]
- 8003e0c:	687a      	ldr	r2, [r7, #4]
- 8003e0e:	7912      	ldrb	r2, [r2, #4]
- 8003e10:	4610      	mov	r0, r2
- 8003e12:	2201      	movs	r2, #1
- 8003e14:	4082      	lsls	r2, r0
- 8003e16:	43d2      	mvns	r2, r2
- 8003e18:	400a      	ands	r2, r1
- 8003e1a:	615a      	str	r2, [r3, #20]
+ 8003f7e:	687b      	ldr	r3, [r7, #4]
+ 8003f80:	681b      	ldr	r3, [r3, #0]
+ 8003f82:	4618      	mov	r0, r3
+ 8003f84:	f7fc fafa 	bl	800057c <_ZN4Gpio7getPortEv>
+ 8003f88:	4603      	mov	r3, r0
+ 8003f8a:	6959      	ldr	r1, [r3, #20]
+ 8003f8c:	687a      	ldr	r2, [r7, #4]
+ 8003f8e:	7912      	ldrb	r2, [r2, #4]
+ 8003f90:	4610      	mov	r0, r2
+ 8003f92:	2201      	movs	r2, #1
+ 8003f94:	4082      	lsls	r2, r0
+ 8003f96:	43d2      	mvns	r2, r2
+ 8003f98:	400a      	ands	r2, r1
+ 8003f9a:	615a      	str	r2, [r3, #20]
     }
- 8003e1c:	bf00      	nop
- 8003e1e:	3708      	adds	r7, #8
- 8003e20:	46bd      	mov	sp, r7
- 8003e22:	bd80      	pop	{r7, pc}
+ 8003f9c:	bf00      	nop
+ 8003f9e:	3708      	adds	r7, #8
+ 8003fa0:	46bd      	mov	sp, r7
+ 8003fa2:	bd80      	pop	{r7, pc}
 
-08003e24 <_ZN5Dht227setHighEv>:
+08003fa4 <_ZN5Dht227setHighEv>:
 
     void setHigh()
- 8003e24:	b580      	push	{r7, lr}
- 8003e26:	b082      	sub	sp, #8
- 8003e28:	af00      	add	r7, sp, #0
- 8003e2a:	6078      	str	r0, [r7, #4]
+ 8003fa4:	b580      	push	{r7, lr}
+ 8003fa6:	b082      	sub	sp, #8
+ 8003fa8:	af00      	add	r7, sp, #0
+ 8003faa:	6078      	str	r0, [r7, #4]
     {
         pin.gpio->getPort()->ODR |= (1U << pin.pin);
- 8003e2c:	687b      	ldr	r3, [r7, #4]
- 8003e2e:	681b      	ldr	r3, [r3, #0]
- 8003e30:	4618      	mov	r0, r3
- 8003e32:	f7fc fba3 	bl	800057c <_ZN4Gpio7getPortEv>
- 8003e36:	4603      	mov	r3, r0
- 8003e38:	6959      	ldr	r1, [r3, #20]
- 8003e3a:	687a      	ldr	r2, [r7, #4]
- 8003e3c:	7912      	ldrb	r2, [r2, #4]
- 8003e3e:	4610      	mov	r0, r2
- 8003e40:	2201      	movs	r2, #1
- 8003e42:	4082      	lsls	r2, r0
- 8003e44:	430a      	orrs	r2, r1
- 8003e46:	615a      	str	r2, [r3, #20]
+ 8003fac:	687b      	ldr	r3, [r7, #4]
+ 8003fae:	681b      	ldr	r3, [r3, #0]
+ 8003fb0:	4618      	mov	r0, r3
+ 8003fb2:	f7fc fae3 	bl	800057c <_ZN4Gpio7getPortEv>
+ 8003fb6:	4603      	mov	r3, r0
+ 8003fb8:	6959      	ldr	r1, [r3, #20]
+ 8003fba:	687a      	ldr	r2, [r7, #4]
+ 8003fbc:	7912      	ldrb	r2, [r2, #4]
+ 8003fbe:	4610      	mov	r0, r2
+ 8003fc0:	2201      	movs	r2, #1
+ 8003fc2:	4082      	lsls	r2, r0
+ 8003fc4:	430a      	orrs	r2, r1
+ 8003fc6:	615a      	str	r2, [r3, #20]
     }
- 8003e48:	bf00      	nop
- 8003e4a:	3708      	adds	r7, #8
- 8003e4c:	46bd      	mov	sp, r7
- 8003e4e:	bd80      	pop	{r7, pc}
+ 8003fc8:	bf00      	nop
+ 8003fca:	3708      	adds	r7, #8
+ 8003fcc:	46bd      	mov	sp, r7
+ 8003fce:	bd80      	pop	{r7, pc}
 
-08003e50 <_ZN5Dht227readPinEv>:
+08003fd0 <_ZN5Dht227readPinEv>:
 
     u8 readPin()
- 8003e50:	b580      	push	{r7, lr}
- 8003e52:	b082      	sub	sp, #8
- 8003e54:	af00      	add	r7, sp, #0
- 8003e56:	6078      	str	r0, [r7, #4]
+ 8003fd0:	b580      	push	{r7, lr}
+ 8003fd2:	b082      	sub	sp, #8
+ 8003fd4:	af00      	add	r7, sp, #0
+ 8003fd6:	6078      	str	r0, [r7, #4]
     {
         return (pin.gpio->getPort()->IDR >> pin.pin) & 1U;
- 8003e58:	687b      	ldr	r3, [r7, #4]
- 8003e5a:	681b      	ldr	r3, [r3, #0]
- 8003e5c:	4618      	mov	r0, r3
- 8003e5e:	f7fc fb8d 	bl	800057c <_ZN4Gpio7getPortEv>
- 8003e62:	4603      	mov	r3, r0
- 8003e64:	691b      	ldr	r3, [r3, #16]
- 8003e66:	687a      	ldr	r2, [r7, #4]
- 8003e68:	7912      	ldrb	r2, [r2, #4]
- 8003e6a:	40d3      	lsrs	r3, r2
- 8003e6c:	b2db      	uxtb	r3, r3
- 8003e6e:	f003 0301 	and.w	r3, r3, #1
- 8003e72:	b2db      	uxtb	r3, r3
+ 8003fd8:	687b      	ldr	r3, [r7, #4]
+ 8003fda:	681b      	ldr	r3, [r3, #0]
+ 8003fdc:	4618      	mov	r0, r3
+ 8003fde:	f7fc facd 	bl	800057c <_ZN4Gpio7getPortEv>
+ 8003fe2:	4603      	mov	r3, r0
+ 8003fe4:	691b      	ldr	r3, [r3, #16]
+ 8003fe6:	687a      	ldr	r2, [r7, #4]
+ 8003fe8:	7912      	ldrb	r2, [r2, #4]
+ 8003fea:	40d3      	lsrs	r3, r2
+ 8003fec:	b2db      	uxtb	r3, r3
+ 8003fee:	f003 0301 	and.w	r3, r3, #1
+ 8003ff2:	b2db      	uxtb	r3, r3
     }
- 8003e74:	4618      	mov	r0, r3
- 8003e76:	3708      	adds	r7, #8
- 8003e78:	46bd      	mov	sp, r7
- 8003e7a:	bd80      	pop	{r7, pc}
+ 8003ff4:	4618      	mov	r0, r3
+ 8003ff6:	3708      	adds	r7, #8
+ 8003ff8:	46bd      	mov	sp, r7
+ 8003ffa:	bd80      	pop	{r7, pc}
 
-08003e7c <_ZN5Dht2212waitForLevelEhm>:
+08003ffc <_ZN5Dht2212waitForLevelEhm>:
 
     bool waitForLevel(u8 level, u32 timeoutUs)
- 8003e7c:	b580      	push	{r7, lr}
- 8003e7e:	b086      	sub	sp, #24
- 8003e80:	af00      	add	r7, sp, #0
- 8003e82:	60f8      	str	r0, [r7, #12]
- 8003e84:	460b      	mov	r3, r1
- 8003e86:	607a      	str	r2, [r7, #4]
- 8003e88:	72fb      	strb	r3, [r7, #11]
+ 8003ffc:	b580      	push	{r7, lr}
+ 8003ffe:	b086      	sub	sp, #24
+ 8004000:	af00      	add	r7, sp, #0
+ 8004002:	60f8      	str	r0, [r7, #12]
+ 8004004:	460b      	mov	r3, r1
+ 8004006:	607a      	str	r2, [r7, #4]
+ 8004008:	72fb      	strb	r3, [r7, #11]
     {
         u32 start  = DWT->CYCCNT;
- 8003e8a:	4b17      	ldr	r3, [pc, #92]	@ (8003ee8 <_ZN5Dht2212waitForLevelEhm+0x6c>)
- 8003e8c:	685b      	ldr	r3, [r3, #4]
- 8003e8e:	617b      	str	r3, [r7, #20]
+ 800400a:	4b17      	ldr	r3, [pc, #92]	@ (8004068 <_ZN5Dht2212waitForLevelEhm+0x6c>)
+ 800400c:	685b      	ldr	r3, [r3, #4]
+ 800400e:	617b      	str	r3, [r7, #20]
         u32 limit  = timeoutUs * (SystemCoreClock / 1000000U);
- 8003e90:	4b16      	ldr	r3, [pc, #88]	@ (8003eec <_ZN5Dht2212waitForLevelEhm+0x70>)
- 8003e92:	681b      	ldr	r3, [r3, #0]
- 8003e94:	4a16      	ldr	r2, [pc, #88]	@ (8003ef0 <_ZN5Dht2212waitForLevelEhm+0x74>)
- 8003e96:	fba2 2303 	umull	r2, r3, r2, r3
- 8003e9a:	0c9a      	lsrs	r2, r3, #18
- 8003e9c:	687b      	ldr	r3, [r7, #4]
- 8003e9e:	fb02 f303 	mul.w	r3, r2, r3
- 8003ea2:	613b      	str	r3, [r7, #16]
+ 8004010:	4b16      	ldr	r3, [pc, #88]	@ (800406c <_ZN5Dht2212waitForLevelEhm+0x70>)
+ 8004012:	681b      	ldr	r3, [r3, #0]
+ 8004014:	4a16      	ldr	r2, [pc, #88]	@ (8004070 <_ZN5Dht2212waitForLevelEhm+0x74>)
+ 8004016:	fba2 2303 	umull	r2, r3, r2, r3
+ 800401a:	0c9a      	lsrs	r2, r3, #18
+ 800401c:	687b      	ldr	r3, [r7, #4]
+ 800401e:	fb02 f303 	mul.w	r3, r2, r3
+ 8004022:	613b      	str	r3, [r7, #16]
         while (readPin() != level) {
- 8003ea4:	e00d      	b.n	8003ec2 <_ZN5Dht2212waitForLevelEhm+0x46>
+ 8004024:	e00d      	b.n	8004042 <_ZN5Dht2212waitForLevelEhm+0x46>
             if ((DWT->CYCCNT - start) >= limit) return false;
- 8003ea6:	4b10      	ldr	r3, [pc, #64]	@ (8003ee8 <_ZN5Dht2212waitForLevelEhm+0x6c>)
- 8003ea8:	685a      	ldr	r2, [r3, #4]
- 8003eaa:	697b      	ldr	r3, [r7, #20]
- 8003eac:	1ad3      	subs	r3, r2, r3
- 8003eae:	693a      	ldr	r2, [r7, #16]
- 8003eb0:	429a      	cmp	r2, r3
- 8003eb2:	bf94      	ite	ls
- 8003eb4:	2301      	movls	r3, #1
- 8003eb6:	2300      	movhi	r3, #0
- 8003eb8:	b2db      	uxtb	r3, r3
- 8003eba:	2b00      	cmp	r3, #0
- 8003ebc:	d001      	beq.n	8003ec2 <_ZN5Dht2212waitForLevelEhm+0x46>
- 8003ebe:	2300      	movs	r3, #0
- 8003ec0:	e00d      	b.n	8003ede <_ZN5Dht2212waitForLevelEhm+0x62>
+ 8004026:	4b10      	ldr	r3, [pc, #64]	@ (8004068 <_ZN5Dht2212waitForLevelEhm+0x6c>)
+ 8004028:	685a      	ldr	r2, [r3, #4]
+ 800402a:	697b      	ldr	r3, [r7, #20]
+ 800402c:	1ad3      	subs	r3, r2, r3
+ 800402e:	693a      	ldr	r2, [r7, #16]
+ 8004030:	429a      	cmp	r2, r3
+ 8004032:	bf94      	ite	ls
+ 8004034:	2301      	movls	r3, #1
+ 8004036:	2300      	movhi	r3, #0
+ 8004038:	b2db      	uxtb	r3, r3
+ 800403a:	2b00      	cmp	r3, #0
+ 800403c:	d001      	beq.n	8004042 <_ZN5Dht2212waitForLevelEhm+0x46>
+ 800403e:	2300      	movs	r3, #0
+ 8004040:	e00d      	b.n	800405e <_ZN5Dht2212waitForLevelEhm+0x62>
         while (readPin() != level) {
- 8003ec2:	68f8      	ldr	r0, [r7, #12]
- 8003ec4:	f7ff ffc4 	bl	8003e50 <_ZN5Dht227readPinEv>
- 8003ec8:	4603      	mov	r3, r0
- 8003eca:	461a      	mov	r2, r3
- 8003ecc:	7afb      	ldrb	r3, [r7, #11]
- 8003ece:	4293      	cmp	r3, r2
- 8003ed0:	bf14      	ite	ne
- 8003ed2:	2301      	movne	r3, #1
- 8003ed4:	2300      	moveq	r3, #0
- 8003ed6:	b2db      	uxtb	r3, r3
- 8003ed8:	2b00      	cmp	r3, #0
- 8003eda:	d1e4      	bne.n	8003ea6 <_ZN5Dht2212waitForLevelEhm+0x2a>
+ 8004042:	68f8      	ldr	r0, [r7, #12]
+ 8004044:	f7ff ffc4 	bl	8003fd0 <_ZN5Dht227readPinEv>
+ 8004048:	4603      	mov	r3, r0
+ 800404a:	461a      	mov	r2, r3
+ 800404c:	7afb      	ldrb	r3, [r7, #11]
+ 800404e:	4293      	cmp	r3, r2
+ 8004050:	bf14      	ite	ne
+ 8004052:	2301      	movne	r3, #1
+ 8004054:	2300      	moveq	r3, #0
+ 8004056:	b2db      	uxtb	r3, r3
+ 8004058:	2b00      	cmp	r3, #0
+ 800405a:	d1e4      	bne.n	8004026 <_ZN5Dht2212waitForLevelEhm+0x2a>
         }
         return true;
- 8003edc:	2301      	movs	r3, #1
+ 800405c:	2301      	movs	r3, #1
     }
- 8003ede:	4618      	mov	r0, r3
- 8003ee0:	3718      	adds	r7, #24
- 8003ee2:	46bd      	mov	sp, r7
- 8003ee4:	bd80      	pop	{r7, pc}
- 8003ee6:	bf00      	nop
- 8003ee8:	e0001000 	.word	0xe0001000
- 8003eec:	2000008c 	.word	0x2000008c
- 8003ef0:	431bde83 	.word	0x431bde83
+ 800405e:	4618      	mov	r0, r3
+ 8004060:	3718      	adds	r7, #24
+ 8004062:	46bd      	mov	sp, r7
+ 8004064:	bd80      	pop	{r7, pc}
+ 8004066:	bf00      	nop
+ 8004068:	e0001000 	.word	0xe0001000
+ 800406c:	2000008c 	.word	0x2000008c
+ 8004070:	431bde83 	.word	0x431bde83
 
-08003ef4 <_ZN5Dht2213measureHighUsEm>:
+08004074 <_ZN5Dht2213measureHighUsEm>:
 
     u32 measureHighUs(u32 timeoutUs)
- 8003ef4:	b580      	push	{r7, lr}
- 8003ef6:	b084      	sub	sp, #16
- 8003ef8:	af00      	add	r7, sp, #0
- 8003efa:	6078      	str	r0, [r7, #4]
- 8003efc:	6039      	str	r1, [r7, #0]
+ 8004074:	b580      	push	{r7, lr}
+ 8004076:	b084      	sub	sp, #16
+ 8004078:	af00      	add	r7, sp, #0
+ 800407a:	6078      	str	r0, [r7, #4]
+ 800407c:	6039      	str	r1, [r7, #0]
     {
         u32 start  = DWT->CYCCNT;
- 8003efe:	4b1b      	ldr	r3, [pc, #108]	@ (8003f6c <_ZN5Dht2213measureHighUsEm+0x78>)
- 8003f00:	685b      	ldr	r3, [r3, #4]
- 8003f02:	60fb      	str	r3, [r7, #12]
+ 800407e:	4b1b      	ldr	r3, [pc, #108]	@ (80040ec <_ZN5Dht2213measureHighUsEm+0x78>)
+ 8004080:	685b      	ldr	r3, [r3, #4]
+ 8004082:	60fb      	str	r3, [r7, #12]
         u32 limit  = timeoutUs * (SystemCoreClock / 1000000U);
- 8003f04:	4b1a      	ldr	r3, [pc, #104]	@ (8003f70 <_ZN5Dht2213measureHighUsEm+0x7c>)
- 8003f06:	681b      	ldr	r3, [r3, #0]
- 8003f08:	4a1a      	ldr	r2, [pc, #104]	@ (8003f74 <_ZN5Dht2213measureHighUsEm+0x80>)
- 8003f0a:	fba2 2303 	umull	r2, r3, r2, r3
- 8003f0e:	0c9a      	lsrs	r2, r3, #18
- 8003f10:	683b      	ldr	r3, [r7, #0]
- 8003f12:	fb02 f303 	mul.w	r3, r2, r3
- 8003f16:	60bb      	str	r3, [r7, #8]
+ 8004084:	4b1a      	ldr	r3, [pc, #104]	@ (80040f0 <_ZN5Dht2213measureHighUsEm+0x7c>)
+ 8004086:	681b      	ldr	r3, [r3, #0]
+ 8004088:	4a1a      	ldr	r2, [pc, #104]	@ (80040f4 <_ZN5Dht2213measureHighUsEm+0x80>)
+ 800408a:	fba2 2303 	umull	r2, r3, r2, r3
+ 800408e:	0c9a      	lsrs	r2, r3, #18
+ 8004090:	683b      	ldr	r3, [r7, #0]
+ 8004092:	fb02 f303 	mul.w	r3, r2, r3
+ 8004096:	60bb      	str	r3, [r7, #8]
         while (readPin() == 1) {
- 8003f18:	e00d      	b.n	8003f36 <_ZN5Dht2213measureHighUsEm+0x42>
+ 8004098:	e00d      	b.n	80040b6 <_ZN5Dht2213measureHighUsEm+0x42>
             if ((DWT->CYCCNT - start) >= limit) return 0;
- 8003f1a:	4b14      	ldr	r3, [pc, #80]	@ (8003f6c <_ZN5Dht2213measureHighUsEm+0x78>)
- 8003f1c:	685a      	ldr	r2, [r3, #4]
- 8003f1e:	68fb      	ldr	r3, [r7, #12]
- 8003f20:	1ad3      	subs	r3, r2, r3
- 8003f22:	68ba      	ldr	r2, [r7, #8]
- 8003f24:	429a      	cmp	r2, r3
- 8003f26:	bf94      	ite	ls
- 8003f28:	2301      	movls	r3, #1
- 8003f2a:	2300      	movhi	r3, #0
- 8003f2c:	b2db      	uxtb	r3, r3
- 8003f2e:	2b00      	cmp	r3, #0
- 8003f30:	d001      	beq.n	8003f36 <_ZN5Dht2213measureHighUsEm+0x42>
- 8003f32:	2300      	movs	r3, #0
- 8003f34:	e016      	b.n	8003f64 <_ZN5Dht2213measureHighUsEm+0x70>
+ 800409a:	4b14      	ldr	r3, [pc, #80]	@ (80040ec <_ZN5Dht2213measureHighUsEm+0x78>)
+ 800409c:	685a      	ldr	r2, [r3, #4]
+ 800409e:	68fb      	ldr	r3, [r7, #12]
+ 80040a0:	1ad3      	subs	r3, r2, r3
+ 80040a2:	68ba      	ldr	r2, [r7, #8]
+ 80040a4:	429a      	cmp	r2, r3
+ 80040a6:	bf94      	ite	ls
+ 80040a8:	2301      	movls	r3, #1
+ 80040aa:	2300      	movhi	r3, #0
+ 80040ac:	b2db      	uxtb	r3, r3
+ 80040ae:	2b00      	cmp	r3, #0
+ 80040b0:	d001      	beq.n	80040b6 <_ZN5Dht2213measureHighUsEm+0x42>
+ 80040b2:	2300      	movs	r3, #0
+ 80040b4:	e016      	b.n	80040e4 <_ZN5Dht2213measureHighUsEm+0x70>
         while (readPin() == 1) {
- 8003f36:	6878      	ldr	r0, [r7, #4]
- 8003f38:	f7ff ff8a 	bl	8003e50 <_ZN5Dht227readPinEv>
- 8003f3c:	4603      	mov	r3, r0
- 8003f3e:	2b01      	cmp	r3, #1
- 8003f40:	bf0c      	ite	eq
- 8003f42:	2301      	moveq	r3, #1
- 8003f44:	2300      	movne	r3, #0
- 8003f46:	b2db      	uxtb	r3, r3
- 8003f48:	2b00      	cmp	r3, #0
- 8003f4a:	d1e6      	bne.n	8003f1a <_ZN5Dht2213measureHighUsEm+0x26>
+ 80040b6:	6878      	ldr	r0, [r7, #4]
+ 80040b8:	f7ff ff8a 	bl	8003fd0 <_ZN5Dht227readPinEv>
+ 80040bc:	4603      	mov	r3, r0
+ 80040be:	2b01      	cmp	r3, #1
+ 80040c0:	bf0c      	ite	eq
+ 80040c2:	2301      	moveq	r3, #1
+ 80040c4:	2300      	movne	r3, #0
+ 80040c6:	b2db      	uxtb	r3, r3
+ 80040c8:	2b00      	cmp	r3, #0
+ 80040ca:	d1e6      	bne.n	800409a <_ZN5Dht2213measureHighUsEm+0x26>
         }
         // Convert elapsed cycles back to microseconds
         return (DWT->CYCCNT - start) / (SystemCoreClock / 1000000U);
- 8003f4c:	4b07      	ldr	r3, [pc, #28]	@ (8003f6c <_ZN5Dht2213measureHighUsEm+0x78>)
- 8003f4e:	685a      	ldr	r2, [r3, #4]
- 8003f50:	68fb      	ldr	r3, [r7, #12]
- 8003f52:	1ad2      	subs	r2, r2, r3
- 8003f54:	4b06      	ldr	r3, [pc, #24]	@ (8003f70 <_ZN5Dht2213measureHighUsEm+0x7c>)
- 8003f56:	681b      	ldr	r3, [r3, #0]
- 8003f58:	4906      	ldr	r1, [pc, #24]	@ (8003f74 <_ZN5Dht2213measureHighUsEm+0x80>)
- 8003f5a:	fba1 1303 	umull	r1, r3, r1, r3
- 8003f5e:	0c9b      	lsrs	r3, r3, #18
- 8003f60:	fbb2 f3f3 	udiv	r3, r2, r3
+ 80040cc:	4b07      	ldr	r3, [pc, #28]	@ (80040ec <_ZN5Dht2213measureHighUsEm+0x78>)
+ 80040ce:	685a      	ldr	r2, [r3, #4]
+ 80040d0:	68fb      	ldr	r3, [r7, #12]
+ 80040d2:	1ad2      	subs	r2, r2, r3
+ 80040d4:	4b06      	ldr	r3, [pc, #24]	@ (80040f0 <_ZN5Dht2213measureHighUsEm+0x7c>)
+ 80040d6:	681b      	ldr	r3, [r3, #0]
+ 80040d8:	4906      	ldr	r1, [pc, #24]	@ (80040f4 <_ZN5Dht2213measureHighUsEm+0x80>)
+ 80040da:	fba1 1303 	umull	r1, r3, r1, r3
+ 80040de:	0c9b      	lsrs	r3, r3, #18
+ 80040e0:	fbb2 f3f3 	udiv	r3, r2, r3
     }
- 8003f64:	4618      	mov	r0, r3
- 8003f66:	3710      	adds	r7, #16
- 8003f68:	46bd      	mov	sp, r7
- 8003f6a:	bd80      	pop	{r7, pc}
- 8003f6c:	e0001000 	.word	0xe0001000
- 8003f70:	2000008c 	.word	0x2000008c
- 8003f74:	431bde83 	.word	0x431bde83
+ 80040e4:	4618      	mov	r0, r3
+ 80040e6:	3710      	adds	r7, #16
+ 80040e8:	46bd      	mov	sp, r7
+ 80040ea:	bd80      	pop	{r7, pc}
+ 80040ec:	e0001000 	.word	0xe0001000
+ 80040f0:	2000008c 	.word	0x2000008c
+ 80040f4:	431bde83 	.word	0x431bde83
 
-08003f78 <_ZN6Logger4initEv>:
+080040f8 <_ZN6Logger4initEv>:
 public:
 
     // init()
     // Mounts the FatFs volume and opens (or creates) the log file.
     // Returns true on success. Call once during system init.
     bool init()
- 8003f78:	b580      	push	{r7, lr}
- 8003f7a:	b084      	sub	sp, #16
- 8003f7c:	af00      	add	r7, sp, #0
- 8003f7e:	6078      	str	r0, [r7, #4]
+ 80040f8:	b580      	push	{r7, lr}
+ 80040fa:	b084      	sub	sp, #16
+ 80040fc:	af00      	add	r7, sp, #0
+ 80040fe:	6078      	str	r0, [r7, #4]
     {
         // Mount the volume (immediate mount, not deferred)
         FRESULT res = f_mount(&fatfs, "", 1);
- 8003f80:	687b      	ldr	r3, [r7, #4]
- 8003f82:	2201      	movs	r2, #1
- 8003f84:	4915      	ldr	r1, [pc, #84]	@ (8003fdc <_ZN6Logger4initEv+0x64>)
- 8003f86:	4618      	mov	r0, r3
- 8003f88:	f7fe fab4 	bl	80024f4 <f_mount>
- 8003f8c:	4603      	mov	r3, r0
- 8003f8e:	73fb      	strb	r3, [r7, #15]
+ 8004100:	687b      	ldr	r3, [r7, #4]
+ 8004102:	2201      	movs	r2, #1
+ 8004104:	4915      	ldr	r1, [pc, #84]	@ (800415c <_ZN6Logger4initEv+0x64>)
+ 8004106:	4618      	mov	r0, r3
+ 8004108:	f7fe f9f4 	bl	80024f4 <f_mount>
+ 800410c:	4603      	mov	r3, r0
+ 800410e:	73fb      	strb	r3, [r7, #15]
         if (res != FR_OK) return false;
- 8003f90:	7bfb      	ldrb	r3, [r7, #15]
- 8003f92:	2b00      	cmp	r3, #0
- 8003f94:	d001      	beq.n	8003f9a <_ZN6Logger4initEv+0x22>
- 8003f96:	2300      	movs	r3, #0
- 8003f98:	e01b      	b.n	8003fd2 <_ZN6Logger4initEv+0x5a>
+ 8004110:	7bfb      	ldrb	r3, [r7, #15]
+ 8004112:	2b00      	cmp	r3, #0
+ 8004114:	d001      	beq.n	800411a <_ZN6Logger4initEv+0x22>
+ 8004116:	2300      	movs	r3, #0
+ 8004118:	e01b      	b.n	8004152 <_ZN6Logger4initEv+0x5a>
 
         // Open file in append mode — creates if not present,
         // appends if the file already exists from a previous session
         res = f_open(&file, FILENAME,
- 8003f9a:	687b      	ldr	r3, [r7, #4]
- 8003f9c:	f503 730c 	add.w	r3, r3, #560	@ 0x230
- 8003fa0:	2233      	movs	r2, #51	@ 0x33
- 8003fa2:	490f      	ldr	r1, [pc, #60]	@ (8003fe0 <_ZN6Logger4initEv+0x68>)
- 8003fa4:	4618      	mov	r0, r3
- 8003fa6:	f7fe faef 	bl	8002588 <f_open>
- 8003faa:	4603      	mov	r3, r0
- 8003fac:	73fb      	strb	r3, [r7, #15]
+ 800411a:	687b      	ldr	r3, [r7, #4]
+ 800411c:	f503 730c 	add.w	r3, r3, #560	@ 0x230
+ 8004120:	2233      	movs	r2, #51	@ 0x33
+ 8004122:	490f      	ldr	r1, [pc, #60]	@ (8004160 <_ZN6Logger4initEv+0x68>)
+ 8004124:	4618      	mov	r0, r3
+ 8004126:	f7fe fa2f 	bl	8002588 <f_open>
+ 800412a:	4603      	mov	r3, r0
+ 800412c:	73fb      	strb	r3, [r7, #15]
                      FA_OPEN_APPEND | FA_WRITE | FA_READ);
         if (res != FR_OK) return false;
- 8003fae:	7bfb      	ldrb	r3, [r7, #15]
- 8003fb0:	2b00      	cmp	r3, #0
- 8003fb2:	d001      	beq.n	8003fb8 <_ZN6Logger4initEv+0x40>
- 8003fb4:	2300      	movs	r3, #0
- 8003fb6:	e00c      	b.n	8003fd2 <_ZN6Logger4initEv+0x5a>
+ 800412e:	7bfb      	ldrb	r3, [r7, #15]
+ 8004130:	2b00      	cmp	r3, #0
+ 8004132:	d001      	beq.n	8004138 <_ZN6Logger4initEv+0x40>
+ 8004134:	2300      	movs	r3, #0
+ 8004136:	e00c      	b.n	8004152 <_ZN6Logger4initEv+0x5a>
 
         mounted = true;
- 8003fb8:	687b      	ldr	r3, [r7, #4]
- 8003fba:	2201      	movs	r2, #1
- 8003fbc:	f883 2458 	strb.w	r2, [r3, #1112]	@ 0x458
+ 8004138:	687b      	ldr	r3, [r7, #4]
+ 800413a:	2201      	movs	r2, #1
+ 800413c:	f883 2458 	strb.w	r2, [r3, #1112]	@ 0x458
 
         // Write header only if the file is brand new (size == 0)
         if (f_size(&file) == 0) {
- 8003fc0:	687b      	ldr	r3, [r7, #4]
- 8003fc2:	f8d3 323c 	ldr.w	r3, [r3, #572]	@ 0x23c
- 8003fc6:	2b00      	cmp	r3, #0
- 8003fc8:	d102      	bne.n	8003fd0 <_ZN6Logger4initEv+0x58>
+ 8004140:	687b      	ldr	r3, [r7, #4]
+ 8004142:	f8d3 323c 	ldr.w	r3, [r3, #572]	@ 0x23c
+ 8004146:	2b00      	cmp	r3, #0
+ 8004148:	d102      	bne.n	8004150 <_ZN6Logger4initEv+0x58>
             writeHeader();
- 8003fca:	6878      	ldr	r0, [r7, #4]
- 8003fcc:	f000 f84a 	bl	8004064 <_ZN6Logger11writeHeaderEv>
+ 800414a:	6878      	ldr	r0, [r7, #4]
+ 800414c:	f000 f84a 	bl	80041e4 <_ZN6Logger11writeHeaderEv>
         }
 
         return true;
- 8003fd0:	2301      	movs	r3, #1
+ 8004150:	2301      	movs	r3, #1
     }
- 8003fd2:	4618      	mov	r0, r3
- 8003fd4:	3710      	adds	r7, #16
- 8003fd6:	46bd      	mov	sp, r7
- 8003fd8:	bd80      	pop	{r7, pc}
- 8003fda:	bf00      	nop
- 8003fdc:	080045f0 	.word	0x080045f0
- 8003fe0:	080045f4 	.word	0x080045f4
+ 8004152:	4618      	mov	r0, r3
+ 8004154:	3710      	adds	r7, #16
+ 8004156:	46bd      	mov	sp, r7
+ 8004158:	bd80      	pop	{r7, pc}
+ 800415a:	bf00      	nop
+ 800415c:	0800487c 	.word	0x0800487c
+ 8004160:	08004880 	.word	0x08004880
 
-08003fe4 <_ZN6Logger3logERKN5Dht227ReadingE>:
+08004164 <_ZN6Logger3logERKN5Dht227ReadingE>:
 
     // log()
     // Appends one CSV row. Call this every time a valid sensor reading
     // is taken in SAMPLE state.
     void log(const Dht22::Reading& reading)
- 8003fe4:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
- 8003fe8:	b086      	sub	sp, #24
- 8003fea:	af04      	add	r7, sp, #16
- 8003fec:	6078      	str	r0, [r7, #4]
- 8003fee:	6039      	str	r1, [r7, #0]
+ 8004164:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+ 8004168:	b086      	sub	sp, #24
+ 800416a:	af04      	add	r7, sp, #16
+ 800416c:	6078      	str	r0, [r7, #4]
+ 800416e:	6039      	str	r1, [r7, #0]
     {
         if (!mounted) return;
- 8003ff0:	687b      	ldr	r3, [r7, #4]
- 8003ff2:	f893 3458 	ldrb.w	r3, [r3, #1112]	@ 0x458
- 8003ff6:	f083 0301 	eor.w	r3, r3, #1
- 8003ffa:	b2db      	uxtb	r3, r3
- 8003ffc:	2b00      	cmp	r3, #0
- 8003ffe:	d129      	bne.n	8004054 <_ZN6Logger3logERKN5Dht227ReadingE+0x70>
+ 8004170:	687b      	ldr	r3, [r7, #4]
+ 8004172:	f893 3458 	ldrb.w	r3, [r3, #1112]	@ 0x458
+ 8004176:	f083 0301 	eor.w	r3, r3, #1
+ 800417a:	b2db      	uxtb	r3, r3
+ 800417c:	2b00      	cmp	r3, #0
+ 800417e:	d129      	bne.n	80041d4 <_ZN6Logger3logERKN5Dht227ReadingE+0x70>
 
         // Format: elapsed_ms,temperature,humidity\n
         // f_printf is available when FF_USE_STRFUNC >= 1 in ffconf.h
         f_printf(&file, "%lu,%.1f,%.1f\n",
- 8004000:	687b      	ldr	r3, [r7, #4]
- 8004002:	f503 760c 	add.w	r6, r3, #560	@ 0x230
- 8004006:	f7fc fb9b 	bl	8000740 <_ZN4Tick7getTickEv>
- 800400a:	4680      	mov	r8, r0
+ 8004180:	687b      	ldr	r3, [r7, #4]
+ 8004182:	f503 760c 	add.w	r6, r3, #560	@ 0x230
+ 8004186:	f7fc fadb 	bl	8000740 <_ZN4Tick7getTickEv>
+ 800418a:	4680      	mov	r8, r0
                  Tick::getTick(),
                  static_cast<double>(reading.temperatureC()),
- 800400c:	6838      	ldr	r0, [r7, #0]
- 800400e:	f7ff fdab 	bl	8003b68 <_ZNK5Dht227Reading12temperatureCEv>
- 8004012:	ee10 3a10 	vmov	r3, s0
+ 800418c:	6838      	ldr	r0, [r7, #0]
+ 800418e:	f7ff fdab 	bl	8003ce8 <_ZNK5Dht227Reading12temperatureCEv>
+ 8004192:	ee10 3a10 	vmov	r3, s0
         f_printf(&file, "%lu,%.1f,%.1f\n",
- 8004016:	4618      	mov	r0, r3
- 8004018:	f7fc fa58 	bl	80004cc <__aeabi_f2d>
- 800401c:	4604      	mov	r4, r0
- 800401e:	460d      	mov	r5, r1
+ 8004196:	4618      	mov	r0, r3
+ 8004198:	f7fc f998 	bl	80004cc <__aeabi_f2d>
+ 800419c:	4604      	mov	r4, r0
+ 800419e:	460d      	mov	r5, r1
                  static_cast<double>(reading.humidity()));
- 8004020:	6838      	ldr	r0, [r7, #0]
- 8004022:	f7ff fdb9 	bl	8003b98 <_ZNK5Dht227Reading8humidityEv>
- 8004026:	ee10 3a10 	vmov	r3, s0
+ 80041a0:	6838      	ldr	r0, [r7, #0]
+ 80041a2:	f7ff fdb9 	bl	8003d18 <_ZNK5Dht227Reading8humidityEv>
+ 80041a6:	ee10 3a10 	vmov	r3, s0
         f_printf(&file, "%lu,%.1f,%.1f\n",
- 800402a:	4618      	mov	r0, r3
- 800402c:	f7fc fa4e 	bl	80004cc <__aeabi_f2d>
- 8004030:	4602      	mov	r2, r0
- 8004032:	460b      	mov	r3, r1
- 8004034:	e9cd 2302 	strd	r2, r3, [sp, #8]
- 8004038:	e9cd 4500 	strd	r4, r5, [sp]
- 800403c:	4642      	mov	r2, r8
- 800403e:	4908      	ldr	r1, [pc, #32]	@ (8004060 <_ZN6Logger3logERKN5Dht227ReadingE+0x7c>)
- 8004040:	4630      	mov	r0, r6
- 8004042:	f7fe fe7f 	bl	8002d44 <f_printf>
+ 80041aa:	4618      	mov	r0, r3
+ 80041ac:	f7fc f98e 	bl	80004cc <__aeabi_f2d>
+ 80041b0:	4602      	mov	r2, r0
+ 80041b2:	460b      	mov	r3, r1
+ 80041b4:	e9cd 2302 	strd	r2, r3, [sp, #8]
+ 80041b8:	e9cd 4500 	strd	r4, r5, [sp]
+ 80041bc:	4642      	mov	r2, r8
+ 80041be:	4908      	ldr	r1, [pc, #32]	@ (80041e0 <_ZN6Logger3logERKN5Dht227ReadingE+0x7c>)
+ 80041c0:	4630      	mov	r0, r6
+ 80041c2:	f7fe fdbf 	bl	8002d44 <f_printf>
 
         // Flush to SD card immediately so data isn't lost on power-off
         f_sync(&file);
- 8004046:	687b      	ldr	r3, [r7, #4]
- 8004048:	f503 730c 	add.w	r3, r3, #560	@ 0x230
- 800404c:	4618      	mov	r0, r3
- 800404e:	f7fe fd8c 	bl	8002b6a <f_sync>
- 8004052:	e000      	b.n	8004056 <_ZN6Logger3logERKN5Dht227ReadingE+0x72>
+ 80041c6:	687b      	ldr	r3, [r7, #4]
+ 80041c8:	f503 730c 	add.w	r3, r3, #560	@ 0x230
+ 80041cc:	4618      	mov	r0, r3
+ 80041ce:	f7fe fccc 	bl	8002b6a <f_sync>
+ 80041d2:	e000      	b.n	80041d6 <_ZN6Logger3logERKN5Dht227ReadingE+0x72>
         if (!mounted) return;
- 8004054:	bf00      	nop
+ 80041d4:	bf00      	nop
     }
- 8004056:	3708      	adds	r7, #8
- 8004058:	46bd      	mov	sp, r7
- 800405a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
- 800405e:	bf00      	nop
- 8004060:	08004600 	.word	0x08004600
+ 80041d6:	3708      	adds	r7, #8
+ 80041d8:	46bd      	mov	sp, r7
+ 80041da:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+ 80041de:	bf00      	nop
+ 80041e0:	0800488c 	.word	0x0800488c
 
-08004064 <_ZN6Logger11writeHeaderEv>:
+080041e4 <_ZN6Logger11writeHeaderEv>:
 
     FATFS fatfs{};
     FIL   file{};
     bool  mounted = false;
 
     void writeHeader()
- 8004064:	b580      	push	{r7, lr}
- 8004066:	b082      	sub	sp, #8
- 8004068:	af00      	add	r7, sp, #0
- 800406a:	6078      	str	r0, [r7, #4]
+ 80041e4:	b580      	push	{r7, lr}
+ 80041e6:	b082      	sub	sp, #8
+ 80041e8:	af00      	add	r7, sp, #0
+ 80041ea:	6078      	str	r0, [r7, #4]
     {
         f_printf(&file, "elapsed_ms,temperature_c,humidity_pct\n");
- 800406c:	687b      	ldr	r3, [r7, #4]
- 800406e:	f503 730c 	add.w	r3, r3, #560	@ 0x230
- 8004072:	4907      	ldr	r1, [pc, #28]	@ (8004090 <_ZN6Logger11writeHeaderEv+0x2c>)
- 8004074:	4618      	mov	r0, r3
- 8004076:	f7fe fe65 	bl	8002d44 <f_printf>
+ 80041ec:	687b      	ldr	r3, [r7, #4]
+ 80041ee:	f503 730c 	add.w	r3, r3, #560	@ 0x230
+ 80041f2:	4907      	ldr	r1, [pc, #28]	@ (8004210 <_ZN6Logger11writeHeaderEv+0x2c>)
+ 80041f4:	4618      	mov	r0, r3
+ 80041f6:	f7fe fda5 	bl	8002d44 <f_printf>
         f_sync(&file);
- 800407a:	687b      	ldr	r3, [r7, #4]
- 800407c:	f503 730c 	add.w	r3, r3, #560	@ 0x230
- 8004080:	4618      	mov	r0, r3
- 8004082:	f7fe fd72 	bl	8002b6a <f_sync>
+ 80041fa:	687b      	ldr	r3, [r7, #4]
+ 80041fc:	f503 730c 	add.w	r3, r3, #560	@ 0x230
+ 8004200:	4618      	mov	r0, r3
+ 8004202:	f7fe fcb2 	bl	8002b6a <f_sync>
     }
- 8004086:	bf00      	nop
- 8004088:	3708      	adds	r7, #8
- 800408a:	46bd      	mov	sp, r7
- 800408c:	bd80      	pop	{r7, pc}
- 800408e:	bf00      	nop
- 8004090:	08004610 	.word	0x08004610
+ 8004206:	bf00      	nop
+ 8004208:	3708      	adds	r7, #8
+ 800420a:	46bd      	mov	sp, r7
+ 800420c:	bd80      	pop	{r7, pc}
+ 800420e:	bf00      	nop
+ 8004210:	0800489c 	.word	0x0800489c
 
-08004094 <_ZN3FsmC1E3PinS0_R5Dht22R6Logger>:
+08004214 <_ZN3FsmC1E3PinS0_R5Dht22R6Logger>:
 };
 
 class Fsm {
 public:
 
     Fsm(Pin led1, Pin led2, Dht22& dht, Logger& logger)
- 8004094:	b490      	push	{r4, r7}
- 8004096:	b084      	sub	sp, #16
- 8004098:	af00      	add	r7, sp, #0
- 800409a:	60f8      	str	r0, [r7, #12]
- 800409c:	4638      	mov	r0, r7
- 800409e:	e880 000e 	stmia.w	r0, {r1, r2, r3}
+ 8004214:	b490      	push	{r4, r7}
+ 8004216:	b084      	sub	sp, #16
+ 8004218:	af00      	add	r7, sp, #0
+ 800421a:	60f8      	str	r0, [r7, #12]
+ 800421c:	4638      	mov	r0, r7
+ 800421e:	e880 000e 	stmia.w	r0, {r1, r2, r3}
         : led1(led1), led2(led2), dht(dht), logger(logger),
- 80040a2:	68fb      	ldr	r3, [r7, #12]
- 80040a4:	461c      	mov	r4, r3
- 80040a6:	463b      	mov	r3, r7
- 80040a8:	e893 0007 	ldmia.w	r3, {r0, r1, r2}
- 80040ac:	e884 0007 	stmia.w	r4, {r0, r1, r2}
- 80040b0:	68fb      	ldr	r3, [r7, #12]
- 80040b2:	330c      	adds	r3, #12
- 80040b4:	f107 0218 	add.w	r2, r7, #24
- 80040b8:	ca07      	ldmia	r2, {r0, r1, r2}
- 80040ba:	e883 0007 	stmia.w	r3, {r0, r1, r2}
- 80040be:	68fb      	ldr	r3, [r7, #12]
- 80040c0:	6a7a      	ldr	r2, [r7, #36]	@ 0x24
- 80040c2:	619a      	str	r2, [r3, #24]
- 80040c4:	68fb      	ldr	r3, [r7, #12]
- 80040c6:	6aba      	ldr	r2, [r7, #40]	@ 0x28
- 80040c8:	61da      	str	r2, [r3, #28]
+ 8004222:	68fb      	ldr	r3, [r7, #12]
+ 8004224:	461c      	mov	r4, r3
+ 8004226:	463b      	mov	r3, r7
+ 8004228:	e893 0007 	ldmia.w	r3, {r0, r1, r2}
+ 800422c:	e884 0007 	stmia.w	r4, {r0, r1, r2}
+ 8004230:	68fb      	ldr	r3, [r7, #12]
+ 8004232:	330c      	adds	r3, #12
+ 8004234:	f107 0218 	add.w	r2, r7, #24
+ 8004238:	ca07      	ldmia	r2, {r0, r1, r2}
+ 800423a:	e883 0007 	stmia.w	r3, {r0, r1, r2}
+ 800423e:	68fb      	ldr	r3, [r7, #12]
+ 8004240:	6a7a      	ldr	r2, [r7, #36]	@ 0x24
+ 8004242:	619a      	str	r2, [r3, #24]
+ 8004244:	68fb      	ldr	r3, [r7, #12]
+ 8004246:	6aba      	ldr	r2, [r7, #40]	@ 0x28
+ 8004248:	61da      	str	r2, [r3, #28]
           currentState(State::IDLE), pendingTransition(false),
- 80040ca:	68fb      	ldr	r3, [r7, #12]
- 80040cc:	2200      	movs	r2, #0
- 80040ce:	f883 2020 	strb.w	r2, [r3, #32]
- 80040d2:	68fb      	ldr	r3, [r7, #12]
- 80040d4:	2200      	movs	r2, #0
- 80040d6:	f883 2021 	strb.w	r2, [r3, #33]	@ 0x21
+ 800424a:	68fb      	ldr	r3, [r7, #12]
+ 800424c:	2200      	movs	r2, #0
+ 800424e:	f883 2020 	strb.w	r2, [r3, #32]
+ 8004252:	68fb      	ldr	r3, [r7, #12]
+ 8004254:	2200      	movs	r2, #0
+ 8004256:	f883 2021 	strb.w	r2, [r3, #33]	@ 0x21
           lastSampleMs(0) {}
- 80040da:	68fb      	ldr	r3, [r7, #12]
- 80040dc:	2200      	movs	r2, #0
- 80040de:	625a      	str	r2, [r3, #36]	@ 0x24
- 80040e0:	68fb      	ldr	r3, [r7, #12]
- 80040e2:	4618      	mov	r0, r3
- 80040e4:	3710      	adds	r7, #16
- 80040e6:	46bd      	mov	sp, r7
- 80040e8:	bc90      	pop	{r4, r7}
- 80040ea:	4770      	bx	lr
+ 800425a:	68fb      	ldr	r3, [r7, #12]
+ 800425c:	2200      	movs	r2, #0
+ 800425e:	625a      	str	r2, [r3, #36]	@ 0x24
+ 8004260:	68fb      	ldr	r3, [r7, #12]
+ 8004262:	4618      	mov	r0, r3
+ 8004264:	3710      	adds	r7, #16
+ 8004266:	46bd      	mov	sp, r7
+ 8004268:	bc90      	pop	{r4, r7}
+ 800426a:	4770      	bx	lr
 
-080040ec <_ZN3Fsm4initEv>:
+0800426c <_ZN3Fsm4initEv>:
 
-    // init()
-    // Configure LED GPIO pins as outputs and enter IDLE state.
     void init()
- 80040ec:	b580      	push	{r7, lr}
- 80040ee:	b082      	sub	sp, #8
- 80040f0:	af00      	add	r7, sp, #0
- 80040f2:	6078      	str	r0, [r7, #4]
+ 800426c:	b580      	push	{r7, lr}
+ 800426e:	b082      	sub	sp, #8
+ 8004270:	af00      	add	r7, sp, #0
+ 8004272:	6078      	str	r0, [r7, #4]
     {
         rcc.enableAhb1(led1.rccMask);
- 80040f4:	687b      	ldr	r3, [r7, #4]
- 80040f6:	689b      	ldr	r3, [r3, #8]
- 80040f8:	4619      	mov	r1, r3
- 80040fa:	4810      	ldr	r0, [pc, #64]	@ (800413c <_ZN3Fsm4initEv+0x50>)
- 80040fc:	f7ff f924 	bl	8003348 <_ZN3Rcc10enableAhb1E11RCC_AHB1ENR>
+ 8004274:	687b      	ldr	r3, [r7, #4]
+ 8004276:	689b      	ldr	r3, [r3, #8]
+ 8004278:	4619      	mov	r1, r3
+ 800427a:	4810      	ldr	r0, [pc, #64]	@ (80042bc <_ZN3Fsm4initEv+0x50>)
+ 800427c:	f7ff f864 	bl	8003348 <_ZN3Rcc10enableAhb1E11RCC_AHB1ENR>
         rcc.enableAhb1(led2.rccMask);
- 8004100:	687b      	ldr	r3, [r7, #4]
- 8004102:	695b      	ldr	r3, [r3, #20]
- 8004104:	4619      	mov	r1, r3
- 8004106:	480d      	ldr	r0, [pc, #52]	@ (800413c <_ZN3Fsm4initEv+0x50>)
- 8004108:	f7ff f91e 	bl	8003348 <_ZN3Rcc10enableAhb1E11RCC_AHB1ENR>
+ 8004280:	687b      	ldr	r3, [r7, #4]
+ 8004282:	695b      	ldr	r3, [r3, #20]
+ 8004284:	4619      	mov	r1, r3
+ 8004286:	480d      	ldr	r0, [pc, #52]	@ (80042bc <_ZN3Fsm4initEv+0x50>)
+ 8004288:	f7ff f85e 	bl	8003348 <_ZN3Rcc10enableAhb1E11RCC_AHB1ENR>
         led1.gpio->setMode(led1.pin, Mode::Output);
- 800410c:	687b      	ldr	r3, [r7, #4]
- 800410e:	6818      	ldr	r0, [r3, #0]
- 8004110:	687b      	ldr	r3, [r7, #4]
- 8004112:	791b      	ldrb	r3, [r3, #4]
- 8004114:	2201      	movs	r2, #1
- 8004116:	4619      	mov	r1, r3
- 8004118:	f7ff f94d 	bl	80033b6 <_ZN4Gpio7setModeEh4Mode>
+ 800428c:	687b      	ldr	r3, [r7, #4]
+ 800428e:	6818      	ldr	r0, [r3, #0]
+ 8004290:	687b      	ldr	r3, [r7, #4]
+ 8004292:	791b      	ldrb	r3, [r3, #4]
+ 8004294:	2201      	movs	r2, #1
+ 8004296:	4619      	mov	r1, r3
+ 8004298:	f7ff f88d 	bl	80033b6 <_ZN4Gpio7setModeEh4Mode>
         led2.gpio->setMode(led2.pin, Mode::Output);
- 800411c:	687b      	ldr	r3, [r7, #4]
- 800411e:	68d8      	ldr	r0, [r3, #12]
- 8004120:	687b      	ldr	r3, [r7, #4]
- 8004122:	7c1b      	ldrb	r3, [r3, #16]
- 8004124:	2201      	movs	r2, #1
- 8004126:	4619      	mov	r1, r3
- 8004128:	f7ff f945 	bl	80033b6 <_ZN4Gpio7setModeEh4Mode>
-
+ 800429c:	687b      	ldr	r3, [r7, #4]
+ 800429e:	68d8      	ldr	r0, [r3, #12]
+ 80042a0:	687b      	ldr	r3, [r7, #4]
+ 80042a2:	7c1b      	ldrb	r3, [r3, #16]
+ 80042a4:	2201      	movs	r2, #1
+ 80042a6:	4619      	mov	r1, r3
+ 80042a8:	f7ff f885 	bl	80033b6 <_ZN4Gpio7setModeEh4Mode>
         enterIdle();
- 800412c:	6878      	ldr	r0, [r7, #4]
- 800412e:	f000 f851 	bl	80041d4 <_ZN3Fsm9enterIdleEv>
+ 80042ac:	6878      	ldr	r0, [r7, #4]
+ 80042ae:	f000 f851 	bl	8004354 <_ZN3Fsm9enterIdleEv>
     }
- 8004132:	bf00      	nop
- 8004134:	3708      	adds	r7, #8
- 8004136:	46bd      	mov	sp, r7
- 8004138:	bd80      	pop	{r7, pc}
- 800413a:	bf00      	nop
- 800413c:	200000c4 	.word	0x200000c4
+ 80042b2:	bf00      	nop
+ 80042b4:	3708      	adds	r7, #8
+ 80042b6:	46bd      	mov	sp, r7
+ 80042b8:	bd80      	pop	{r7, pc}
+ 80042ba:	bf00      	nop
+ 80042bc:	200000c4 	.word	0x200000c4
 
-08004140 <_ZN3Fsm3runEv>:
+080042c0 <_ZN3Fsm3runEv>:
 
-    // run()
-    // Call repeatedly from the main loop (while(1)).
-    // Handles state transitions and timed sampling.
     void run()
- 8004140:	b580      	push	{r7, lr}
- 8004142:	b082      	sub	sp, #8
- 8004144:	af00      	add	r7, sp, #0
- 8004146:	6078      	str	r0, [r7, #4]
+ 80042c0:	b580      	push	{r7, lr}
+ 80042c2:	b082      	sub	sp, #8
+ 80042c4:	af00      	add	r7, sp, #0
+ 80042c6:	6078      	str	r0, [r7, #4]
     {
-        // Handle button press — transition between states
         if (pendingTransition) {
- 8004148:	687b      	ldr	r3, [r7, #4]
- 800414a:	f893 3021 	ldrb.w	r3, [r3, #33]	@ 0x21
- 800414e:	b2db      	uxtb	r3, r3
- 8004150:	2b00      	cmp	r3, #0
- 8004152:	d00f      	beq.n	8004174 <_ZN3Fsm3runEv+0x34>
+ 80042c8:	687b      	ldr	r3, [r7, #4]
+ 80042ca:	f893 3021 	ldrb.w	r3, [r3, #33]	@ 0x21
+ 80042ce:	b2db      	uxtb	r3, r3
+ 80042d0:	2b00      	cmp	r3, #0
+ 80042d2:	d00f      	beq.n	80042f4 <_ZN3Fsm3runEv+0x34>
             pendingTransition = false;
- 8004154:	687b      	ldr	r3, [r7, #4]
- 8004156:	2200      	movs	r2, #0
- 8004158:	f883 2021 	strb.w	r2, [r3, #33]	@ 0x21
-            if (currentState == State::IDLE) {
- 800415c:	687b      	ldr	r3, [r7, #4]
- 800415e:	f893 3020 	ldrb.w	r3, [r3, #32]
- 8004162:	2b00      	cmp	r3, #0
- 8004164:	d103      	bne.n	800416e <_ZN3Fsm3runEv+0x2e>
-                enterSample();
- 8004166:	6878      	ldr	r0, [r7, #4]
- 8004168:	f000 f84d 	bl	8004206 <_ZN3Fsm11enterSampleEv>
- 800416c:	e002      	b.n	8004174 <_ZN3Fsm3runEv+0x34>
-            } else {
-                enterIdle();
- 800416e:	6878      	ldr	r0, [r7, #4]
- 8004170:	f000 f830 	bl	80041d4 <_ZN3Fsm9enterIdleEv>
-            }
+ 80042d4:	687b      	ldr	r3, [r7, #4]
+ 80042d6:	2200      	movs	r2, #0
+ 80042d8:	f883 2021 	strb.w	r2, [r3, #33]	@ 0x21
+            if (currentState == State::IDLE) enterSample();
+ 80042dc:	687b      	ldr	r3, [r7, #4]
+ 80042de:	f893 3020 	ldrb.w	r3, [r3, #32]
+ 80042e2:	2b00      	cmp	r3, #0
+ 80042e4:	d103      	bne.n	80042ee <_ZN3Fsm3runEv+0x2e>
+ 80042e6:	6878      	ldr	r0, [r7, #4]
+ 80042e8:	f000 f852 	bl	8004390 <_ZN3Fsm11enterSampleEv>
+ 80042ec:	e002      	b.n	80042f4 <_ZN3Fsm3runEv+0x34>
+            else                              enterIdle();
+ 80042ee:	6878      	ldr	r0, [r7, #4]
+ 80042f0:	f000 f830 	bl	8004354 <_ZN3Fsm9enterIdleEv>
         }
 
-        // In SAMPLE state: log every 5 minutes
         if (currentState == State::SAMPLE) {
- 8004174:	687b      	ldr	r3, [r7, #4]
- 8004176:	f893 3020 	ldrb.w	r3, [r3, #32]
- 800417a:	2b01      	cmp	r3, #1
- 800417c:	d115      	bne.n	80041aa <_ZN3Fsm3runEv+0x6a>
-            // 5 minutes = 300,000 ms
-            // On first entry lastSampleMs is set to getTick() so the first
-            // sample fires immediately after 5 minutes, not instantly.
+ 80042f4:	687b      	ldr	r3, [r7, #4]
+ 80042f6:	f893 3020 	ldrb.w	r3, [r3, #32]
+ 80042fa:	2b01      	cmp	r3, #1
+ 80042fc:	d115      	bne.n	800432a <_ZN3Fsm3runEv+0x6a>
             if (Tick::elapsed(lastSampleMs) >= SAMPLE_INTERVAL_MS) {
- 800417e:	687b      	ldr	r3, [r7, #4]
- 8004180:	6a5b      	ldr	r3, [r3, #36]	@ 0x24
- 8004182:	4618      	mov	r0, r3
- 8004184:	f7fc fae8 	bl	8000758 <_ZN4Tick7elapsedEm>
- 8004188:	4603      	mov	r3, r0
- 800418a:	4a0a      	ldr	r2, [pc, #40]	@ (80041b4 <_ZN3Fsm3runEv+0x74>)
- 800418c:	4293      	cmp	r3, r2
- 800418e:	bf8c      	ite	hi
- 8004190:	2301      	movhi	r3, #1
- 8004192:	2300      	movls	r3, #0
- 8004194:	b2db      	uxtb	r3, r3
- 8004196:	2b00      	cmp	r3, #0
- 8004198:	d007      	beq.n	80041aa <_ZN3Fsm3runEv+0x6a>
+ 80042fe:	687b      	ldr	r3, [r7, #4]
+ 8004300:	6a5b      	ldr	r3, [r3, #36]	@ 0x24
+ 8004302:	4618      	mov	r0, r3
+ 8004304:	f7fc fa28 	bl	8000758 <_ZN4Tick7elapsedEm>
+ 8004308:	4603      	mov	r3, r0
+ 800430a:	4a0a      	ldr	r2, [pc, #40]	@ (8004334 <_ZN3Fsm3runEv+0x74>)
+ 800430c:	4293      	cmp	r3, r2
+ 800430e:	bf8c      	ite	hi
+ 8004310:	2301      	movhi	r3, #1
+ 8004312:	2300      	movls	r3, #0
+ 8004314:	b2db      	uxtb	r3, r3
+ 8004316:	2b00      	cmp	r3, #0
+ 8004318:	d007      	beq.n	800432a <_ZN3Fsm3runEv+0x6a>
                 lastSampleMs = Tick::getTick();
- 800419a:	f7fc fad1 	bl	8000740 <_ZN4Tick7getTickEv>
- 800419e:	4602      	mov	r2, r0
- 80041a0:	687b      	ldr	r3, [r7, #4]
- 80041a2:	625a      	str	r2, [r3, #36]	@ 0x24
+ 800431a:	f7fc fa11 	bl	8000740 <_ZN4Tick7getTickEv>
+ 800431e:	4602      	mov	r2, r0
+ 8004320:	687b      	ldr	r3, [r7, #4]
+ 8004322:	625a      	str	r2, [r3, #36]	@ 0x24
                 takeSample();
- 80041a4:	6878      	ldr	r0, [r7, #4]
- 80041a6:	f000 f84c 	bl	8004242 <_ZN3Fsm10takeSampleEv>
+ 8004324:	6878      	ldr	r0, [r7, #4]
+ 8004326:	f000 f85b 	bl	80043e0 <_ZN3Fsm10takeSampleEv>
             }
         }
     }
- 80041aa:	bf00      	nop
- 80041ac:	3708      	adds	r7, #8
- 80041ae:	46bd      	mov	sp, r7
- 80041b0:	bd80      	pop	{r7, pc}
- 80041b2:	bf00      	nop
- 80041b4:	000493df 	.word	0x000493df
+ 800432a:	bf00      	nop
+ 800432c:	3708      	adds	r7, #8
+ 800432e:	46bd      	mov	sp, r7
+ 8004330:	bd80      	pop	{r7, pc}
+ 8004332:	bf00      	nop
+ 8004334:	000493df 	.word	0x000493df
 
-080041b8 <_ZN3Fsm13onButtonPressEv>:
+08004338 <_ZN3Fsm13onButtonPressEv>:
 
-    // onButtonPress()
-    // Called from EXTI ISR — sets a flag rather than acting directly,
-    // so the actual transition happens safely in the main loop via run().
     void onButtonPress()
- 80041b8:	b480      	push	{r7}
- 80041ba:	b083      	sub	sp, #12
- 80041bc:	af00      	add	r7, sp, #0
- 80041be:	6078      	str	r0, [r7, #4]
+ 8004338:	b480      	push	{r7}
+ 800433a:	b083      	sub	sp, #12
+ 800433c:	af00      	add	r7, sp, #0
+ 800433e:	6078      	str	r0, [r7, #4]
     {
         pendingTransition = true;
- 80041c0:	687b      	ldr	r3, [r7, #4]
- 80041c2:	2201      	movs	r2, #1
- 80041c4:	f883 2021 	strb.w	r2, [r3, #33]	@ 0x21
+ 8004340:	687b      	ldr	r3, [r7, #4]
+ 8004342:	2201      	movs	r2, #1
+ 8004344:	f883 2021 	strb.w	r2, [r3, #33]	@ 0x21
     }
- 80041c8:	bf00      	nop
- 80041ca:	370c      	adds	r7, #12
- 80041cc:	46bd      	mov	sp, r7
- 80041ce:	f85d 7b04 	ldr.w	r7, [sp], #4
- 80041d2:	4770      	bx	lr
+ 8004348:	bf00      	nop
+ 800434a:	370c      	adds	r7, #12
+ 800434c:	46bd      	mov	sp, r7
+ 800434e:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8004352:	4770      	bx	lr
 
-080041d4 <_ZN3Fsm9enterIdleEv>:
+08004354 <_ZN3Fsm9enterIdleEv>:
 
-    State            currentState;
-    volatile bool    pendingTransition;  // set by ISR, cleared by run()
-    u32              lastSampleMs;
+    State         currentState;
+    volatile bool pendingTransition;
+    u32           lastSampleMs;
 
     void enterIdle()
- 80041d4:	b580      	push	{r7, lr}
- 80041d6:	b082      	sub	sp, #8
- 80041d8:	af00      	add	r7, sp, #0
- 80041da:	6078      	str	r0, [r7, #4]
+ 8004354:	b580      	push	{r7, lr}
+ 8004356:	b082      	sub	sp, #8
+ 8004358:	af00      	add	r7, sp, #0
+ 800435a:	6078      	str	r0, [r7, #4]
     {
         currentState = State::IDLE;
- 80041dc:	687b      	ldr	r3, [r7, #4]
- 80041de:	2200      	movs	r2, #0
- 80041e0:	f883 2020 	strb.w	r2, [r3, #32]
+ 800435c:	687b      	ldr	r3, [r7, #4]
+ 800435e:	2200      	movs	r2, #0
+ 8004360:	f883 2020 	strb.w	r2, [r3, #32]
         setLed(led1, true);
- 80041e4:	687b      	ldr	r3, [r7, #4]
- 80041e6:	2201      	movs	r2, #1
- 80041e8:	4619      	mov	r1, r3
- 80041ea:	6878      	ldr	r0, [r7, #4]
- 80041ec:	f000 f844 	bl	8004278 <_ZN3Fsm6setLedERK3Pinb>
+ 8004364:	687b      	ldr	r3, [r7, #4]
+ 8004366:	2201      	movs	r2, #1
+ 8004368:	4619      	mov	r1, r3
+ 800436a:	6878      	ldr	r0, [r7, #4]
+ 800436c:	f000 f892 	bl	8004494 <_ZN3Fsm6setLedERK3Pinb>
         setLed(led2, false);
- 80041f0:	687b      	ldr	r3, [r7, #4]
- 80041f2:	330c      	adds	r3, #12
- 80041f4:	2200      	movs	r2, #0
- 80041f6:	4619      	mov	r1, r3
- 80041f8:	6878      	ldr	r0, [r7, #4]
- 80041fa:	f000 f83d 	bl	8004278 <_ZN3Fsm6setLedERK3Pinb>
+ 8004370:	687b      	ldr	r3, [r7, #4]
+ 8004372:	330c      	adds	r3, #12
+ 8004374:	2200      	movs	r2, #0
+ 8004376:	4619      	mov	r1, r3
+ 8004378:	6878      	ldr	r0, [r7, #4]
+ 800437a:	f000 f88b 	bl	8004494 <_ZN3Fsm6setLedERK3Pinb>
+        Uart::println("[FSM] -> IDLE   (LED1=ON LED2=OFF)");
+ 800437e:	4803      	ldr	r0, [pc, #12]	@ (800438c <_ZN3Fsm9enterIdleEv+0x38>)
+ 8004380:	f7ff fc61 	bl	8003c46 <_ZN4Uart7printlnEPKc>
     }
- 80041fe:	bf00      	nop
- 8004200:	3708      	adds	r7, #8
- 8004202:	46bd      	mov	sp, r7
- 8004204:	bd80      	pop	{r7, pc}
+ 8004384:	bf00      	nop
+ 8004386:	3708      	adds	r7, #8
+ 8004388:	46bd      	mov	sp, r7
+ 800438a:	bd80      	pop	{r7, pc}
+ 800438c:	080048c4 	.word	0x080048c4
 
-08004206 <_ZN3Fsm11enterSampleEv>:
+08004390 <_ZN3Fsm11enterSampleEv>:
 
     void enterSample()
- 8004206:	b580      	push	{r7, lr}
- 8004208:	b082      	sub	sp, #8
- 800420a:	af00      	add	r7, sp, #0
- 800420c:	6078      	str	r0, [r7, #4]
+ 8004390:	b580      	push	{r7, lr}
+ 8004392:	b082      	sub	sp, #8
+ 8004394:	af00      	add	r7, sp, #0
+ 8004396:	6078      	str	r0, [r7, #4]
     {
         currentState  = State::SAMPLE;
- 800420e:	687b      	ldr	r3, [r7, #4]
- 8004210:	2201      	movs	r2, #1
- 8004212:	f883 2020 	strb.w	r2, [r3, #32]
+ 8004398:	687b      	ldr	r3, [r7, #4]
+ 800439a:	2201      	movs	r2, #1
+ 800439c:	f883 2020 	strb.w	r2, [r3, #32]
         lastSampleMs  = Tick::getTick();
- 8004216:	f7fc fa93 	bl	8000740 <_ZN4Tick7getTickEv>
- 800421a:	4602      	mov	r2, r0
- 800421c:	687b      	ldr	r3, [r7, #4]
- 800421e:	625a      	str	r2, [r3, #36]	@ 0x24
+ 80043a0:	f7fc f9ce 	bl	8000740 <_ZN4Tick7getTickEv>
+ 80043a4:	4602      	mov	r2, r0
+ 80043a6:	687b      	ldr	r3, [r7, #4]
+ 80043a8:	625a      	str	r2, [r3, #36]	@ 0x24
         setLed(led1, true);
- 8004220:	687b      	ldr	r3, [r7, #4]
- 8004222:	2201      	movs	r2, #1
- 8004224:	4619      	mov	r1, r3
- 8004226:	6878      	ldr	r0, [r7, #4]
- 8004228:	f000 f826 	bl	8004278 <_ZN3Fsm6setLedERK3Pinb>
+ 80043aa:	687b      	ldr	r3, [r7, #4]
+ 80043ac:	2201      	movs	r2, #1
+ 80043ae:	4619      	mov	r1, r3
+ 80043b0:	6878      	ldr	r0, [r7, #4]
+ 80043b2:	f000 f86f 	bl	8004494 <_ZN3Fsm6setLedERK3Pinb>
         setLed(led2, true);
- 800422c:	687b      	ldr	r3, [r7, #4]
- 800422e:	330c      	adds	r3, #12
- 8004230:	2201      	movs	r2, #1
- 8004232:	4619      	mov	r1, r3
- 8004234:	6878      	ldr	r0, [r7, #4]
- 8004236:	f000 f81f 	bl	8004278 <_ZN3Fsm6setLedERK3Pinb>
+ 80043b6:	687b      	ldr	r3, [r7, #4]
+ 80043b8:	330c      	adds	r3, #12
+ 80043ba:	2201      	movs	r2, #1
+ 80043bc:	4619      	mov	r1, r3
+ 80043be:	6878      	ldr	r0, [r7, #4]
+ 80043c0:	f000 f868 	bl	8004494 <_ZN3Fsm6setLedERK3Pinb>
+        Uart::println("[FSM] -> SAMPLE (LED1=ON LED2=ON)");
+ 80043c4:	4804      	ldr	r0, [pc, #16]	@ (80043d8 <_ZN3Fsm11enterSampleEv+0x48>)
+ 80043c6:	f7ff fc3e 	bl	8003c46 <_ZN4Uart7printlnEPKc>
+        Uart::println("[FSM] Next sample in 5 minutes.");
+ 80043ca:	4804      	ldr	r0, [pc, #16]	@ (80043dc <_ZN3Fsm11enterSampleEv+0x4c>)
+ 80043cc:	f7ff fc3b 	bl	8003c46 <_ZN4Uart7printlnEPKc>
     }
- 800423a:	bf00      	nop
- 800423c:	3708      	adds	r7, #8
- 800423e:	46bd      	mov	sp, r7
- 8004240:	bd80      	pop	{r7, pc}
+ 80043d0:	bf00      	nop
+ 80043d2:	3708      	adds	r7, #8
+ 80043d4:	46bd      	mov	sp, r7
+ 80043d6:	bd80      	pop	{r7, pc}
+ 80043d8:	080048e8 	.word	0x080048e8
+ 80043dc:	0800490c 	.word	0x0800490c
 
-08004242 <_ZN3Fsm10takeSampleEv>:
+080043e0 <_ZN3Fsm10takeSampleEv>:
 
     void takeSample()
- 8004242:	b580      	push	{r7, lr}
- 8004244:	b084      	sub	sp, #16
- 8004246:	af00      	add	r7, sp, #0
- 8004248:	6078      	str	r0, [r7, #4]
+ 80043e0:	b580      	push	{r7, lr}
+ 80043e2:	b084      	sub	sp, #16
+ 80043e4:	af00      	add	r7, sp, #0
+ 80043e6:	6078      	str	r0, [r7, #4]
     {
+        Uart::print("[FSM] Sampling... tick=");
+ 80043e8:	4823      	ldr	r0, [pc, #140]	@ (8004478 <_ZN3Fsm10takeSampleEv+0x98>)
+ 80043ea:	f7ff fc17 	bl	8003c1c <_ZN4Uart5printEPKc>
+        Uart::printU32(Tick::getTick());
+ 80043ee:	f7fc f9a7 	bl	8000740 <_ZN4Tick7getTickEv>
+ 80043f2:	4603      	mov	r3, r0
+ 80043f4:	4618      	mov	r0, r3
+ 80043f6:	f7ff fc37 	bl	8003c68 <_ZN4Uart8printU32Em>
+        Uart::println("ms");
+ 80043fa:	4820      	ldr	r0, [pc, #128]	@ (800447c <_ZN3Fsm10takeSampleEv+0x9c>)
+ 80043fc:	f7ff fc23 	bl	8003c46 <_ZN4Uart7printlnEPKc>
+
         Dht22::Reading r = dht.read();
- 800424a:	687b      	ldr	r3, [r7, #4]
- 800424c:	699a      	ldr	r2, [r3, #24]
- 800424e:	f107 0308 	add.w	r3, r7, #8
- 8004252:	4611      	mov	r1, r2
- 8004254:	4618      	mov	r0, r3
- 8004256:	f7ff fcef 	bl	8003c38 <_ZN5Dht224readEv>
+ 8004400:	687b      	ldr	r3, [r7, #4]
+ 8004402:	699a      	ldr	r2, [r3, #24]
+ 8004404:	f107 0308 	add.w	r3, r7, #8
+ 8004408:	4611      	mov	r1, r2
+ 800440a:	4618      	mov	r0, r3
+ 800440c:	f7ff fcd4 	bl	8003db8 <_ZN5Dht224readEv>
         if (r.valid) {
- 800425a:	7a3b      	ldrb	r3, [r7, #8]
- 800425c:	2b00      	cmp	r3, #0
- 800425e:	d007      	beq.n	8004270 <_ZN3Fsm10takeSampleEv+0x2e>
+ 8004410:	7a3b      	ldrb	r3, [r7, #8]
+ 8004412:	2b00      	cmp	r3, #0
+ 8004414:	d029      	beq.n	800446a <_ZN3Fsm10takeSampleEv+0x8a>
+            Uart::print("[DHT22] Temp=");
+ 8004416:	481a      	ldr	r0, [pc, #104]	@ (8004480 <_ZN3Fsm10takeSampleEv+0xa0>)
+ 8004418:	f7ff fc00 	bl	8003c1c <_ZN4Uart5printEPKc>
+            Uart::printU32(static_cast<u32>(r.temperatureC() * 10));
+ 800441c:	f107 0308 	add.w	r3, r7, #8
+ 8004420:	4618      	mov	r0, r3
+ 8004422:	f7ff fc61 	bl	8003ce8 <_ZNK5Dht227Reading12temperatureCEv>
+ 8004426:	eef0 7a40 	vmov.f32	s15, s0
+ 800442a:	eeb2 7a04 	vmov.f32	s14, #36	@ 0x41200000  10.0
+ 800442e:	ee67 7a87 	vmul.f32	s15, s15, s14
+ 8004432:	eefc 7ae7 	vcvt.u32.f32	s15, s15
+ 8004436:	ee17 0a90 	vmov	r0, s15
+ 800443a:	f7ff fc15 	bl	8003c68 <_ZN4Uart8printU32Em>
+            Uart::print("/10 C  Humidity=");
+ 800443e:	4811      	ldr	r0, [pc, #68]	@ (8004484 <_ZN3Fsm10takeSampleEv+0xa4>)
+ 8004440:	f7ff fbec 	bl	8003c1c <_ZN4Uart5printEPKc>
+            Uart::printU32(r.rawHumidity);
+ 8004444:	89bb      	ldrh	r3, [r7, #12]
+ 8004446:	4618      	mov	r0, r3
+ 8004448:	f7ff fc0e 	bl	8003c68 <_ZN4Uart8printU32Em>
+            Uart::println("/10 %RH");
+ 800444c:	480e      	ldr	r0, [pc, #56]	@ (8004488 <_ZN3Fsm10takeSampleEv+0xa8>)
+ 800444e:	f7ff fbfa 	bl	8003c46 <_ZN4Uart7printlnEPKc>
             logger.log(r);
- 8004260:	687b      	ldr	r3, [r7, #4]
- 8004262:	69db      	ldr	r3, [r3, #28]
- 8004264:	f107 0208 	add.w	r2, r7, #8
- 8004268:	4611      	mov	r1, r2
- 800426a:	4618      	mov	r0, r3
- 800426c:	f7ff feba 	bl	8003fe4 <_ZN6Logger3logERKN5Dht227ReadingE>
-        }
-        // If read fails (e.g. sensor not ready), silently skip this tick.
-        // The next interval will try again.
-    }
- 8004270:	bf00      	nop
- 8004272:	3710      	adds	r7, #16
- 8004274:	46bd      	mov	sp, r7
- 8004276:	bd80      	pop	{r7, pc}
-
-08004278 <_ZN3Fsm6setLedERK3Pinb>:
-
-    // setLed() — write to ODR via the Pin's gpio pointer
-    void setLed(const Pin& led, bool on)
- 8004278:	b580      	push	{r7, lr}
- 800427a:	b084      	sub	sp, #16
- 800427c:	af00      	add	r7, sp, #0
- 800427e:	60f8      	str	r0, [r7, #12]
- 8004280:	60b9      	str	r1, [r7, #8]
- 8004282:	4613      	mov	r3, r2
- 8004284:	71fb      	strb	r3, [r7, #7]
-    {
-        if (on) {
- 8004286:	79fb      	ldrb	r3, [r7, #7]
- 8004288:	2b00      	cmp	r3, #0
- 800428a:	d00e      	beq.n	80042aa <_ZN3Fsm6setLedERK3Pinb+0x32>
-            led.gpio->getPort()->ODR |=  (1U << led.pin);
- 800428c:	68bb      	ldr	r3, [r7, #8]
- 800428e:	681b      	ldr	r3, [r3, #0]
- 8004290:	4618      	mov	r0, r3
- 8004292:	f7fc f973 	bl	800057c <_ZN4Gpio7getPortEv>
- 8004296:	4603      	mov	r3, r0
- 8004298:	6959      	ldr	r1, [r3, #20]
- 800429a:	68ba      	ldr	r2, [r7, #8]
- 800429c:	7912      	ldrb	r2, [r2, #4]
- 800429e:	4610      	mov	r0, r2
- 80042a0:	2201      	movs	r2, #1
- 80042a2:	4082      	lsls	r2, r0
- 80042a4:	430a      	orrs	r2, r1
- 80042a6:	615a      	str	r2, [r3, #20]
+ 8004452:	687b      	ldr	r3, [r7, #4]
+ 8004454:	69db      	ldr	r3, [r3, #28]
+ 8004456:	f107 0208 	add.w	r2, r7, #8
+ 800445a:	4611      	mov	r1, r2
+ 800445c:	4618      	mov	r0, r3
+ 800445e:	f7ff fe81 	bl	8004164 <_ZN6Logger3logERKN5Dht227ReadingE>
+            Uart::println("[Logger] Row written to SD card.");
+ 8004462:	480a      	ldr	r0, [pc, #40]	@ (800448c <_ZN3Fsm10takeSampleEv+0xac>)
+ 8004464:	f7ff fbef 	bl	8003c46 <_ZN4Uart7printlnEPKc>
         } else {
-            led.gpio->getPort()->ODR &= ~(1U << led.pin);
+            Uart::println("[DHT22] Read failed — skipping this sample.");
         }
     }
- 80042a8:	e00e      	b.n	80042c8 <_ZN3Fsm6setLedERK3Pinb+0x50>
-            led.gpio->getPort()->ODR &= ~(1U << led.pin);
- 80042aa:	68bb      	ldr	r3, [r7, #8]
- 80042ac:	681b      	ldr	r3, [r3, #0]
- 80042ae:	4618      	mov	r0, r3
- 80042b0:	f7fc f964 	bl	800057c <_ZN4Gpio7getPortEv>
- 80042b4:	4603      	mov	r3, r0
- 80042b6:	6959      	ldr	r1, [r3, #20]
- 80042b8:	68ba      	ldr	r2, [r7, #8]
- 80042ba:	7912      	ldrb	r2, [r2, #4]
- 80042bc:	4610      	mov	r0, r2
- 80042be:	2201      	movs	r2, #1
- 80042c0:	4082      	lsls	r2, r0
- 80042c2:	43d2      	mvns	r2, r2
- 80042c4:	400a      	ands	r2, r1
- 80042c6:	615a      	str	r2, [r3, #20]
+ 8004468:	e002      	b.n	8004470 <_ZN3Fsm10takeSampleEv+0x90>
+            Uart::println("[DHT22] Read failed — skipping this sample.");
+ 800446a:	4809      	ldr	r0, [pc, #36]	@ (8004490 <_ZN3Fsm10takeSampleEv+0xb0>)
+ 800446c:	f7ff fbeb 	bl	8003c46 <_ZN4Uart7printlnEPKc>
     }
- 80042c8:	bf00      	nop
- 80042ca:	3710      	adds	r7, #16
- 80042cc:	46bd      	mov	sp, r7
- 80042ce:	bd80      	pop	{r7, pc}
+ 8004470:	bf00      	nop
+ 8004472:	3710      	adds	r7, #16
+ 8004474:	46bd      	mov	sp, r7
+ 8004476:	bd80      	pop	{r7, pc}
+ 8004478:	0800492c 	.word	0x0800492c
+ 800447c:	08004944 	.word	0x08004944
+ 8004480:	08004948 	.word	0x08004948
+ 8004484:	08004958 	.word	0x08004958
+ 8004488:	0800496c 	.word	0x0800496c
+ 800448c:	08004974 	.word	0x08004974
+ 8004490:	08004998 	.word	0x08004998
 
-080042d0 <SysTick_Handler>:
+08004494 <_ZN3Fsm6setLedERK3Pinb>:
+
+    void setLed(const Pin& led, bool on)
+ 8004494:	b580      	push	{r7, lr}
+ 8004496:	b084      	sub	sp, #16
+ 8004498:	af00      	add	r7, sp, #0
+ 800449a:	60f8      	str	r0, [r7, #12]
+ 800449c:	60b9      	str	r1, [r7, #8]
+ 800449e:	4613      	mov	r3, r2
+ 80044a0:	71fb      	strb	r3, [r7, #7]
+    {
+        if (on) led.gpio->getPort()->ODR |=  (1U << led.pin);
+ 80044a2:	79fb      	ldrb	r3, [r7, #7]
+ 80044a4:	2b00      	cmp	r3, #0
+ 80044a6:	d00e      	beq.n	80044c6 <_ZN3Fsm6setLedERK3Pinb+0x32>
+ 80044a8:	68bb      	ldr	r3, [r7, #8]
+ 80044aa:	681b      	ldr	r3, [r3, #0]
+ 80044ac:	4618      	mov	r0, r3
+ 80044ae:	f7fc f865 	bl	800057c <_ZN4Gpio7getPortEv>
+ 80044b2:	4603      	mov	r3, r0
+ 80044b4:	6959      	ldr	r1, [r3, #20]
+ 80044b6:	68ba      	ldr	r2, [r7, #8]
+ 80044b8:	7912      	ldrb	r2, [r2, #4]
+ 80044ba:	4610      	mov	r0, r2
+ 80044bc:	2201      	movs	r2, #1
+ 80044be:	4082      	lsls	r2, r0
+ 80044c0:	430a      	orrs	r2, r1
+ 80044c2:	615a      	str	r2, [r3, #20]
+        else    led.gpio->getPort()->ODR &= ~(1U << led.pin);
+    }
+ 80044c4:	e00e      	b.n	80044e4 <_ZN3Fsm6setLedERK3Pinb+0x50>
+        else    led.gpio->getPort()->ODR &= ~(1U << led.pin);
+ 80044c6:	68bb      	ldr	r3, [r7, #8]
+ 80044c8:	681b      	ldr	r3, [r3, #0]
+ 80044ca:	4618      	mov	r0, r3
+ 80044cc:	f7fc f856 	bl	800057c <_ZN4Gpio7getPortEv>
+ 80044d0:	4603      	mov	r3, r0
+ 80044d2:	6959      	ldr	r1, [r3, #20]
+ 80044d4:	68ba      	ldr	r2, [r7, #8]
+ 80044d6:	7912      	ldrb	r2, [r2, #4]
+ 80044d8:	4610      	mov	r0, r2
+ 80044da:	2201      	movs	r2, #1
+ 80044dc:	4082      	lsls	r2, r0
+ 80044de:	43d2      	mvns	r2, r2
+ 80044e0:	400a      	ands	r2, r1
+ 80044e2:	615a      	str	r2, [r3, #20]
+    }
+ 80044e4:	bf00      	nop
+ 80044e6:	3710      	adds	r7, #16
+ 80044e8:	46bd      	mov	sp, r7
+ 80044ea:	bd80      	pop	{r7, pc}
+
+080044ec <SysTick_Handler>:
 Logger logger;
 Fsm    fsm(led1Pin, led2Pin, dht, logger);
 
-
+// ISR handlers
 extern "C" void SysTick_Handler()
 {
- 80042d0:	b580      	push	{r7, lr}
- 80042d2:	af00      	add	r7, sp, #0
+ 80044ec:	b580      	push	{r7, lr}
+ 80044ee:	af00      	add	r7, sp, #0
     Tick::tickIsr();
- 80042d4:	f7ff fc3a 	bl	8003b4c <_ZN4Tick7tickIsrEv>
+ 80044f0:	f7ff fb2c 	bl	8003b4c <_ZN4Tick7tickIsrEv>
 }
- 80042d8:	bf00      	nop
- 80042da:	bd80      	pop	{r7, pc}
+ 80044f4:	bf00      	nop
+ 80044f6:	bd80      	pop	{r7, pc}
 
-080042dc <EXTI15_10_IRQHandler>:
+080044f8 <EXTI15_10_IRQHandler>:
 
 extern "C" void EXTI15_10_IRQHandler()
 {
- 80042dc:	b580      	push	{r7, lr}
- 80042de:	af00      	add	r7, sp, #0
+ 80044f8:	b580      	push	{r7, lr}
+ 80044fa:	af00      	add	r7, sp, #0
     buttonExti.handleIrq();
- 80042e0:	4802      	ldr	r0, [pc, #8]	@ (80042ec <EXTI15_10_IRQHandler+0x10>)
- 80042e2:	f7ff fb7b 	bl	80039dc <_ZN4Exti9handleIrqEv>
+ 80044fc:	4802      	ldr	r0, [pc, #8]	@ (8004508 <EXTI15_10_IRQHandler+0x10>)
+ 80044fe:	f7ff fa6d 	bl	80039dc <_ZN4Exti9handleIrqEv>
 }
- 80042e6:	bf00      	nop
- 80042e8:	bd80      	pop	{r7, pc}
- 80042ea:	bf00      	nop
- 80042ec:	200000c8 	.word	0x200000c8
+ 8004502:	bf00      	nop
+ 8004504:	bd80      	pop	{r7, pc}
+ 8004506:	bf00      	nop
+ 8004508:	200000c8 	.word	0x200000c8
 
-080042f0 <_ZZ4mainENKUlvE_clEv>:
-    logger.init();
+0800450c <_ZZ4mainENKUlvE_clEv>:
+    }
 
-    // 5. Button EXTI
+    // 6. Button EXTI
     buttonExti.init();
     buttonExti.configureExtiSource(ExtiTrigger::Falling);
     buttonExti.setCallback([]{ fsm.onButtonPress(); });
- 80042f0:	b580      	push	{r7, lr}
- 80042f2:	b082      	sub	sp, #8
- 80042f4:	af00      	add	r7, sp, #0
- 80042f6:	6078      	str	r0, [r7, #4]
- 80042f8:	4803      	ldr	r0, [pc, #12]	@ (8004308 <_ZZ4mainENKUlvE_clEv+0x18>)
- 80042fa:	f7ff ff5d 	bl	80041b8 <_ZN3Fsm13onButtonPressEv>
- 80042fe:	bf00      	nop
- 8004300:	3708      	adds	r7, #8
- 8004302:	46bd      	mov	sp, r7
- 8004304:	bd80      	pop	{r7, pc}
- 8004306:	bf00      	nop
- 8004308:	20000570 	.word	0x20000570
+ 800450c:	b580      	push	{r7, lr}
+ 800450e:	b082      	sub	sp, #8
+ 8004510:	af00      	add	r7, sp, #0
+ 8004512:	6078      	str	r0, [r7, #4]
+ 8004514:	4803      	ldr	r0, [pc, #12]	@ (8004524 <_ZZ4mainENKUlvE_clEv+0x18>)
+ 8004516:	f7ff ff0f 	bl	8004338 <_ZN3Fsm13onButtonPressEv>
+ 800451a:	bf00      	nop
+ 800451c:	3708      	adds	r7, #8
+ 800451e:	46bd      	mov	sp, r7
+ 8004520:	bd80      	pop	{r7, pc}
+ 8004522:	bf00      	nop
+ 8004524:	20000570 	.word	0x20000570
 
-0800430c <_ZZ4mainENUlvE_4_FUNEv>:
- 800430c:	b580      	push	{r7, lr}
- 800430e:	af00      	add	r7, sp, #0
- 8004310:	2000      	movs	r0, #0
- 8004312:	f7ff ffed 	bl	80042f0 <_ZZ4mainENKUlvE_clEv>
- 8004316:	bd80      	pop	{r7, pc}
+08004528 <_ZZ4mainENUlvE_4_FUNEv>:
+ 8004528:	b580      	push	{r7, lr}
+ 800452a:	af00      	add	r7, sp, #0
+ 800452c:	2000      	movs	r0, #0
+ 800452e:	f7ff ffed 	bl	800450c <_ZZ4mainENKUlvE_clEv>
+ 8004532:	bd80      	pop	{r7, pc}
 
-08004318 <_ZZ4mainENKUlvE_cvPFvvEEv>:
- 8004318:	b480      	push	{r7}
- 800431a:	b083      	sub	sp, #12
- 800431c:	af00      	add	r7, sp, #0
- 800431e:	6078      	str	r0, [r7, #4]
- 8004320:	4b03      	ldr	r3, [pc, #12]	@ (8004330 <_ZZ4mainENKUlvE_cvPFvvEEv+0x18>)
- 8004322:	4618      	mov	r0, r3
- 8004324:	370c      	adds	r7, #12
- 8004326:	46bd      	mov	sp, r7
- 8004328:	f85d 7b04 	ldr.w	r7, [sp], #4
- 800432c:	4770      	bx	lr
- 800432e:	bf00      	nop
- 8004330:	0800430d 	.word	0x0800430d
+08004534 <_ZZ4mainENKUlvE_cvPFvvEEv>:
+ 8004534:	b480      	push	{r7}
+ 8004536:	b083      	sub	sp, #12
+ 8004538:	af00      	add	r7, sp, #0
+ 800453a:	6078      	str	r0, [r7, #4]
+ 800453c:	4b03      	ldr	r3, [pc, #12]	@ (800454c <_ZZ4mainENKUlvE_cvPFvvEEv+0x18>)
+ 800453e:	4618      	mov	r0, r3
+ 8004540:	370c      	adds	r7, #12
+ 8004542:	46bd      	mov	sp, r7
+ 8004544:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8004548:	4770      	bx	lr
+ 800454a:	bf00      	nop
+ 800454c:	08004529 	.word	0x08004529
 
-08004334 <main>:
+08004550 <main>:
 {
- 8004334:	b580      	push	{r7, lr}
- 8004336:	b082      	sub	sp, #8
- 8004338:	af00      	add	r7, sp, #0
+ 8004550:	b580      	push	{r7, lr}
+ 8004552:	b082      	sub	sp, #8
+ 8004554:	af00      	add	r7, sp, #0
+    Uart::init();
+ 8004556:	f7ff fb07 	bl	8003b68 <_ZN4Uart4initEv>
+    Uart::println("=== STM32 Temp Logger ===");
+ 800455a:	4824      	ldr	r0, [pc, #144]	@ (80045ec <main+0x9c>)
+ 800455c:	f7ff fb73 	bl	8003c46 <_ZN4Uart7printlnEPKc>
+    Uart::println("Initializing...");
+ 8004560:	4823      	ldr	r0, [pc, #140]	@ (80045f0 <main+0xa0>)
+ 8004562:	f7ff fb70 	bl	8003c46 <_ZN4Uart7printlnEPKc>
     Tick::init();
- 800433a:	f7ff fba1 	bl	8003a80 <_ZN4Tick4initEv>
+ 8004566:	f7ff fa8b 	bl	8003a80 <_ZN4Tick4initEv>
+    Uart::println("Tick: OK");
+ 800456a:	4822      	ldr	r0, [pc, #136]	@ (80045f4 <main+0xa4>)
+ 800456c:	f7ff fb6b 	bl	8003c46 <_ZN4Uart7printlnEPKc>
     sdSpi.initGpio();
- 800433e:	4812      	ldr	r0, [pc, #72]	@ (8004388 <main+0x54>)
- 8004340:	f7ff f9f4 	bl	800372c <_ZN3Spi8initGpioEv>
+ 8004570:	4821      	ldr	r0, [pc, #132]	@ (80045f8 <main+0xa8>)
+ 8004572:	f7ff f8db 	bl	800372c <_ZN3Spi8initGpioEv>
     sdSpi.config();
- 8004344:	4810      	ldr	r0, [pc, #64]	@ (8004388 <main+0x54>)
- 8004346:	f7ff fa43 	bl	80037d0 <_ZN3Spi6configEv>
+ 8004576:	4820      	ldr	r0, [pc, #128]	@ (80045f8 <main+0xa8>)
+ 8004578:	f7ff f92a 	bl	80037d0 <_ZN3Spi6configEv>
+    Uart::println("SPI: OK");
+ 800457c:	481f      	ldr	r0, [pc, #124]	@ (80045fc <main+0xac>)
+ 800457e:	f7ff fb62 	bl	8003c46 <_ZN4Uart7printlnEPKc>
     dht.init();
- 800434a:	4810      	ldr	r0, [pc, #64]	@ (800438c <main+0x58>)
- 800434c:	f7ff fc50 	bl	8003bf0 <_ZN5Dht224initEv>
-    logger.init();
- 8004350:	480f      	ldr	r0, [pc, #60]	@ (8004390 <main+0x5c>)
- 8004352:	f7ff fe11 	bl	8003f78 <_ZN6Logger4initEv>
+ 8004582:	481f      	ldr	r0, [pc, #124]	@ (8004600 <main+0xb0>)
+ 8004584:	f7ff fbf4 	bl	8003d70 <_ZN5Dht224initEv>
+    Uart::println("DHT22: OK");
+ 8004588:	481e      	ldr	r0, [pc, #120]	@ (8004604 <main+0xb4>)
+ 800458a:	f7ff fb5c 	bl	8003c46 <_ZN4Uart7printlnEPKc>
+    if (logger.init()) {
+ 800458e:	481e      	ldr	r0, [pc, #120]	@ (8004608 <main+0xb8>)
+ 8004590:	f7ff fdb2 	bl	80040f8 <_ZN6Logger4initEv>
+ 8004594:	4603      	mov	r3, r0
+ 8004596:	2b00      	cmp	r3, #0
+ 8004598:	d003      	beq.n	80045a2 <main+0x52>
+        Uart::println("Logger: OK");
+ 800459a:	481c      	ldr	r0, [pc, #112]	@ (800460c <main+0xbc>)
+ 800459c:	f7ff fb53 	bl	8003c46 <_ZN4Uart7printlnEPKc>
+ 80045a0:	e002      	b.n	80045a8 <main+0x58>
+        Uart::println("Logger: FAILED (no SD card?)");
+ 80045a2:	481b      	ldr	r0, [pc, #108]	@ (8004610 <main+0xc0>)
+ 80045a4:	f7ff fb4f 	bl	8003c46 <_ZN4Uart7printlnEPKc>
     buttonExti.init();
- 8004356:	480f      	ldr	r0, [pc, #60]	@ (8004394 <main+0x60>)
- 8004358:	f7ff fa8a 	bl	8003870 <_ZN4Exti4initEv>
+ 80045a8:	481a      	ldr	r0, [pc, #104]	@ (8004614 <main+0xc4>)
+ 80045aa:	f7ff f961 	bl	8003870 <_ZN4Exti4initEv>
     buttonExti.configureExtiSource(ExtiTrigger::Falling);
- 800435c:	2101      	movs	r1, #1
- 800435e:	480d      	ldr	r0, [pc, #52]	@ (8004394 <main+0x60>)
- 8004360:	f7ff faae 	bl	80038c0 <_ZN4Exti19configureExtiSourceE11ExtiTrigger>
+ 80045ae:	2101      	movs	r1, #1
+ 80045b0:	4818      	ldr	r0, [pc, #96]	@ (8004614 <main+0xc4>)
+ 80045b2:	f7ff f985 	bl	80038c0 <_ZN4Exti19configureExtiSourceE11ExtiTrigger>
     buttonExti.setCallback([]{ fsm.onButtonPress(); });
- 8004364:	1d3b      	adds	r3, r7, #4
- 8004366:	4618      	mov	r0, r3
- 8004368:	f7ff ffd6 	bl	8004318 <_ZZ4mainENKUlvE_cvPFvvEEv>
- 800436c:	4603      	mov	r3, r0
- 800436e:	4619      	mov	r1, r3
- 8004370:	4808      	ldr	r0, [pc, #32]	@ (8004394 <main+0x60>)
- 8004372:	f7ff fb25 	bl	80039c0 <_ZN4Exti11setCallbackEPFvvE>
+ 80045b6:	1d3b      	adds	r3, r7, #4
+ 80045b8:	4618      	mov	r0, r3
+ 80045ba:	f7ff ffbb 	bl	8004534 <_ZZ4mainENKUlvE_cvPFvvEEv>
+ 80045be:	4603      	mov	r3, r0
+ 80045c0:	4619      	mov	r1, r3
+ 80045c2:	4814      	ldr	r0, [pc, #80]	@ (8004614 <main+0xc4>)
+ 80045c4:	f7ff f9fc 	bl	80039c0 <_ZN4Exti11setCallbackEPFvvE>
+    Uart::println("EXTI: OK");
+ 80045c8:	4813      	ldr	r0, [pc, #76]	@ (8004618 <main+0xc8>)
+ 80045ca:	f7ff fb3c 	bl	8003c46 <_ZN4Uart7printlnEPKc>
 
-    // 6. FSM (configures LED GPIOs, enters IDLE)
+    // 7. FSM
     fsm.init();
- 8004376:	4808      	ldr	r0, [pc, #32]	@ (8004398 <main+0x64>)
- 8004378:	f7ff feb8 	bl	80040ec <_ZN3Fsm4initEv>
+ 80045ce:	4813      	ldr	r0, [pc, #76]	@ (800461c <main+0xcc>)
+ 80045d0:	f7ff fe4c 	bl	800426c <_ZN3Fsm4initEv>
+    Uart::println("FSM: OK -- entering IDLE");
+ 80045d4:	4812      	ldr	r0, [pc, #72]	@ (8004620 <main+0xd0>)
+ 80045d6:	f7ff fb36 	bl	8003c46 <_ZN4Uart7printlnEPKc>
+    Uart::println("Press button to toggle SAMPLE mode.");
+ 80045da:	4812      	ldr	r0, [pc, #72]	@ (8004624 <main+0xd4>)
+ 80045dc:	f7ff fb33 	bl	8003c46 <_ZN4Uart7printlnEPKc>
   __ASM volatile ("cpsie i" : : : "memory");
- 800437c:	b662      	cpsie	i
+ 80045e0:	b662      	cpsie	i
 }
- 800437e:	bf00      	nop
+ 80045e2:	bf00      	nop
     __enable_irq();
 
-    // 8. Main loop
+    // 9. Main loop
     while (1)
     {
         fsm.run();
- 8004380:	4805      	ldr	r0, [pc, #20]	@ (8004398 <main+0x64>)
- 8004382:	f7ff fedd 	bl	8004140 <_ZN3Fsm3runEv>
- 8004386:	e7fb      	b.n	8004380 <main+0x4c>
- 8004388:	200000e8 	.word	0x200000e8
- 800438c:	200000dc 	.word	0x200000dc
- 8004390:	20000114 	.word	0x20000114
- 8004394:	200000c8 	.word	0x200000c8
- 8004398:	20000570 	.word	0x20000570
+ 80045e4:	480d      	ldr	r0, [pc, #52]	@ (800461c <main+0xcc>)
+ 80045e6:	f7ff fe6b 	bl	80042c0 <_ZN3Fsm3runEv>
+ 80045ea:	e7fb      	b.n	80045e4 <main+0x94>
+ 80045ec:	080049c8 	.word	0x080049c8
+ 80045f0:	080049e4 	.word	0x080049e4
+ 80045f4:	080049f4 	.word	0x080049f4
+ 80045f8:	200000e8 	.word	0x200000e8
+ 80045fc:	08004a00 	.word	0x08004a00
+ 8004600:	200000dc 	.word	0x200000dc
+ 8004604:	08004a08 	.word	0x08004a08
+ 8004608:	20000114 	.word	0x20000114
+ 800460c:	08004a14 	.word	0x08004a14
+ 8004610:	08004a20 	.word	0x08004a20
+ 8004614:	200000c8 	.word	0x200000c8
+ 8004618:	08004a40 	.word	0x08004a40
+ 800461c:	20000570 	.word	0x20000570
+ 8004620:	08004a4c 	.word	0x08004a4c
+ 8004624:	08004a68 	.word	0x08004a68
 
-0800439c <_Z41__static_initialization_and_destruction_0v>:
+08004628 <_Z41__static_initialization_and_destruction_0v>:
     }
 }
- 800439c:	b5f0      	push	{r4, r5, r6, r7, lr}
- 800439e:	b089      	sub	sp, #36	@ 0x24
- 80043a0:	af08      	add	r7, sp, #32
+ 8004628:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 800462a:	b089      	sub	sp, #36	@ 0x24
+ 800462c:	af08      	add	r7, sp, #32
 Gpio gpioA(GPIOA);
- 80043a2:	4926      	ldr	r1, [pc, #152]	@ (800443c <_Z41__static_initialization_and_destruction_0v+0xa0>)
- 80043a4:	4826      	ldr	r0, [pc, #152]	@ (8004440 <_Z41__static_initialization_and_destruction_0v+0xa4>)
- 80043a6:	f7fe fff7 	bl	8003398 <_ZN4GpioC1EP12GPIO_TypeDef>
+ 800462e:	4926      	ldr	r1, [pc, #152]	@ (80046c8 <_Z41__static_initialization_and_destruction_0v+0xa0>)
+ 8004630:	4826      	ldr	r0, [pc, #152]	@ (80046cc <_Z41__static_initialization_and_destruction_0v+0xa4>)
+ 8004632:	f7fe feb1 	bl	8003398 <_ZN4GpioC1EP12GPIO_TypeDef>
 Gpio gpioB(GPIOB);
- 80043aa:	4926      	ldr	r1, [pc, #152]	@ (8004444 <_Z41__static_initialization_and_destruction_0v+0xa8>)
- 80043ac:	4826      	ldr	r0, [pc, #152]	@ (8004448 <_Z41__static_initialization_and_destruction_0v+0xac>)
- 80043ae:	f7fe fff3 	bl	8003398 <_ZN4GpioC1EP12GPIO_TypeDef>
+ 8004636:	4926      	ldr	r1, [pc, #152]	@ (80046d0 <_Z41__static_initialization_and_destruction_0v+0xa8>)
+ 8004638:	4826      	ldr	r0, [pc, #152]	@ (80046d4 <_Z41__static_initialization_and_destruction_0v+0xac>)
+ 800463a:	f7fe fead 	bl	8003398 <_ZN4GpioC1EP12GPIO_TypeDef>
 Gpio gpioC(GPIOC);
- 80043b2:	4926      	ldr	r1, [pc, #152]	@ (800444c <_Z41__static_initialization_and_destruction_0v+0xb0>)
- 80043b4:	4826      	ldr	r0, [pc, #152]	@ (8004450 <_Z41__static_initialization_and_destruction_0v+0xb4>)
- 80043b6:	f7fe ffef 	bl	8003398 <_ZN4GpioC1EP12GPIO_TypeDef>
+ 800463e:	4926      	ldr	r1, [pc, #152]	@ (80046d8 <_Z41__static_initialization_and_destruction_0v+0xb0>)
+ 8004640:	4826      	ldr	r0, [pc, #152]	@ (80046dc <_Z41__static_initialization_and_destruction_0v+0xb4>)
+ 8004642:	f7fe fea9 	bl	8003398 <_ZN4GpioC1EP12GPIO_TypeDef>
 Exti buttonExti(buttonPin, SYSCFG_EXTICR::PC);
- 80043ba:	4b26      	ldr	r3, [pc, #152]	@ (8004454 <_Z41__static_initialization_and_destruction_0v+0xb8>)
- 80043bc:	2202      	movs	r2, #2
- 80043be:	9200      	str	r2, [sp, #0]
- 80043c0:	cb0e      	ldmia	r3, {r1, r2, r3}
- 80043c2:	4825      	ldr	r0, [pc, #148]	@ (8004458 <_Z41__static_initialization_and_destruction_0v+0xbc>)
- 80043c4:	f7ff fa3a 	bl	800383c <_ZN4ExtiC1E3Pin13SYSCFG_EXTICR>
+ 8004646:	4b26      	ldr	r3, [pc, #152]	@ (80046e0 <_Z41__static_initialization_and_destruction_0v+0xb8>)
+ 8004648:	2202      	movs	r2, #2
+ 800464a:	9200      	str	r2, [sp, #0]
+ 800464c:	cb0e      	ldmia	r3, {r1, r2, r3}
+ 800464e:	4825      	ldr	r0, [pc, #148]	@ (80046e4 <_Z41__static_initialization_and_destruction_0v+0xbc>)
+ 8004650:	f7ff f8f4 	bl	800383c <_ZN4ExtiC1E3Pin13SYSCFG_EXTICR>
 Dht22 dht(dhtPin);
- 80043c8:	4b24      	ldr	r3, [pc, #144]	@ (800445c <_Z41__static_initialization_and_destruction_0v+0xc0>)
- 80043ca:	cb0e      	ldmia	r3, {r1, r2, r3}
- 80043cc:	4824      	ldr	r0, [pc, #144]	@ (8004460 <_Z41__static_initialization_and_destruction_0v+0xc4>)
- 80043ce:	f7ff fbfa 	bl	8003bc6 <_ZN5Dht22C1E3Pin>
-SpiPins sdPins = { sckPin, misoPin, mosiPin, &nssPin };
- 80043d2:	4b24      	ldr	r3, [pc, #144]	@ (8004464 <_Z41__static_initialization_and_destruction_0v+0xc8>)
- 80043d4:	4a24      	ldr	r2, [pc, #144]	@ (8004468 <_Z41__static_initialization_and_destruction_0v+0xcc>)
- 80043d6:	ca07      	ldmia	r2, {r0, r1, r2}
- 80043d8:	e883 0007 	stmia.w	r3, {r0, r1, r2}
- 80043dc:	4b21      	ldr	r3, [pc, #132]	@ (8004464 <_Z41__static_initialization_and_destruction_0v+0xc8>)
- 80043de:	4a23      	ldr	r2, [pc, #140]	@ (800446c <_Z41__static_initialization_and_destruction_0v+0xd0>)
- 80043e0:	330c      	adds	r3, #12
- 80043e2:	ca07      	ldmia	r2, {r0, r1, r2}
- 80043e4:	e883 0007 	stmia.w	r3, {r0, r1, r2}
- 80043e8:	4b1e      	ldr	r3, [pc, #120]	@ (8004464 <_Z41__static_initialization_and_destruction_0v+0xc8>)
- 80043ea:	4a21      	ldr	r2, [pc, #132]	@ (8004470 <_Z41__static_initialization_and_destruction_0v+0xd4>)
- 80043ec:	3318      	adds	r3, #24
- 80043ee:	ca07      	ldmia	r2, {r0, r1, r2}
- 80043f0:	e883 0007 	stmia.w	r3, {r0, r1, r2}
-Spi sdSpi(SPI1, sdPins);   // extern'd by diskio.cpp
- 80043f4:	4e1b      	ldr	r6, [pc, #108]	@ (8004464 <_Z41__static_initialization_and_destruction_0v+0xc8>)
- 80043f6:	466d      	mov	r5, sp
- 80043f8:	f106 0408 	add.w	r4, r6, #8
- 80043fc:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
- 80043fe:	c50f      	stmia	r5!, {r0, r1, r2, r3}
- 8004400:	e894 000f 	ldmia.w	r4, {r0, r1, r2, r3}
- 8004404:	e885 000f 	stmia.w	r5, {r0, r1, r2, r3}
- 8004408:	e896 000c 	ldmia.w	r6, {r2, r3}
- 800440c:	4919      	ldr	r1, [pc, #100]	@ (8004474 <_Z41__static_initialization_and_destruction_0v+0xd8>)
- 800440e:	481a      	ldr	r0, [pc, #104]	@ (8004478 <_Z41__static_initialization_and_destruction_0v+0xdc>)
- 8004410:	f7ff f875 	bl	80034fe <_ZN3SpiC1EP11SPI_TypeDef7SpiPins>
+ 8004654:	4b24      	ldr	r3, [pc, #144]	@ (80046e8 <_Z41__static_initialization_and_destruction_0v+0xc0>)
+ 8004656:	cb0e      	ldmia	r3, {r1, r2, r3}
+ 8004658:	4824      	ldr	r0, [pc, #144]	@ (80046ec <_Z41__static_initialization_and_destruction_0v+0xc4>)
+ 800465a:	f7ff fb74 	bl	8003d46 <_ZN5Dht22C1E3Pin>
+SpiPins sdPins  = { sckPin, misoPin, mosiPin, &nssPin };
+ 800465e:	4b24      	ldr	r3, [pc, #144]	@ (80046f0 <_Z41__static_initialization_and_destruction_0v+0xc8>)
+ 8004660:	4a24      	ldr	r2, [pc, #144]	@ (80046f4 <_Z41__static_initialization_and_destruction_0v+0xcc>)
+ 8004662:	ca07      	ldmia	r2, {r0, r1, r2}
+ 8004664:	e883 0007 	stmia.w	r3, {r0, r1, r2}
+ 8004668:	4b21      	ldr	r3, [pc, #132]	@ (80046f0 <_Z41__static_initialization_and_destruction_0v+0xc8>)
+ 800466a:	4a23      	ldr	r2, [pc, #140]	@ (80046f8 <_Z41__static_initialization_and_destruction_0v+0xd0>)
+ 800466c:	330c      	adds	r3, #12
+ 800466e:	ca07      	ldmia	r2, {r0, r1, r2}
+ 8004670:	e883 0007 	stmia.w	r3, {r0, r1, r2}
+ 8004674:	4b1e      	ldr	r3, [pc, #120]	@ (80046f0 <_Z41__static_initialization_and_destruction_0v+0xc8>)
+ 8004676:	4a21      	ldr	r2, [pc, #132]	@ (80046fc <_Z41__static_initialization_and_destruction_0v+0xd4>)
+ 8004678:	3318      	adds	r3, #24
+ 800467a:	ca07      	ldmia	r2, {r0, r1, r2}
+ 800467c:	e883 0007 	stmia.w	r3, {r0, r1, r2}
+Spi     sdSpi(SPI1, sdPins);
+ 8004680:	4e1b      	ldr	r6, [pc, #108]	@ (80046f0 <_Z41__static_initialization_and_destruction_0v+0xc8>)
+ 8004682:	466d      	mov	r5, sp
+ 8004684:	f106 0408 	add.w	r4, r6, #8
+ 8004688:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+ 800468a:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+ 800468c:	e894 000f 	ldmia.w	r4, {r0, r1, r2, r3}
+ 8004690:	e885 000f 	stmia.w	r5, {r0, r1, r2, r3}
+ 8004694:	e896 000c 	ldmia.w	r6, {r2, r3}
+ 8004698:	4919      	ldr	r1, [pc, #100]	@ (8004700 <_Z41__static_initialization_and_destruction_0v+0xd8>)
+ 800469a:	481a      	ldr	r0, [pc, #104]	@ (8004704 <_Z41__static_initialization_and_destruction_0v+0xdc>)
+ 800469c:	f7fe ff2f 	bl	80034fe <_ZN3SpiC1EP11SPI_TypeDef7SpiPins>
 Fsm    fsm(led1Pin, led2Pin, dht, logger);
- 8004414:	4c19      	ldr	r4, [pc, #100]	@ (800447c <_Z41__static_initialization_and_destruction_0v+0xe0>)
- 8004416:	4b1a      	ldr	r3, [pc, #104]	@ (8004480 <_Z41__static_initialization_and_destruction_0v+0xe4>)
- 8004418:	9304      	str	r3, [sp, #16]
- 800441a:	4b11      	ldr	r3, [pc, #68]	@ (8004460 <_Z41__static_initialization_and_destruction_0v+0xc4>)
- 800441c:	9303      	str	r3, [sp, #12]
- 800441e:	4a19      	ldr	r2, [pc, #100]	@ (8004484 <_Z41__static_initialization_and_destruction_0v+0xe8>)
- 8004420:	466b      	mov	r3, sp
- 8004422:	ca07      	ldmia	r2, {r0, r1, r2}
- 8004424:	e883 0007 	stmia.w	r3, {r0, r1, r2}
- 8004428:	e894 000e 	ldmia.w	r4, {r1, r2, r3}
- 800442c:	4816      	ldr	r0, [pc, #88]	@ (8004488 <_Z41__static_initialization_and_destruction_0v+0xec>)
- 800442e:	f7ff fe31 	bl	8004094 <_ZN3FsmC1E3PinS0_R5Dht22R6Logger>
+ 80046a0:	4c19      	ldr	r4, [pc, #100]	@ (8004708 <_Z41__static_initialization_and_destruction_0v+0xe0>)
+ 80046a2:	4b1a      	ldr	r3, [pc, #104]	@ (800470c <_Z41__static_initialization_and_destruction_0v+0xe4>)
+ 80046a4:	9304      	str	r3, [sp, #16]
+ 80046a6:	4b11      	ldr	r3, [pc, #68]	@ (80046ec <_Z41__static_initialization_and_destruction_0v+0xc4>)
+ 80046a8:	9303      	str	r3, [sp, #12]
+ 80046aa:	4a19      	ldr	r2, [pc, #100]	@ (8004710 <_Z41__static_initialization_and_destruction_0v+0xe8>)
+ 80046ac:	466b      	mov	r3, sp
+ 80046ae:	ca07      	ldmia	r2, {r0, r1, r2}
+ 80046b0:	e883 0007 	stmia.w	r3, {r0, r1, r2}
+ 80046b4:	e894 000e 	ldmia.w	r4, {r1, r2, r3}
+ 80046b8:	4816      	ldr	r0, [pc, #88]	@ (8004714 <_Z41__static_initialization_and_destruction_0v+0xec>)
+ 80046ba:	f7ff fdab 	bl	8004214 <_ZN3FsmC1E3PinS0_R5Dht22R6Logger>
 }
- 8004432:	bf00      	nop
- 8004434:	3704      	adds	r7, #4
- 8004436:	46bd      	mov	sp, r7
- 8004438:	bdf0      	pop	{r4, r5, r6, r7, pc}
- 800443a:	bf00      	nop
- 800443c:	40020000 	.word	0x40020000
- 8004440:	200000b8 	.word	0x200000b8
- 8004444:	40020400 	.word	0x40020400
- 8004448:	200000bc 	.word	0x200000bc
- 800444c:	40020800 	.word	0x40020800
- 8004450:	200000c0 	.word	0x200000c0
- 8004454:	2000001c 	.word	0x2000001c
- 8004458:	200000c8 	.word	0x200000c8
- 800445c:	20000028 	.word	0x20000028
- 8004460:	200000dc 	.word	0x200000dc
- 8004464:	20000064 	.word	0x20000064
- 8004468:	20000034 	.word	0x20000034
- 800446c:	20000040 	.word	0x20000040
- 8004470:	2000004c 	.word	0x2000004c
- 8004474:	40013000 	.word	0x40013000
- 8004478:	200000e8 	.word	0x200000e8
- 800447c:	20000004 	.word	0x20000004
- 8004480:	20000114 	.word	0x20000114
- 8004484:	20000010 	.word	0x20000010
- 8004488:	20000570 	.word	0x20000570
+ 80046be:	bf00      	nop
+ 80046c0:	3704      	adds	r7, #4
+ 80046c2:	46bd      	mov	sp, r7
+ 80046c4:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 80046c6:	bf00      	nop
+ 80046c8:	40020000 	.word	0x40020000
+ 80046cc:	200000b8 	.word	0x200000b8
+ 80046d0:	40020400 	.word	0x40020400
+ 80046d4:	200000bc 	.word	0x200000bc
+ 80046d8:	40020800 	.word	0x40020800
+ 80046dc:	200000c0 	.word	0x200000c0
+ 80046e0:	2000001c 	.word	0x2000001c
+ 80046e4:	200000c8 	.word	0x200000c8
+ 80046e8:	20000028 	.word	0x20000028
+ 80046ec:	200000dc 	.word	0x200000dc
+ 80046f0:	20000064 	.word	0x20000064
+ 80046f4:	20000034 	.word	0x20000034
+ 80046f8:	20000040 	.word	0x20000040
+ 80046fc:	2000004c 	.word	0x2000004c
+ 8004700:	40013000 	.word	0x40013000
+ 8004704:	200000e8 	.word	0x200000e8
+ 8004708:	20000004 	.word	0x20000004
+ 800470c:	20000114 	.word	0x20000114
+ 8004710:	20000010 	.word	0x20000010
+ 8004714:	20000570 	.word	0x20000570
 
-0800448c <_GLOBAL__sub_I_gpioA>:
- 800448c:	b580      	push	{r7, lr}
- 800448e:	af00      	add	r7, sp, #0
- 8004490:	f7ff ff84 	bl	800439c <_Z41__static_initialization_and_destruction_0v>
- 8004494:	bd80      	pop	{r7, pc}
+08004718 <_GLOBAL__sub_I_gpioA>:
+ 8004718:	b580      	push	{r7, lr}
+ 800471a:	af00      	add	r7, sp, #0
+ 800471c:	f7ff ff84 	bl	8004628 <_Z41__static_initialization_and_destruction_0v>
+ 8004720:	bd80      	pop	{r7, pc}
 	...
 
-08004498 <SystemInit>:
+08004724 <SystemInit>:
   *         configuration.
   * @param  None
   * @retval None
   */
 void SystemInit(void)
 {
- 8004498:	b480      	push	{r7}
- 800449a:	af00      	add	r7, sp, #0
+ 8004724:	b480      	push	{r7}
+ 8004726:	af00      	add	r7, sp, #0
   /* FPU settings ------------------------------------------------------------*/
   #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
     SCB->CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* set CP10 and CP11 Full Access */
- 800449c:	4b06      	ldr	r3, [pc, #24]	@ (80044b8 <SystemInit+0x20>)
- 800449e:	f8d3 3088 	ldr.w	r3, [r3, #136]	@ 0x88
- 80044a2:	4a05      	ldr	r2, [pc, #20]	@ (80044b8 <SystemInit+0x20>)
- 80044a4:	f443 0370 	orr.w	r3, r3, #15728640	@ 0xf00000
- 80044a8:	f8c2 3088 	str.w	r3, [r2, #136]	@ 0x88
+ 8004728:	4b06      	ldr	r3, [pc, #24]	@ (8004744 <SystemInit+0x20>)
+ 800472a:	f8d3 3088 	ldr.w	r3, [r3, #136]	@ 0x88
+ 800472e:	4a05      	ldr	r2, [pc, #20]	@ (8004744 <SystemInit+0x20>)
+ 8004730:	f443 0370 	orr.w	r3, r3, #15728640	@ 0xf00000
+ 8004734:	f8c2 3088 	str.w	r3, [r2, #136]	@ 0x88
 
   /* Configure the Vector Table location -------------------------------------*/
 #if defined(USER_VECT_TAB_ADDRESS)
   SCB->VTOR = VECT_TAB_BASE_ADDRESS | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM */
 #endif /* USER_VECT_TAB_ADDRESS */
 }
- 80044ac:	bf00      	nop
- 80044ae:	46bd      	mov	sp, r7
- 80044b0:	f85d 7b04 	ldr.w	r7, [sp], #4
- 80044b4:	4770      	bx	lr
- 80044b6:	bf00      	nop
- 80044b8:	e000ed00 	.word	0xe000ed00
+ 8004738:	bf00      	nop
+ 800473a:	46bd      	mov	sp, r7
+ 800473c:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8004740:	4770      	bx	lr
+ 8004742:	bf00      	nop
+ 8004744:	e000ed00 	.word	0xe000ed00
 
-080044bc <Reset_Handler>:
+08004748 <Reset_Handler>:
 
   .section .text.Reset_Handler
   .weak Reset_Handler
   .type Reset_Handler, %function
 Reset_Handler:
   ldr   r0, =_estack
- 80044bc:	480d      	ldr	r0, [pc, #52]	@ (80044f4 <LoopForever+0x2>)
+ 8004748:	480d      	ldr	r0, [pc, #52]	@ (8004780 <LoopForever+0x2>)
   mov   sp, r0          /* set stack pointer */
- 80044be:	4685      	mov	sp, r0
+ 800474a:	4685      	mov	sp, r0
 /* Call the clock system initialization function.*/
   bl  SystemInit
- 80044c0:	f7ff ffea 	bl	8004498 <SystemInit>
+ 800474c:	f7ff ffea 	bl	8004724 <SystemInit>
 
 /* Copy the data segment initializers from flash to SRAM */
   ldr r0, =_sdata
- 80044c4:	480c      	ldr	r0, [pc, #48]	@ (80044f8 <LoopForever+0x6>)
+ 8004750:	480c      	ldr	r0, [pc, #48]	@ (8004784 <LoopForever+0x6>)
   ldr r1, =_edata
- 80044c6:	490d      	ldr	r1, [pc, #52]	@ (80044fc <LoopForever+0xa>)
+ 8004752:	490d      	ldr	r1, [pc, #52]	@ (8004788 <LoopForever+0xa>)
   ldr r2, =_sidata
- 80044c8:	4a0d      	ldr	r2, [pc, #52]	@ (8004500 <LoopForever+0xe>)
+ 8004754:	4a0d      	ldr	r2, [pc, #52]	@ (800478c <LoopForever+0xe>)
   movs r3, #0
- 80044ca:	2300      	movs	r3, #0
+ 8004756:	2300      	movs	r3, #0
   b LoopCopyDataInit
- 80044cc:	e002      	b.n	80044d4 <LoopCopyDataInit>
+ 8004758:	e002      	b.n	8004760 <LoopCopyDataInit>
 
-080044ce <CopyDataInit>:
+0800475a <CopyDataInit>:
 
 CopyDataInit:
   ldr r4, [r2, r3]
- 80044ce:	58d4      	ldr	r4, [r2, r3]
+ 800475a:	58d4      	ldr	r4, [r2, r3]
   str r4, [r0, r3]
- 80044d0:	50c4      	str	r4, [r0, r3]
+ 800475c:	50c4      	str	r4, [r0, r3]
   adds r3, r3, #4
- 80044d2:	3304      	adds	r3, #4
+ 800475e:	3304      	adds	r3, #4
 
-080044d4 <LoopCopyDataInit>:
+08004760 <LoopCopyDataInit>:
 
 LoopCopyDataInit:
   adds r4, r0, r3
- 80044d4:	18c4      	adds	r4, r0, r3
+ 8004760:	18c4      	adds	r4, r0, r3
   cmp r4, r1
- 80044d6:	428c      	cmp	r4, r1
+ 8004762:	428c      	cmp	r4, r1
   bcc CopyDataInit
- 80044d8:	d3f9      	bcc.n	80044ce <CopyDataInit>
+ 8004764:	d3f9      	bcc.n	800475a <CopyDataInit>
 
 /* Zero fill the bss segment. */
   ldr r2, =_sbss
- 80044da:	4a0a      	ldr	r2, [pc, #40]	@ (8004504 <LoopForever+0x12>)
+ 8004766:	4a0a      	ldr	r2, [pc, #40]	@ (8004790 <LoopForever+0x12>)
   ldr r4, =_ebss
- 80044dc:	4c0a      	ldr	r4, [pc, #40]	@ (8004508 <LoopForever+0x16>)
+ 8004768:	4c0a      	ldr	r4, [pc, #40]	@ (8004794 <LoopForever+0x16>)
   movs r3, #0
- 80044de:	2300      	movs	r3, #0
+ 800476a:	2300      	movs	r3, #0
   b LoopFillZerobss
- 80044e0:	e001      	b.n	80044e6 <LoopFillZerobss>
+ 800476c:	e001      	b.n	8004772 <LoopFillZerobss>
 
-080044e2 <FillZerobss>:
+0800476e <FillZerobss>:
 
 FillZerobss:
   str  r3, [r2]
- 80044e2:	6013      	str	r3, [r2, #0]
+ 800476e:	6013      	str	r3, [r2, #0]
   adds r2, r2, #4
- 80044e4:	3204      	adds	r2, #4
+ 8004770:	3204      	adds	r2, #4
 
-080044e6 <LoopFillZerobss>:
+08004772 <LoopFillZerobss>:
 
 LoopFillZerobss:
   cmp r2, r4
- 80044e6:	42a2      	cmp	r2, r4
+ 8004772:	42a2      	cmp	r2, r4
   bcc FillZerobss
- 80044e8:	d3fb      	bcc.n	80044e2 <FillZerobss>
+ 8004774:	d3fb      	bcc.n	800476e <FillZerobss>
 
 
 /* Call static constructors */
   bl __libc_init_array
- 80044ea:	f000 f835 	bl	8004558 <__libc_init_array>
+ 8004776:	f000 f835 	bl	80047e4 <__libc_init_array>
 /* Call the application's entry point.*/
 
   bl main
- 80044ee:	f7ff ff21 	bl	8004334 <main>
+ 800477a:	f7ff fee9 	bl	8004550 <main>
 
-080044f2 <LoopForever>:
+0800477e <LoopForever>:
 
 LoopForever:
   b LoopForever
- 80044f2:	e7fe      	b.n	80044f2 <LoopForever>
+ 800477e:	e7fe      	b.n	800477e <LoopForever>
   ldr   r0, =_estack
- 80044f4:	20020000 	.word	0x20020000
+ 8004780:	20020000 	.word	0x20020000
   ldr r0, =_sdata
- 80044f8:	20000000 	.word	0x20000000
+ 8004784:	20000000 	.word	0x20000000
   ldr r1, =_edata
- 80044fc:	20000090 	.word	0x20000090
+ 8004788:	20000090 	.word	0x20000090
   ldr r2, =_sidata
- 8004500:	08004644 	.word	0x08004644
+ 800478c:	08004a98 	.word	0x08004a98
   ldr r2, =_sbss
- 8004504:	20000090 	.word	0x20000090
+ 8004790:	20000090 	.word	0x20000090
   ldr r4, =_ebss
- 8004508:	2000059c 	.word	0x2000059c
+ 8004794:	2000059c 	.word	0x2000059c
 
-0800450c <ADC_IRQHandler>:
+08004798 <ADC_IRQHandler>:
  * @retval : None
 */
   .section .text.Default_Handler,"ax",%progbits
 Default_Handler:
 Infinite_Loop:
   b Infinite_Loop
- 800450c:	e7fe      	b.n	800450c <ADC_IRQHandler>
+ 8004798:	e7fe      	b.n	8004798 <ADC_IRQHandler>
 
-0800450e <memcmp>:
- 800450e:	b510      	push	{r4, lr}
- 8004510:	3901      	subs	r1, #1
- 8004512:	4402      	add	r2, r0
- 8004514:	4290      	cmp	r0, r2
- 8004516:	d101      	bne.n	800451c <memcmp+0xe>
- 8004518:	2000      	movs	r0, #0
- 800451a:	e005      	b.n	8004528 <memcmp+0x1a>
- 800451c:	7803      	ldrb	r3, [r0, #0]
- 800451e:	f811 4f01 	ldrb.w	r4, [r1, #1]!
- 8004522:	42a3      	cmp	r3, r4
- 8004524:	d001      	beq.n	800452a <memcmp+0x1c>
- 8004526:	1b18      	subs	r0, r3, r4
- 8004528:	bd10      	pop	{r4, pc}
- 800452a:	3001      	adds	r0, #1
- 800452c:	e7f2      	b.n	8004514 <memcmp+0x6>
+0800479a <memcmp>:
+ 800479a:	b510      	push	{r4, lr}
+ 800479c:	3901      	subs	r1, #1
+ 800479e:	4402      	add	r2, r0
+ 80047a0:	4290      	cmp	r0, r2
+ 80047a2:	d101      	bne.n	80047a8 <memcmp+0xe>
+ 80047a4:	2000      	movs	r0, #0
+ 80047a6:	e005      	b.n	80047b4 <memcmp+0x1a>
+ 80047a8:	7803      	ldrb	r3, [r0, #0]
+ 80047aa:	f811 4f01 	ldrb.w	r4, [r1, #1]!
+ 80047ae:	42a3      	cmp	r3, r4
+ 80047b0:	d001      	beq.n	80047b6 <memcmp+0x1c>
+ 80047b2:	1b18      	subs	r0, r3, r4
+ 80047b4:	bd10      	pop	{r4, pc}
+ 80047b6:	3001      	adds	r0, #1
+ 80047b8:	e7f2      	b.n	80047a0 <memcmp+0x6>
 
-0800452e <memset>:
- 800452e:	4402      	add	r2, r0
- 8004530:	4603      	mov	r3, r0
- 8004532:	4293      	cmp	r3, r2
- 8004534:	d100      	bne.n	8004538 <memset+0xa>
- 8004536:	4770      	bx	lr
- 8004538:	f803 1b01 	strb.w	r1, [r3], #1
- 800453c:	e7f9      	b.n	8004532 <memset+0x4>
+080047ba <memset>:
+ 80047ba:	4402      	add	r2, r0
+ 80047bc:	4603      	mov	r3, r0
+ 80047be:	4293      	cmp	r3, r2
+ 80047c0:	d100      	bne.n	80047c4 <memset+0xa>
+ 80047c2:	4770      	bx	lr
+ 80047c4:	f803 1b01 	strb.w	r1, [r3], #1
+ 80047c8:	e7f9      	b.n	80047be <memset+0x4>
 
-0800453e <strchr>:
- 800453e:	b2c9      	uxtb	r1, r1
- 8004540:	4603      	mov	r3, r0
- 8004542:	4618      	mov	r0, r3
- 8004544:	f813 2b01 	ldrb.w	r2, [r3], #1
- 8004548:	b112      	cbz	r2, 8004550 <strchr+0x12>
- 800454a:	428a      	cmp	r2, r1
- 800454c:	d1f9      	bne.n	8004542 <strchr+0x4>
- 800454e:	4770      	bx	lr
- 8004550:	2900      	cmp	r1, #0
- 8004552:	bf18      	it	ne
- 8004554:	2000      	movne	r0, #0
- 8004556:	4770      	bx	lr
+080047ca <strchr>:
+ 80047ca:	b2c9      	uxtb	r1, r1
+ 80047cc:	4603      	mov	r3, r0
+ 80047ce:	4618      	mov	r0, r3
+ 80047d0:	f813 2b01 	ldrb.w	r2, [r3], #1
+ 80047d4:	b112      	cbz	r2, 80047dc <strchr+0x12>
+ 80047d6:	428a      	cmp	r2, r1
+ 80047d8:	d1f9      	bne.n	80047ce <strchr+0x4>
+ 80047da:	4770      	bx	lr
+ 80047dc:	2900      	cmp	r1, #0
+ 80047de:	bf18      	it	ne
+ 80047e0:	2000      	movne	r0, #0
+ 80047e2:	4770      	bx	lr
 
-08004558 <__libc_init_array>:
- 8004558:	b570      	push	{r4, r5, r6, lr}
- 800455a:	4b0d      	ldr	r3, [pc, #52]	@ (8004590 <__libc_init_array+0x38>)
- 800455c:	4d0d      	ldr	r5, [pc, #52]	@ (8004594 <__libc_init_array+0x3c>)
- 800455e:	1b5b      	subs	r3, r3, r5
- 8004560:	109c      	asrs	r4, r3, #2
- 8004562:	2600      	movs	r6, #0
- 8004564:	42a6      	cmp	r6, r4
- 8004566:	d109      	bne.n	800457c <__libc_init_array+0x24>
- 8004568:	f000 f828 	bl	80045bc <_init>
- 800456c:	4d0a      	ldr	r5, [pc, #40]	@ (8004598 <__libc_init_array+0x40>)
- 800456e:	4b0b      	ldr	r3, [pc, #44]	@ (800459c <__libc_init_array+0x44>)
- 8004570:	1b5b      	subs	r3, r3, r5
- 8004572:	109c      	asrs	r4, r3, #2
- 8004574:	2600      	movs	r6, #0
- 8004576:	42a6      	cmp	r6, r4
- 8004578:	d105      	bne.n	8004586 <__libc_init_array+0x2e>
- 800457a:	bd70      	pop	{r4, r5, r6, pc}
- 800457c:	f855 3b04 	ldr.w	r3, [r5], #4
- 8004580:	4798      	blx	r3
- 8004582:	3601      	adds	r6, #1
- 8004584:	e7ee      	b.n	8004564 <__libc_init_array+0xc>
- 8004586:	f855 3b04 	ldr.w	r3, [r5], #4
- 800458a:	4798      	blx	r3
- 800458c:	3601      	adds	r6, #1
- 800458e:	e7f2      	b.n	8004576 <__libc_init_array+0x1e>
- 8004590:	08004638 	.word	0x08004638
- 8004594:	08004638 	.word	0x08004638
- 8004598:	08004638 	.word	0x08004638
- 800459c:	08004640 	.word	0x08004640
+080047e4 <__libc_init_array>:
+ 80047e4:	b570      	push	{r4, r5, r6, lr}
+ 80047e6:	4b0d      	ldr	r3, [pc, #52]	@ (800481c <__libc_init_array+0x38>)
+ 80047e8:	4d0d      	ldr	r5, [pc, #52]	@ (8004820 <__libc_init_array+0x3c>)
+ 80047ea:	1b5b      	subs	r3, r3, r5
+ 80047ec:	109c      	asrs	r4, r3, #2
+ 80047ee:	2600      	movs	r6, #0
+ 80047f0:	42a6      	cmp	r6, r4
+ 80047f2:	d109      	bne.n	8004808 <__libc_init_array+0x24>
+ 80047f4:	f000 f828 	bl	8004848 <_init>
+ 80047f8:	4d0a      	ldr	r5, [pc, #40]	@ (8004824 <__libc_init_array+0x40>)
+ 80047fa:	4b0b      	ldr	r3, [pc, #44]	@ (8004828 <__libc_init_array+0x44>)
+ 80047fc:	1b5b      	subs	r3, r3, r5
+ 80047fe:	109c      	asrs	r4, r3, #2
+ 8004800:	2600      	movs	r6, #0
+ 8004802:	42a6      	cmp	r6, r4
+ 8004804:	d105      	bne.n	8004812 <__libc_init_array+0x2e>
+ 8004806:	bd70      	pop	{r4, r5, r6, pc}
+ 8004808:	f855 3b04 	ldr.w	r3, [r5], #4
+ 800480c:	4798      	blx	r3
+ 800480e:	3601      	adds	r6, #1
+ 8004810:	e7ee      	b.n	80047f0 <__libc_init_array+0xc>
+ 8004812:	f855 3b04 	ldr.w	r3, [r5], #4
+ 8004816:	4798      	blx	r3
+ 8004818:	3601      	adds	r6, #1
+ 800481a:	e7f2      	b.n	8004802 <__libc_init_array+0x1e>
+ 800481c:	08004a8c 	.word	0x08004a8c
+ 8004820:	08004a8c 	.word	0x08004a8c
+ 8004824:	08004a8c 	.word	0x08004a8c
+ 8004828:	08004a94 	.word	0x08004a94
 
-080045a0 <memcpy>:
- 80045a0:	440a      	add	r2, r1
- 80045a2:	4291      	cmp	r1, r2
- 80045a4:	f100 33ff 	add.w	r3, r0, #4294967295	@ 0xffffffff
- 80045a8:	d100      	bne.n	80045ac <memcpy+0xc>
- 80045aa:	4770      	bx	lr
- 80045ac:	b510      	push	{r4, lr}
- 80045ae:	f811 4b01 	ldrb.w	r4, [r1], #1
- 80045b2:	f803 4f01 	strb.w	r4, [r3, #1]!
- 80045b6:	4291      	cmp	r1, r2
- 80045b8:	d1f9      	bne.n	80045ae <memcpy+0xe>
- 80045ba:	bd10      	pop	{r4, pc}
+0800482c <memcpy>:
+ 800482c:	440a      	add	r2, r1
+ 800482e:	4291      	cmp	r1, r2
+ 8004830:	f100 33ff 	add.w	r3, r0, #4294967295	@ 0xffffffff
+ 8004834:	d100      	bne.n	8004838 <memcpy+0xc>
+ 8004836:	4770      	bx	lr
+ 8004838:	b510      	push	{r4, lr}
+ 800483a:	f811 4b01 	ldrb.w	r4, [r1], #1
+ 800483e:	f803 4f01 	strb.w	r4, [r3, #1]!
+ 8004842:	4291      	cmp	r1, r2
+ 8004844:	d1f9      	bne.n	800483a <memcpy+0xe>
+ 8004846:	bd10      	pop	{r4, pc}
 
-080045bc <_init>:
- 80045bc:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 80045be:	bf00      	nop
- 80045c0:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 80045c2:	bc08      	pop	{r3}
- 80045c4:	469e      	mov	lr, r3
- 80045c6:	4770      	bx	lr
+08004848 <_init>:
+ 8004848:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 800484a:	bf00      	nop
+ 800484c:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 800484e:	bc08      	pop	{r3}
+ 8004850:	469e      	mov	lr, r3
+ 8004852:	4770      	bx	lr
 
-080045c8 <_fini>:
- 80045c8:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 80045ca:	bf00      	nop
- 80045cc:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 80045ce:	bc08      	pop	{r3}
- 80045d0:	469e      	mov	lr, r3
- 80045d2:	4770      	bx	lr
+08004854 <_fini>:
+ 8004854:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8004856:	bf00      	nop
+ 8004858:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 800485a:	bc08      	pop	{r3}
+ 800485c:	469e      	mov	lr, r3
+ 800485e:	4770      	bx	lr

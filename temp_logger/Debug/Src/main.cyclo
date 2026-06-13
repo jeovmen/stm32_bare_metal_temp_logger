@@ -34,6 +34,11 @@
 ../Inc/systick.hpp:53:16:static u32 Tick::getTick()	1
 ../Inc/systick.hpp:63:17:static void Tick::tickIsr()	1
 ../Inc/systick.hpp:74:16:static u32 Tick::elapsed(u32)	1
+../Inc/uart.hpp:17:17:static void Uart::init()	1
+../Inc/uart.hpp:46:17:static void Uart::putChar(char)	2
+../Inc/uart.hpp:53:17:static void Uart::print(const char*)	2
+../Inc/uart.hpp:59:17:static void Uart::println(const char*)	1
+../Inc/uart.hpp:67:17:static void Uart::printU32(u32)	4
 ../Inc/dht22.hpp:43:15:float Dht22::Reading::temperatureC() const	1
 ../Inc/dht22.hpp:44:15:float Dht22::Reading::humidity() const	1
 ../Inc/dht22.hpp:47:14:Dht22::Dht22(Pin)	1
@@ -47,19 +52,19 @@
 ../Inc/logger.hpp:15:10:bool Logger::init()	4
 ../Inc/logger.hpp:40:10:void Logger::log(const Dht22::Reading&)	2
 ../Inc/logger.hpp:73:10:void Logger::writeHeader()	1
-../Inc/fsm.hpp:19:5:Fsm::Fsm(Pin, Pin, Dht22&, Logger&)	1
+../Inc/fsm.hpp:21:5:Fsm::Fsm(Pin, Pin, Dht22&, Logger&)	1
 ../Inc/fsm.hpp:26:10:void Fsm::init()	1
-../Inc/fsm.hpp:39:10:void Fsm::run()	5
-../Inc/fsm.hpp:66:10:void Fsm::onButtonPress()	1
-../Inc/fsm.hpp:85:10:void Fsm::enterIdle()	1
-../Inc/fsm.hpp:92:10:void Fsm::enterSample()	1
-../Inc/fsm.hpp:100:10:void Fsm::takeSample()	2
-../Inc/fsm.hpp:111:10:void Fsm::setLed(const Pin&, bool)	2
-../Src/main.cpp:39:17:void SysTick_Handler()	1
-../Src/main.cpp:44:17:void EXTI15_10_IRQHandler()	1
-../Src/main.cpp:68:28:main()::<lambda()>	1
-../Src/main.cpp:68:28:static void main()::<lambda()>::_FUN()	1
-../Src/main.cpp:68:28:main()::<lambda()>::operator void (*)()() const	1
-../Src/main.cpp:50:5:int main()	1
-../Src/main.cpp:81:1:void __static_initialization_and_destruction_0()	1
-../Src/main.cpp:81:1:cpp)	1
+../Inc/fsm.hpp:35:10:void Fsm::run()	5
+../Inc/fsm.hpp:51:10:void Fsm::onButtonPress()	1
+../Inc/fsm.hpp:70:10:void Fsm::enterIdle()	1
+../Inc/fsm.hpp:78:10:void Fsm::enterSample()	1
+../Inc/fsm.hpp:88:10:void Fsm::takeSample()	2
+../Inc/fsm.hpp:108:10:void Fsm::setLed(const Pin&, bool)	2
+../Src/main.cpp:46:17:void SysTick_Handler()	1
+../Src/main.cpp:51:17:void EXTI15_10_IRQHandler()	1
+../Src/main.cpp:86:28:main()::<lambda()>	1
+../Src/main.cpp:86:28:static void main()::<lambda()>::_FUN()	1
+../Src/main.cpp:86:28:main()::<lambda()>::operator void (*)()() const	1
+../Src/main.cpp:56:5:int main()	2
+../Src/main.cpp:102:1:void __static_initialization_and_destruction_0()	1
+../Src/main.cpp:102:1:cpp)	1
