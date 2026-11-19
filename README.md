@@ -1,6 +1,6 @@
 # STM32F446RE Bare Metal Temperature Logger
 
-A bare metal embedded systems project written in C++ for the STM32F446RE Nucleo board. Samples temperature and humidity from a DHT22 sensor every 5 minutes and logs readings to a CSV file on an SD card over SPI. No STM32 HAL or vendor middleware — all peripheral access is implemented at the register level using CMSIS definitions only.
+A bare metal embedded systems project written in C++ for the STM32F446RE Nucleo board. Samples temperature and humidity from a DHT22 sensor every 5 minutes and logs readings to a CSV file on an SD card over SPI. No STM32 HAL or vendor middleware - all peripheral access is implemented at the register level using CMSIS definitions only.
 
 ## Features
 
@@ -16,7 +16,7 @@ A bare metal embedded systems project written in C++ for the STM32F446RE Nucleo 
 
 | Component | Interface | Pin(s) |
 |-----------|-----------|--------|
-| STM32F446RE Nucleo | — | — |
+| STM32F446RE Nucleo | - | - |
 | DHT22 / AM2302 | 1-wire bit-bang | PA1 (4.7 kΩ pull-up to 3.3 V) |
 | SD card module | SPI1 | PA5 SCK / PA6 MISO / PA7 MOSI / PA9 CS |
 | LED 1 (IDLE) | GPIO output | PA8 (220 Ω series resistor) |
@@ -49,7 +49,7 @@ temp_logger/
 ├── emulate/
 │   ├── hal_mock.hpp          # Fake CMSIS peripheral structs for host build
 │   ├── systick_emulate.hpp   # std::chrono-based Tick for host build
-│   ├── main_emulate.cpp      # Host test harness — 7 unit tests
+│   ├── main_emulate.cpp      # Host test harness - 7 unit tests
 │   └── Makefile              # Host emulation build
 └── Makefile              # QEMU targets
 ```
@@ -107,7 +107,7 @@ FSM: OK -- entering IDLE
 Press button to toggle SAMPLE mode.
 ```
 
-`Logger: FAILED` is expected in QEMU — there is no SD card peripheral to emulate. Everything above it confirms correct startup, clock init, and FSM behaviour on emulated Cortex-M4 silicon.
+`Logger: FAILED` is expected in QEMU - there is no SD card peripheral to emulate. Everything above it confirms correct startup, clock init, and FSM behaviour on emulated Cortex-M4 silicon.
 
 ## CSV Output Format
 
@@ -123,13 +123,13 @@ elapsed_ms,temperature_c,humidity_pct
 |--------|---------------|
 | QEMU | Startup, vector table, SysTick, peripheral clock init, FSM IDLE entry, UART TX |
 | Host emulation | FSM transitions, LED register writes, 5-minute timer, DHT22 conversion math, CSV format |
-| Hardware | Not completed (resistors unavailable during testing window) |
+| Hardware | Not yet completed |
 
 ## Dependencies
 
 - STM32CubeIDE 2.1.0
 - arm-none-eabi-gcc 14.3.1 (bundled with CubeIDE)
-- FatFs R0.15 (ChaN) — included in `Src/`
-- CMSIS 5 headers for STM32F446 — included in `Inc/STM32F4/`
+- FatFs R0.15 (ChaN) - included in `Src/`
+- CMSIS 5 headers for STM32F446 - included in `Inc/STM32F4/`
 - QEMU 9.2.4 (`qemu-system-arm`) for emulation
 - g++ with C++17 for host emulation build
